@@ -34,8 +34,64 @@ Elastic Beanstalk cần một IAM Role (Instance Profile) để cấp quyền ch
 
    ![EB IAM Add Inline Policy](/images/5-Workshop/5.5-Application-Messaging/eb_iam_add_inline_policy.png)
 
-8. Thêm các quyền truy cập vào SQS, SES, SNS, S3 và Secrets Manager. (Bạn có thể cấp FullAccess cho các dịch vụ này nếu đang trong môi trường Lab để tiết kiệm thời gian, hoặc sử dụng mã JSON Policy chuẩn).
-9. Lưu Inline Policy lại với tên `ticket-app-beanstalk-inline-policy`.
+8. Thay vì mất công tìm kiếm từng dịch vụ, bạn có thể copy đoạn mã JSON Policy chuẩn dưới đây (được trích xuất từ cấu hình Infrastructure as Code của dự án) và dán vào tab **JSON**:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sqs:SendMessage",
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes",
+                "sqs:GetQueueUrl",
+                "sqs:ChangeMessageVisibility"
+            ],
+            "Resource": "arn:aws:sqs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendEmail",
+                "ses:SendRawEmail"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": "arn:aws:sns:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": "arn:aws:secretsmanager:*:*:secret:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*",
+                "arn:aws:s3:::*/*"
+            ]
+        }
+    ]
+}
+```
+
+9. Click **Next** -> Lưu Inline Policy lại với tên `ticket-app-beanstalk-inline-policy` và click **Create policy**.
 
    ![EB IAM Inline Policy](/images/5-Workshop/5.5-Application-Messaging/eb_iam_inline_policy.png)
 
@@ -51,49 +107,53 @@ Elastic Beanstalk cần một IAM Role (Instance Profile) để cấp quyền ch
 ![EB Create Application](/images/5-Workshop/5.5-Application-Messaging/eb_create_app.png)
 
 **Bước 1.2: Tạo Environment (Backend)**
-1. Trong màn hình quản lý Application ```ticket-app-App```, click **Create a new environment**.
-2. **Environment tier**: Chọn **Web server environment**.
-3. **Environment name**: Nhập ```ticket-app-Backend-env```.
-4. **Platform**: Chọn **Node.js** và **Platform branch** là **Node.js 20 running on 64bit Amazon Linux 2023**.
-5. **Application code**: Chọn **Sample application**.
-6. Click **Next**.
+1. Trong màn hình quản lý Application ```ticket-app-App```, click **Create a new environment** (hoặc chọn **Create environment**).
+2. Ở **Step 1 - Configure environment**:
+   * **Environment tier**: Chọn **Web server environment**.
+   * **Application name**: Đảm bảo là `ticket-app-App`.
+   * **Environment name**: Nhập ```ticket-app-Backend-env```.
+   * **Platform**: Chọn **Node.js**.
+   * **Platform branch**: Chọn **Node.js 20 running on 64bit Amazon Linux 2023**.
+   * **Platform version**: Chọn **6.11.3 (Recommended)**.
+   * **Application code**: Chọn **Sample application**.
+   * Click **Next**.
 
 ![EB Create Environment](/images/5-Workshop/5.5-Application-Messaging/eb_create_env.png)
 ![EB Platform](/images/5-Workshop/5.5-Application-Messaging/eb_platform.png)
 
-7. Cấu hình **Service Access**:
-   * **Service role**: Chọn **Use an existing service role** (chọn role mặc định của Beanstalk) hoặc để hệ thống tự tạo mới.
-   * **EC2 instance profile**: Chọn `ticket-app-beanstalk-ec2-role` vừa tạo ở Bước 1.
+7. Cấu hình **Step 2 - Configure service access**:
+   * **Service role**: Chọn **aws-elasticbeanstalk-service-role**.
+   * **EC2 instance profile**: Chọn `ticket-app-beanstalk-ec2-role` (Role đã tạo ở Bước 1).
+   * **EC2 key pair**: Chọn `test` (Hoặc key pair của bạn).
    * Click **Next**.
 
 ![EB Service Access](/images/5-Workshop/5.5-Application-Messaging/eb_service_access.jpg)
-8. Cấu hình **Networking** (Step 3 - Set up networking):
-   * **VPC**: Chọn VPC ```ticket-app-vpc```.
+8. Cấu hình **Step 3 - Set up networking**:
+   * **VPC**: Chọn VPC của dự án (ví dụ: `ticket-app-vpc`).
    * **Public IP address**: Chọn **Disabled**.
-   * **Instance subnets**: Tích chọn hai **Private Subnets** (`ticket-app-subnet-private-a` và `ticket-app-subnet-private-b`).
+   * **Instance subnets**: Tích chọn hai **Private Subnets** (ví dụ: `ticket-app-subnet-private-a` và `ticket-app-subnet-private-b`).
    * Click **Next**.
 
 ![EB Instance Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_instance_subnets.jpg)
-9. Cấu hình **Instance traffic and scaling** (Step 4):
-   * **EC2 security groups**: Chọn Security Group `ticket-app-ec2-worker-sg` để EC2 giao tiếp được với RDS và Redis.
+
+9. Cấu hình **Step 4 - Configure instance traffic and scaling**:
+   * **EC2 security groups**: Tích chọn Security Group `ticket-app-ec2-worker-sg`.
    * Kéo xuống phần **Capacity** -> **Auto scaling group**:
      * **Environment type**: Chọn **Load balanced**.
-     * **Min instances**: `2`, **Max instances**: `4`.
-     * **Scaling triggers**: Metric chọn ```CPUUtilization``` (Upper: ```70%```, Lower: ```30%```).
+     * **Min instances**: Nhập `2`.
+     * **Max instances**: Nhập `4`.
 
 ![EB Security and Scaling](/images/5-Workshop/5.5-Application-Messaging/eb_security_scaling.jpg)
 
 10. Vẫn ở Step 4, kéo xuống phần **Load balancer network settings**:
    * **Visibility**: Chọn **Public**.
-   * **Load balancer subnets**: Tích chọn hai **Public Subnets** (`ticket-app-subnet-public-a` và `ticket-app-subnet-public-b`).
+   * **Load balancer subnets**: Tích chọn hai **Public Subnets** (ví dụ: `ticket-app-subnet-public-a` và `ticket-app-subnet-public-b`).
 
 ![EB Load Balancer Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_lb_subnets.jpg)
 
-11. Cấu hình **Load balancer network and security** (Tiếp tục trong màn hình Load balancer):
-   * Tại mục **Load balancer security groups**, chọn `ticket-app-alb-sg`.
-   * Ở mục **Processes**, tick chọn process mặc định (thường là `default`), click **Actions -> Edit**.
+11. Tại mục **Processes** (Nằm dưới phần Load balancer security groups), tick chọn process mặc định (thường là `default`), click **Actions -> Edit**:
    * Sửa **Health check path** từ `/` thành `/health`. Click **Save**.
-   * Bỏ qua các cấu hình còn lại bằng cách click **Next** đến màn hình cuối cùng, click **Submit** để khởi tạo môi trường.
+   * Bỏ qua các cấu hình còn lại bằng cách click **Next** đến màn hình cuối cùng (Step 6 - Review), click **Submit** để khởi tạo môi trường.
 
 ![EB Application and Environment](/images/5-Workshop/5.5-Application-Messaging/beanstalk_environments.png)
 

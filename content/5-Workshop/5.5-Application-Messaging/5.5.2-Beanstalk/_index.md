@@ -28,8 +28,64 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 
 ![EB IAM Role](/images/5-Workshop/5.5-Application-Messaging/eb_iam_role.png)
 7. Open the newly created `ticket-app-beanstalk-ec2-role`, select the **Permissions** tab -> click **Add permissions** -> **Create inline policy**.
-8. Add access permissions to SQS, SES, SNS, S3, and Secrets Manager. (You can grant FullAccess to these services if you are in a Lab environment to save time, or use a standard JSON Policy).
-9. Save the Inline Policy as `ticket-app-beanstalk-inline-policy`.
+8. Instead of manually searching and adding each service, you can copy the standard JSON Policy below (extracted from the project's Infrastructure as Code template) and paste it into the **JSON** tab:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sqs:SendMessage",
+                "sqs:ReceiveMessage",
+                "sqs:DeleteMessage",
+                "sqs:GetQueueAttributes",
+                "sqs:GetQueueUrl",
+                "sqs:ChangeMessageVisibility"
+            ],
+            "Resource": "arn:aws:sqs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendEmail",
+                "ses:SendRawEmail"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": "arn:aws:sns:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "secretsmanager:GetSecretValue"
+            ],
+            "Resource": "arn:aws:secretsmanager:*:*:secret:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*",
+                "arn:aws:s3:::*/*"
+            ]
+        }
+    ]
+}
+```
+
+9. Click **Next** -> Save the Inline Policy as `ticket-app-beanstalk-inline-policy` and click **Create policy**.
 
 ---
 
@@ -41,43 +97,53 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 3. Enter **Application name**: ```ticket-app-App``` and click **Create**.
 
 **Step 1.2: Create Environment (Backend)**
-1. Inside the ```ticket-app-App``` application, click **Create a new environment**.
-2. **Environment tier**: Select **Web server environment**.
-3. **Environment name**: Enter ```ticket-app-Backend-env```.
-4. **Platform**: Select **Node.js** and **Platform branch**: **Node.js 20 running on 64bit Amazon Linux 2023**.
-5. **Application code**: Select **Sample application**.
-6. Click **Next**.
+1. In the `ticket-app-App` Application management screen, click **Create a new environment** (or **Create environment**).
+2. At **Step 1 - Configure environment**:
+   * **Environment tier**: Select **Web server environment**.
+   * **Application name**: Ensure it is `ticket-app-App`.
+   * **Environment name**: Enter `ticket-app-Backend-env`.
+   * **Platform**: Select **Node.js**.
+   * **Platform branch**: Select **Node.js 20 running on 64bit Amazon Linux 2023**.
+   * **Platform version**: Select **6.11.3 (Recommended)**.
+   * **Application code**: Select **Sample application**.
+   * Click **Next**.
 
 ![EB Create Environment](/images/5-Workshop/5.5-Application-Messaging/eb_create_env.png)
 ![EB Platform](/images/5-Workshop/5.5-Application-Messaging/eb_platform.png)
 
-7. Configure **Service Access**:
-   * **Service role**: Select **Use an existing service role** or let the system create a new one.
-   * **EC2 instance profile**: Select the `ticket-app-beanstalk-ec2-role` created in Step 1.
+7. Configure **Step 2 - Configure service access**:
+   * **Service role**: Select **aws-elasticbeanstalk-service-role**.
+   * **EC2 instance profile**: Select `ticket-app-beanstalk-ec2-role` (Created in Step 1).
+   * **EC2 key pair**: Select `test` (Or your own key pair).
    * Click **Next**.
 
 ![EB Service Access](/images/5-Workshop/5.5-Application-Messaging/eb_service_access.png)
-8. Configure **Networking**:
-   * **VPC**: Select the ```ticket-app-vpc``` VPC.
-   * **Instance subnets**: Check the two **Private Subnets**.
-   * **Load balancer subnets**: Check the two **Public Subnets**.
-   * Click **Next**.
-9. Configure **Instances**:
-   * Under **EC2 security groups**, select the `ticket-app-ec2-worker-sg` (or the equivalent one created in the Network section) to allow EC2 instances to access RDS and Redis.
+8. Configure **Step 3 - Set up networking**:
+   * **VPC**: Select the project VPC (e.g., `ticket-app-vpc`).
+   * **Public IP address**: Select **Disabled**.
+   * **Instance subnets**: Check two **Private Subnets** (e.g., `ticket-app-subnet-private-a` and `ticket-app-subnet-private-b`).
    * Click **Next**.
 
-![EB Instances SG](/images/5-Workshop/5.5-Application-Messaging/eb_instances_sg.png)
-10. Configure **Capacity** (Auto Scaling):
-   * **Environment type**: Select **Load balanced**.
-   * **Instances**: t3.micro.
-   * **Auto Scaling Group**: Min: ```2```, Max: ```4```.
-   * **Scaling triggers**: Metric: ```CPUUtilization``` (Upper: ```70%```, Lower: ```30%```).
-   * Click **Next**.
-11. Configure **Load balancer network and security** (Crucial Step):
-   * Under **Load balancer security groups**, select `ticket-app-alb-sg`.
-   * In the **Processes** table, select the default process (usually `default`), click **Actions -> Edit**.
-   * Change the **Health check path** from `/` to `/health`. Click **Save**.
-   * Skip remaining configurations by clicking **Next** until the review page, then click **Submit** to initialize.
+![EB Instance Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_instance_subnets.jpg)
+
+9. Configure **Step 4 - Configure instance traffic and scaling**:
+   * **EC2 security groups**: Check the `ticket-app-ec2-worker-sg` Security Group.
+   * Scroll down to **Capacity** -> **Auto scaling group**:
+     * **Environment type**: Select **Load balanced**.
+     * **Min instances**: Enter `2`.
+     * **Max instances**: Enter `4`.
+
+![EB Security and Scaling](/images/5-Workshop/5.5-Application-Messaging/eb_security_scaling.jpg)
+
+10. Still in Step 4, scroll down to **Load balancer network settings**:
+   * **Visibility**: Select **Public**.
+   * **Load balancer subnets**: Check two **Public Subnets** (e.g., `ticket-app-subnet-public-a` and `ticket-app-subnet-public-b`).
+
+![EB Load Balancer Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_lb_subnets.jpg)
+
+11. Under the **Processes** section (below Load balancer security groups), check the default process (usually `default`), click **Actions -> Edit**:
+   * Change **Health check path** from `/` to `/health`. Click **Save**.
+   * Skip the remaining configurations by clicking **Next** until the final screen (Step 6 - Review), click **Submit** to initialize the environment.
 
 ![EB Application and Environment](/images/5-Workshop/5.5-Application-Messaging/beanstalk_environments.png)
 
