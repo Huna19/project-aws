@@ -15,18 +15,16 @@ Cognito manages user registration, logins, and issues JWT Access Tokens for the 
 #### Step-by-Step Instructions:
 
 1. Open the [Amazon Cognito console](https://us-east-1.console.aws.amazon.com/cognito/v2/home?region=us-east-1#).
-2. Select **User pools** -> Click **Create user pool**.
-3. Under **Define your application**:
-   * **Application type**: Select **Single-page application (SPA)** *(This application type does NOT generate a Client Secret by default, which is required for our React SPA architecture)*.
-4. Under **Name your application**:
-   * Enter application name: ```ticket-app-user-pool```.
-5. Under **Configure options**, configure the basic settings:
-   * **Sign-in identifiers**: Select **Email**.
-   * **Required attributes**: Keep defaults.
-   * **Authentication options**: Select **No MFA**.
-   * **Password policy**: Keep defaults.
-   * **Self-service sign-up**: Keep defaults (Enable self-registration).
-6. Click **Create user pool**. (Cognito will automatically create the User Pool and a corresponding App Client).
+2. Select **User pools** -> Click **Create user pool** (New UI: **Set up resources for your application**).
+3. Under **1. Tell us about your application** -> **Define your application**:
+   * **Application type**: Select **Single-page application (SPA)** *(For React SPA architecture, this defaults to no Client Secret)*.
+   * **Name your application**: Enter ```ticket-app-user-pool```.
+4. Scroll down to **Configure options**, and set the following:
+   * **Options for sign-in identifiers**: Check **Email**.
+   * **Self-registration**: Check **Enable self-registration**.
+   * **Required attributes for sign-up**: Check **email**.
+   * **Add a return URL - optional**: Enter ```http://localhost``` (or skip this option).
+5. Click the **Create user directory** button at the bottom. (Cognito will automatically generate a User Pool with its corresponding App Client).
 
    ![Cognito User Pool created](/images/5-Workshop/5.7-Auth-API-Gateway/cognito_userpool.png)
 
