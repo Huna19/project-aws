@@ -12,75 +12,73 @@ Chúng ta sử dụng **AWS API Gateway** (HTTP API) làm cổng bảo vệ các
 
 ---
 
-#### 1. Khởi tạo API Gateway HTTP API & Cấu hình Integration
+#### 1. Khởi tạo HTTP API
 
 1. Mở [Amazon API Gateway console](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1).
-2. Tại mục **HTTP API**, click **Build**:
-   * **API name**: Nhập ```ticket-app-api```.
-   * Click **Next**.
-3. Tại giao diện **Configure routes**, bấm **Next** để bỏ qua (chúng ta sẽ cấu hình chi tiết ở Bước 3).
-4. Tại giao diện **Define stages**, giữ Stage name mặc định là ```$default``` và bật **Auto deploy** -> click **Next** -> click **Create**.
-5. Copy địa chỉ **Invoke URL** (ví dụ: `https://xxxxxx.execute-api.us-east-1.amazonaws.com`) hiển thị tại trang chi tiết API để điền vào cấu hình Frontend `REACT_APP_API_URL`.
-6. Cấu hình **Integration** kết nối đến Beanstalk Backend Load Balancer:
-   * Trên menu trái, chọn **Integrations** -> click **Manage integrations** -> click **Create**.
-   * **Integration type**: Chọn **HTTP proxy**.
-   * **Integration method**: Chọn **ANY**.
-   * **Target service**: Nhập URL gốc của Beanstalk Application Load Balancer, ví dụ: `http://ticket-app-backend-ALB-123456789.us-east-1.elb.amazonaws.com` (Tuyệt đối không thêm `/` hay `{proxy}` ở cuối).
-   * Click **Create**.
+2. Chọn **Create API**.
+3. Dưới mục **HTTP API**, click **Build**.
+4. Click **Add integration**:
+   * Chọn loại Integration: **HTTP endpoint**.
+   * Nhập URL của Beanstalk Application Load Balancer, ví dụ: `http://ticket-app-backend-ALB-123456789.us-east-1.elb.amazonaws.com` (Tuyệt đối không thêm `/` hay `{proxy}` ở cuối).
+5. Tại mục **API name**: Nhập ```ticket-app-api```.
+6. Click **Review and create** -> Click **Create**.
+7. Sau khi API được tạo, copy địa chỉ **Invoke URL** hiển thị trên màn hình để điền vào cấu hình Frontend `REACT_APP_API_URL`.
 
-   ![Create HTTP Integration](/images/5-Workshop/5.7-Auth-API-Gateway/api_integration.png)
+   ![Create HTTP API](/images/5-Workshop/5.7-Auth-API-Gateway/api_integration.png)
 
 ---
 
 #### 2. Tạo Cognito JWT Authorizer
 
 1. Trên menu trái, chọn **Authorization** -> chuyển sang tab **Manage authorizers** -> click **Create**.
-2. Cấu hình Authorizer:
-   * **Authorizer type**: Chọn **JWT**.
+2. Chọn Authorizer type là **JWT**.
+3. Điền các thông tin sau:
    * **Name**: ```ticket-app-cognito-authorizer```.
-   * **Identity source**: Nhập ```$request.header.Authorization``` (API Gateway sẽ tự động đọc JWT token từ header gửi kèm của client).
-   * **Issuer URL**: Nhập địa chỉ: `https://cognito-idp.<AWS::Region>.amazonaws.com/<UserPoolId>` (ví dụ: `https://cognito-idp.us-east-1.amazonaws.com/us-east-1_xxxxx` - thay thế bằng AWS Region và User Pool ID thực tế của bạn).
-   * **Audience**: Nhập **App Client ID** đã copy ở phần trước.
-3. Click **Create**.
+   * **Identity source**: Nhập ```$request.header.Authorization```.
+   * **Issuer URL**: Nhập địa chỉ Cognito theo chuẩn `https://cognito-idp.<AWS::Region>.amazonaws.com/<UserPoolId>` (thay bằng Region và User Pool ID của bạn).
+   * **Audience**: Nhập **App Client ID**.
+4. Click **Create**.
 
    ![Create JWT Authorizer](/images/5-Workshop/5.7-Auth-API-Gateway/jwt_authorizer.png)
 
 ---
 
-#### 3. Phân loại Routes (Protected và Public)
+#### 3. Tạo Routes và gắn Authorizer
 
-Chúng ta cần khai báo rõ ràng các API Routes và gán quyền truy cập tương ứng.
+> **💡 Lưu ý:** Route cụ thể (Exact) luôn được ưu tiên xử lý trước Route dùng tham số tham lam `{proxy+}`. Biến `{proxy+}` bắt buộc phải có phần đuôi nên sẽ không khớp với `/api` hoặc `/`.
 
-1. Trên menu trái, chọn **Routes** -> click **Create**.
-2. Tiến hành tạo lần lượt các **Public Routes** (các API không yêu cầu đăng nhập) bằng cách click **Create**:
-   * Nhập Route key: ```POST /api/auth/login``` -> click **Create**. Chọn Route vừa tạo -> click **Attach integration** -> Chọn integration Beanstalk ALB đã tạo ở Bước 1. Giữ nguyên **Authorization: NONE**.
-   * Thực hiện tương tự (Attach Integration và giữ Authorization: NONE) cho các route công khai sau:
+1. Trên menu trái, chọn **Routes** -> click **Create route**.
+2. Khai báo lần lượt các **Public Routes** (Không cần đăng nhập):
+   * Khai báo Method và Path (VD: `POST` và `/api/auth/login`) -> click **Create**.
+   * Mở Route vừa tạo, kiểm tra xem Integration đã được Attach vào HTTP endpoint (ALB) hay chưa. (Nếu chưa, chọn Attach integration).
+   * Chuyển sang mục **Authorization**, đảm bảo đang chọn **NONE**.
+   * Tạo tương tự cho các public routes sau:
      * ```POST /api/auth/register```
      * ```POST /api/auth/refresh```
      * ```GET /health```
-     * ```POST /api/payments/momo/ipn``` (Webhook nhận thông báo thanh toán MoMo)
-     * ```GET /api/matches``` (Xem danh sách trận đấu)
-     * ```GET /api/matches/{matchId}``` (Xem chi tiết trận đấu)
-3. Tạo **Protected Route** (API yêu cầu phải đăng nhập):
-   * Click **Create** -> Nhập Route key: ```ANY /api/{proxy+}``` -> click **Create**.
-   * Chọn route ```ANY /api/{proxy+}``` vừa tạo -> click **Attach integration** -> Chọn integration Beanstalk ALB.
-   * Tại mục **Authorization**: click **Edit** -> Chọn **ticket-app-cognito-authorizer** làm Authorizer -> click **Save**.
+     * ```POST /api/payments/momo/ipn```
+     * ```GET /api/matches```
+     * ```GET /api/matches/{matchId}```
+3. Tạo **Protected Route** (Yêu cầu đăng nhập):
+   * Khai báo Method là **ANY** và Path là `/api/{proxy+}` -> click **Create**.
+   * Đảm bảo Route đã attach tới HTTP endpoint (ALB).
+   * Chuyển sang mục **Authorization** -> Chọn **ticket-app-cognito-authorizer**.
 
    ![API Gateway Routes List](/images/5-Workshop/5.7-Auth-API-Gateway/api_routes.png)
 
 ---
 
-#### 4. Cấu hình CORS (Cross-Origin Resource Sharing)
+#### 4. Cấu hình CORS
 
-Vì API Gateway chặn các preflight `OPTIONS` requests khi sử dụng JWT Authorizer, bạn cần cấu hình CORS ở mức HTTP API để trình duyệt có thể truy cập hợp lệ.
+AWS khuyến nghị cấu hình CORS ở cấp HTTP API, thay vì tự xử lý request OPTIONS trong backend.
 
 1. Trên menu trái, chọn **CORS**.
-2. Click **Configure**.
-3. Điền các thông tin sau:
-   * **Access-Control-Allow-Origin**: Nhập domain CloudFront của bạn (ví dụ: `https://dxxxxxxxxxx.cloudfront.net`). Bấm **Add**.
-   * **Access-Control-Allow-Headers**: Nhập `content-type` và `authorization`. Bấm **Add**.
-   * **Access-Control-Allow-Methods**: Chọn `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`.
-   * **Access-Control-Allow-Credentials**: Chọn **Yes**.
-4. Click **Save**.
+2. Cấu hình các mục sau:
+   * **Allowed Origins**: Nhập domain CloudFront (ví dụ: `https://dxxxxxxxxxx.cloudfront.net`). Bấm Add.
+   * **Allowed Headers**: Nhập `authorization`, `content-type`. Bấm Add.
+   * **Allowed Methods**: Chọn `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`.
+   * **Credentials**: Chọn **Yes** (Bắt buộc khai báo Allowed Origins cụ thể ở trên).
+   * **Max age**: `300`.
+3. Click **Save**.
 
    ![API Gateway CORS](/images/5-Workshop/5.7-Auth-API-Gateway/api_cors.png)

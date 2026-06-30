@@ -15,18 +15,23 @@ Cognito manages user registration, logins, and issues JWT Access Tokens for the 
 #### Step-by-Step Instructions:
 
 1. Open the [Amazon Cognito console](https://us-east-1.console.aws.amazon.com/cognito/v2/home?region=us-east-1#).
-2. Click **Create user pool**.
-3. Step-by-step configuration:
-   * **Configure sign-in experience**: Select **Email** -> click **Next**.
-   * **Configure security requirements**: Select **No MFA** -> click **Next**.
-   * **Configure sign-up experience**: Keep defaults -> click **Next**.
-   * **Configure message delivery**: Select **Send email with Cognito** -> click **Next**.
-   * **Integrate your app**:
-     * **User pool name**: Enter ```ticket-app-user-pool```.
-     * **Initial app client**: Select **Public client** -> App client name: ```ticketing-booking```.
-     * **Client secret**: Select **Don't generate a client secret** (Required for React/NextJS frontend applications running directly in the browser).
-4. Click **Next** -> Click **Create user pool**.
+2. Select **User pools** -> Click **Create user pool**.
+3. Under **Define your application**:
+   * **Application type**: Select **Single-page application (SPA)** *(This application type does NOT generate a Client Secret by default, which is required for our React SPA architecture)*.
+4. Under **Name your application**:
+   * Enter application name: ```ticket-app-user-pool```.
+5. Under **Configure options**, configure the basic settings:
+   * **Sign-in identifiers**: Select **Email**.
+   * **Required attributes**: Keep defaults.
+   * **Authentication options**: Select **No MFA**.
+   * **Password policy**: Keep defaults.
+   * **Self-service sign-up**: Keep defaults (Enable self-registration).
+6. Click **Create user pool**. (Cognito will automatically create the User Pool and a corresponding App Client).
 
-![Cognito User Pool created](/images/5-Workshop/5.7-Auth-API-Gateway/cognito_userpool.png)
+   ![Cognito User Pool created](/images/5-Workshop/5.7-Auth-API-Gateway/cognito_userpool.png)
 
-5. Copy the **User Pool ID** (e.g. `us-east-1_xxxxx`) and the **App Client ID** to configure the API Gateway and Web Frontend.
+7. From the created User Pool's detail page, copy the following 2 parameters to configure API Gateway and Frontend in the next chapter:
+   * **User Pool ID** (displayed on the overview page).
+   * **App Client ID** (switch to the *App clients* section and copy the Client ID).
+
+*(Note: If you need to change Cognito email delivery settings or other advanced features, you can edit the Authentication, Sign-up, Message templates, etc., sections after the User Pool has been created).*

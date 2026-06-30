@@ -8,77 +8,77 @@ pre : " <b> 5.7.2. </b> "
 
 ### API Gateway & JWT Authorizer
 
-We use **Amazon API Gateway** (HTTP API) to secure API endpoints via a **Cognito JWT Authorizer**.
+We use **AWS API Gateway** (HTTP API) to secure API endpoints via a **Cognito JWT Authorizer**.
 
 ---
 
-#### 1. Initialize API Gateway HTTP API & Configure Integration
+#### 1. Create HTTP API
 
 1. Open the [Amazon API Gateway console](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1).
-2. Under **HTTP API**, click **Build**:
-   * **API name**: Enter ```ticket-app-api```.
-   * Click **Next**.
-3. In **Configure routes**, click **Next** to skip.
-4. In **Define stages**, keep Stage name as ```$default```, turn on **Auto deploy** -> click **Next** -> **Create**.
-5. Copy the **Invoke URL** (e.g. `https://xxxxxx.execute-api.us-east-1.amazonaws.com`) to configure Frontend `REACT_APP_API_URL`.
-6. Configure **Integration** to connect to Beanstalk Backend Load Balancer:
-   * Select **Integrations** -> **Manage integrations** -> click **Create**.
-   * **Integration type**: Select **HTTP proxy**.
-   * **Integration method**: Select **ANY**.
-   * **Target service**: Enter the raw URL of the Beanstalk Application Load Balancer, e.g. `http://ticket-app-backend-ALB-123456789.us-east-1.elb.amazonaws.com` (Do not append `/` or `{proxy}`).
-   * Click **Create**.
+2. Click **Create API**.
+3. Under **HTTP API**, click **Build**.
+4. Click **Add integration**:
+   * Integration type: Select **HTTP endpoint**.
+   * Enter the raw URL of the Beanstalk Application Load Balancer, e.g. `http://ticket-app-backend-ALB-123456789.us-east-1.elb.amazonaws.com` (Do absolutely NOT append `/` or `{proxy}`).
+5. Under **API name**: Enter ```ticket-app-api```.
+6. Click **Review and create** -> Click **Create**.
+7. Once the API is created, copy the **Invoke URL** displayed on the screen to configure your Frontend `REACT_APP_API_URL`.
 
-![Create HTTP Integration](/images/5-Workshop/5.7-Auth-API-Gateway/api_integration.png)
+   ![Create HTTP API](/images/5-Workshop/5.7-Auth-API-Gateway/api_integration.png)
 
 ---
 
 #### 2. Create Cognito JWT Authorizer
 
-1. Select **Authorization** -> **Manage authorizers** -> click **Create**.
-2. Configure Authorizer:
-   * **Authorizer type**: Select **JWT**.
+1. On the left menu, select **Authorization** -> switch to the **Manage authorizers** tab -> click **Create**.
+2. Select Authorizer type as **JWT**.
+3. Fill in the following information:
    * **Name**: ```ticket-app-cognito-authorizer```.
    * **Identity source**: Enter ```$request.header.Authorization```.
-   * **Issuer URL**: Enter `https://cognito-idp.<AWS::Region>.amazonaws.com/<UserPoolId>` (e.g. `https://cognito-idp.us-east-1.amazonaws.com/us-east-1_xxxxx`).
+   * **Issuer URL**: Enter the Cognito URL in this format: `https://cognito-idp.<AWS::Region>.amazonaws.com/<UserPoolId>` (replace with your actual Region and User Pool ID).
    * **Audience**: Enter the **App Client ID**.
-3. Click **Create**.
+4. Click **Create**.
 
-![Create JWT Authorizer](/images/5-Workshop/5.7-Auth-API-Gateway/jwt_authorizer.png)
+   ![Create JWT Authorizer](/images/5-Workshop/5.7-Auth-API-Gateway/jwt_authorizer.png)
 
 ---
 
-#### 3. Configure Routes (Protected vs Public)
+#### 3. Create Routes and Attach Authorizer
 
-1. Select **Routes** -> click **Create**.
-2. Create **Public Routes** (accessible without authentication):
-   * Route key: ```POST /api/auth/login``` -> click **Create**. Select Route -> **Attach integration** -> Choose Beanstalk ALB. Keep **Authorization: NONE**.
-   * Perform the same for other public routes:
+> **💡 Note:** Exact routes are always prioritized over the greedy `{proxy+}` parameter. The `{proxy+}` variable requires a trailing path, so it will not match the root `/api` or `/`.
+
+1. On the left menu, select **Routes** -> click **Create route**.
+2. Declare the **Public Routes** (No login required) one by one:
+   * Declare Method and Path (e.g., `POST` and `/api/auth/login`) -> click **Create**.
+   * Open the newly created Route and ensure the Integration is attached to the HTTP endpoint (ALB). (If not, select Attach integration).
+   * Switch to the **Authorization** section and ensure it is set to **NONE**.
+   * Create the same for the following public routes:
      * ```POST /api/auth/register```
      * ```POST /api/auth/refresh```
      * ```GET /health```
-     * ```POST /api/payments/momo/ipn``` (MoMo payment notification webhook)
+     * ```POST /api/payments/momo/ipn```
      * ```GET /api/matches```
      * ```GET /api/matches/{matchId}```
-3. Create **Protected Route** (authenticated route):
-   * Click **Create** -> Route key: ```ANY /api/{proxy+}``` -> click **Create**.
-   * Select ```ANY /api/{proxy+}``` -> **Attach integration** -> Choose Beanstalk ALB.
-   * Under **Authorization**: click **Edit** -> Choose **ticket-app-cognito-authorizer** -> click **Save**.
+3. Create the **Protected Route** (Login required):
+   * Declare Method as **ANY** and Path as `/api/{proxy+}` -> click **Create**.
+   * Ensure the Route is attached to the HTTP endpoint (ALB).
+   * Switch to the **Authorization** section -> Select **ticket-app-cognito-authorizer**.
 
-![API Gateway Routes List](/images/5-Workshop/5.7-Auth-API-Gateway/api_routes.png)
+   ![API Gateway Routes List](/images/5-Workshop/5.7-Auth-API-Gateway/api_routes.png)
 
 ---
 
-#### 4. Configure CORS (Cross-Origin Resource Sharing)
+#### 4. Configure CORS
 
-Since API Gateway blocks preflight `OPTIONS` requests when using JWT Authorizer, you must configure CORS at the HTTP API level so the browser can make valid requests.
+AWS recommends configuring CORS at the HTTP API level instead of manually handling OPTIONS requests in the backend.
 
 1. On the left menu, select **CORS**.
-2. Click **Configure**.
-3. Fill in the following information:
-   * **Access-Control-Allow-Origin**: Enter your CloudFront domain (e.g., `https://dxxxxxxxxxx.cloudfront.net`). Click **Add**.
-   * **Access-Control-Allow-Headers**: Enter `content-type` and `authorization`. Click **Add**.
-   * **Access-Control-Allow-Methods**: Select `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`.
-   * **Access-Control-Allow-Credentials**: Select **Yes**.
-4. Click **Save**.
+2. Configure the following fields:
+   * **Allowed Origins**: Enter your CloudFront domain (e.g. `https://dxxxxxxxxxx.cloudfront.net`). Click Add.
+   * **Allowed Headers**: Enter `authorization`, `content-type`. Click Add.
+   * **Allowed Methods**: Select `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`.
+   * **Credentials**: Select **Yes** (You must declare a specific Allowed Origins above).
+   * **Max age**: `300`.
+3. Click **Save**.
 
-![API Gateway CORS](/images/5-Workshop/5.7-Auth-API-Gateway/api_cors.png)
+   ![API Gateway CORS](/images/5-Workshop/5.7-Auth-API-Gateway/api_cors.png)
