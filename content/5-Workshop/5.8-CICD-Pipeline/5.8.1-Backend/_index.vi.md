@@ -1,0 +1,83 @@
+---
+title : "CI/CD Pipeline cho Backend"
+date : 2024-01-01
+weight : 1
+chapter : false
+pre : " <b> 5.8.1. </b> "
+---
+
+### CI/CD Pipeline cho Backend API Server
+
+Chúng ta sẽ thiết lập luồng tích hợp và triển khai tự động cho **Backend API Server** (thư mục ```Worldcup```) lên môi trường Beanstalk ```ticket-app-Backend-env```.
+
+---
+
+#### 1. Khởi tạo Git Credentials cho IAM User
+
+Trước khi thao tác với CodeCommit, bạn cần khởi tạo thông tin đăng nhập HTTPS Git:
+
+1. Mở [AWS IAM console](https://us-east-1.console.aws.amazon.com/iam/home#/users).
+2. Click chọn IAM User của bạn -> Chọn tab **Security credentials**.
+3. Cuộn xuống mục **HTTPS Git credentials for AWS CodeCommit** -> click **Generate credentials**.
+4. Tải tập tin CSV chứa **Username** và **Password** về máy tính và lưu trữ an toàn.
+
+---
+
+#### 2. Thiết lập CI/CD và đẩy mã nguồn Backend
+
+1. Mở [AWS CodeCommit console](https://us-east-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=us-east-1) -> Click **Create repository**.
+   * **Repository name**: Nhập ```ticket-app-backend``` -> click **Create**.
+2. Mở [AWS CodeBuild console](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) -> Click **Create build project**:
+   * **Project name**: ```ticket-app-backend-build```.
+   * **Source**: Provider: **AWS CodeCommit** | Repository: ```ticket-app-backend``` | Branch: ```main```.
+   * **Environment**: Operating system: **Amazon Linux** | Runtime: **Standard** | Image: Chọn bản mới nhất (`aws/codebuild/amazonlinux2-x86_64-standard:5.0`).
+   * **Buildspec**: Chọn **Insert build commands** -> Switch to editor và nhập:
+     ```yaml
+     version: 0.2
+     phases:
+       install:
+         runtime-versions:
+           nodejs: 20
+       pre_build:
+         commands:
+           - npm ci --production
+       build:
+         commands:
+           - echo "Backend build completed on `date`"
+     artifacts:
+       files:
+         - '**/*'
+     ```
+   * Click **Create build project**.
+3. Mở [AWS CodePipeline console](https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines?region=us-east-1) -> click **Create pipeline**:
+   * **Pipeline name**: ```ticket-app-backend-pipeline``` -> click **Next**.
+   * **Source stage**: Source: **AWS CodeCommit** | Repository: ```ticket-app-backend``` | Branch: ```main``` -> click **Next**.
+   * **Build stage**: Build provider: **AWS CodeBuild** | Project name: ```ticket-app-backend-build``` -> click **Next**.
+   * **Deploy stage**: Deploy provider: **AWS Elastic Beanstalk** | Application: ```ticket-app-App``` | Environment: ```ticket-app-Backend-env``` -> click **Next** -> **Create pipeline**.
+
+4. Đẩy code Backend lên CodeCommit:
+   * Mở Terminal tại thư mục Backend ```Worldcup``` của bạn.
+   * Khởi tạo Git và thực hiện push code:
+     ```bash
+     git init
+     git branch -M main
+     git remote add origin https://git-codecommit.us-east-1.amazonaws.com/v1/repos/ticket-app-backend
+     git add .
+     git commit -m "Initial commit Backend API Server"
+     git push -u origin main
+     ```
+     * *Nhập Username và Password Git CodeCommit đã tải ở phần 1 khi hệ thống yêu cầu.*
+
+![CodeCommit Repository Backend](/images/5-Workshop/5.8-CICD-Pipeline/codecommit_backend.png)
+
+---
+
+#### 3. Kiểm tra trạng thái triển khai
+
+1. Quay lại trang quản lý CodePipeline.
+2. Xác nhận Pipeline ```ticket-app-backend-pipeline``` kích hoạt thành công trạng thái **In Progress** ngay sau khi push code.
+3. Đợi cho đến khi các giai đoạn (Source -> Build -> Deploy) hiển thị màu xanh **Succeeded**.
+
+![Backend Pipeline Succeeded](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_backend.png)
+
+4. Vào Elastic Beanstalk console, xác nhận Health Status của môi trường ```ticket-app-Backend-env``` chuyển sang màu xanh **Ok** với phiên bản ứng dụng vừa được build từ CodeCommit.

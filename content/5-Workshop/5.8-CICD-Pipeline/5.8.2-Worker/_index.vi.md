@@ -1,0 +1,74 @@
+---
+title : "CI/CD Pipeline cho Worker"
+date : 2024-01-01
+weight : 2
+chapter : false
+pre : " <b> 5.8.2. </b> "
+---
+
+### CI/CD Pipeline cho Worker Server
+
+Chúng ta sẽ thiết lập luồng tích hợp và triển khai tự động cho **Worker Server** (thư mục ```hunglo```) lên môi trường Beanstalk ```ticket-app-Worker-env```.
+
+---
+
+#### 1. Thiết lập CI/CD và đẩy mã nguồn Worker
+
+1. **Tạo CodeCommit Repository**:
+   * Mở CodeCommit -> Click **Create repository** -> Name: ```ticket-app-worker``` -> click **Create**.
+2. **Tạo CodeBuild Project**:
+   * Mở CodeBuild -> Click **Create build project**:
+     * **Project name**: ```ticket-app-worker-build```.
+     * **Source**: Provider: **AWS CodeCommit** | Repository: ```ticket-app-worker``` | Branch: ```main```.
+     * **Environment**: Operating system: **Amazon Linux** | Runtime: **Standard** | Image: Chọn bản mới nhất (`aws/codebuild/amazonlinux2-x86_64-standard:5.0`).
+     * **Buildspec**: Nhập nội dung buildspec tương tự (CodeBuild sẽ đóng gói toàn bộ thư mục code worker để deploy lên Beanstalk):
+       ```yaml
+       version: 0.2
+       phases:
+         install:
+           runtime-versions:
+             nodejs: 20
+         pre_build:
+           commands:
+             - npm ci --production
+         build:
+           commands:
+             - echo "Worker build completed on `date`"
+       artifacts:
+         files:
+           - '**/*'
+       ```
+     * Click **Create build project**.
+3. **Tạo CodePipeline**:
+   * Mở CodePipeline -> click **Create pipeline**:
+     * **Pipeline name**: ```ticket-app-worker-pipeline```.
+     * **Source stage**: Repository: ```ticket-app-worker``` | Branch: ```main```.
+     * **Build stage**: Project name: ```ticket-app-worker-build```.
+     * **Deploy stage**: Deploy provider: **AWS Elastic Beanstalk** | Application: ```ticket-app-App``` | Environment: ```ticket-app-Worker-env``` -> click **Create pipeline**.
+
+4. **Push code Worker lên CodeCommit**:
+   * Mở Terminal tại thư mục Worker ```hunglo``` của bạn.
+   * Khởi tạo Git và thực hiện push code:
+     ```bash
+     git init
+     git branch -M main
+     git remote add origin https://git-codecommit.us-east-1.amazonaws.com/v1/repos/ticket-app-worker
+     git add .
+     git commit -m "Initial commit Worker Server"
+     git push -u origin main
+     ```
+     * *Nhập Username và Password Git CodeCommit khi hệ thống yêu cầu.*
+
+![CodeCommit Repository Worker](/images/5-Workshop/5.8-CICD-Pipeline/codecommit_worker.png)
+
+---
+
+#### 2. Kiểm tra trạng thái triển khai
+
+1. Quay lại trang quản lý CodePipeline.
+2. Xác nhận Pipeline ```ticket-app-worker-pipeline``` kích hoạt thành công trạng thái **In Progress** ngay sau khi push code.
+3. Đợi cho đến khi các giai đoạn (Source -> Build -> Deploy) hiển thị màu xanh **Succeeded**.
+
+![Worker Pipeline Succeeded](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_worker.png)
+
+4. Vào Elastic Beanstalk console, xác nhận Health Status của môi trường ```ticket-app-Worker-env``` chuyển sang màu xanh **Ok** với phiên bản ứng dụng vừa được build từ CodeCommit.

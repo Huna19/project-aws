@@ -1,0 +1,143 @@
+---
+title: "Bản đề xuất"
+date: 2024-01-01
+weight: 2
+chapter: false
+pre: " <b> 2. </b> "
+---
+
+# Online Event Ticketing Platform
+## Giải pháp AWS 3-Tier High Availability cho hệ thống đặt vé sự kiện thời gian thực
+
+### 1. Tóm tắt điều hành
+**Ticketing-App** là một nền tảng ứng dụng web đa sự kiện được thiết kế nhằm phục vụ nhu cầu đặt vé trực tuyến cho nhiều loại hình sự kiện khác nhau như liveshow ca nhạc, concert, giải đấu thể thao (bao gồm World Cup), và các sự kiện giải trí lớn. Do đặc thù các sự kiện hot thường thu hút lượng truy cập cực kỳ khổng lồ trong các khung giờ mở bán vé, hệ thống được thiết kế đặc biệt để giải quyết triệt để bài toán nghẽn mạng và quá tải cơ sở dữ liệu bằng cơ chế xử lý đơn hàng bất đồng bộ (decoupled processing) kết hợp hàng đợi. 
+
+Hệ thống tận dụng tối đa các dịch vụ hạ tầng đám mây AWS để xây dựng một kiến trúc 3-tier chuẩn chỉ: sử dụng **AWS Elastic Beanstalk** để quản lý co giãn tự động cho cả tầng xử lý API và tầng Worker, **AWS SQS FIFO** để đảm bảo tính chính xác từng đơn hàng (exactly-once), và hệ quản trị cơ sở dữ liệu **RDS PostgreSQL** kết hợp **RDS Proxy** cùng bộ nhớ đệm **ElastiCache Redis**. Hệ thống đảm bảo tính sẵn sàng cao (High Availability), bảo mật tuyệt đối với Cognito, và tự động hóa quy trình phát hành qua CI/CD Pipeline.
+
+---
+
+### 2. Tuyên bố vấn đề
+*   **Vấn đề hiện tại:**
+    Các hệ thống bán vé truyền thống thường gặp sự cố sập máy chủ web hoặc cạn kiệt kết nối cơ sở dữ liệu (connection exhaustion) khi hàng trăm ngàn người dùng cùng lúc thực hiện thanh toán và đặt chỗ tại một thời điểm cho các sự kiện hot. Việc thiếu cơ chế hàng đợi khiến các yêu cầu bị tắc nghẽn, dẫn đến mất dữ liệu đơn hàng và tạo trải nghiệm tồi tệ cho khách hàng. Ngoài ra, việc triển khai thủ công làm tăng nguy cơ lỗi cấu hình và chậm trễ trong việc cập nhật ứng dụng.
+*   **Giải pháp đề xuất:**
+    Xây dựng một hệ thống đặt vé phân rã (Decoupled Architecture) trên AWS:
+    1.  **Frontend:** Được lưu trữ tĩnh giá rẻ trên **S3 Static Website Hosting** để đảm bảo tải trang cực nhanh và không bị sập do lượng truy cập.
+    2.  **API Gateway & Application Load Balancer (ALB):** Định tuyến và phân phối tải thông minh đến các cụm máy chủ Backend.
+    3.  **Tầng Web Backend (Elastic Beanstalk):** Tiếp nhận yêu cầu mua vé của người dùng, thực hiện kiểm tra sơ bộ và đẩy ngay thông tin giao dịch vào hàng đợi **SQS FIFO** rồi trả kết quả "Đang xử lý" ngay lập tức cho client.
+    4.  **Tầng Worker Backend (Elastic Beanstalk Worker):** Lấy các tin nhắn từ SQS FIFO theo thứ tự gửi, xử lý giao dịch mua vé và cập nhật trạng thái vào database PostgreSQL.
+    5.  **Database & Cache:** Sử dụng **RDS Proxy** để gom cụm kết nối (connection pooling) giảm tải trực tiếp lên RDS PostgreSQL, kết hợp **ElastiCache Redis** lưu trữ session và các thông tin sự kiện/lịch trình trận đấu ít thay đổi để giảm tải đọc.
+    6.  **Xác thực & Thông báo:** Tích hợp **Cognito** cho tính năng xác thực và đăng ký/đăng nhập của người dùng. Sử dụng **SNS + SES** để kích hoạt thông báo tự động và gửi email xác nhận đặt vé thành công.
+*   **Lợi ích và ROI (Hiệu quả đầu tư):**
+    *   **Tối ưu hóa tài nguyên & Chi phí:** Sử dụng mô hình tự động co giãn (Auto Scaling) cho phép hệ thống chỉ chạy tối thiểu 2 instances trong điều kiện bình thường và tự động mở rộng lên tối đa 4 instances khi có sự kiện mở bán vé, tránh việc lãng phí tài nguyên.
+    *   **Độ tin cậy tuyệt đối:** Cơ chế SQS FIFO đảm bảo không xảy ra hiện tượng đặt trùng vé (double-booking). RDS Multi-AZ và Redis Replica đảm bảo hệ thống phục hồi lập tức sau sự cố mà không gián đoạn dịch vụ.
+    *   **Bảo mật tối đa:** Toàn bộ máy chủ ứng dụng, database và cache được đặt cô lập trong các Private Subnets bảo mật cao, chỉ truy cập thông qua NAT Gateways và ALB.
+
+---
+
+### 3. Kiến trúc giải pháp
+
+Hệ thống được thiết kế theo mô hình VPC chuẩn với các lớp mạng con Public/Private riêng biệt nhằm đảm bảo tính bảo mật và khả năng phân tải.
+
+#### 3.1 Sơ đồ kiến trúc hệ thống
+
+![Sơ đồ kiến trúc hệ thống](/images/2-Proposal/ticket_app_architecture.png)
+
+
+#### 3.2 Các dịch vụ AWS sử dụng
+
+| Phân nhóm | Dịch vụ AWS | Vai trò & Chi tiết cấu hình |
+| :--- | :--- | :--- |
+| **Compute** | Elastic Beanstalk | Quản lý triển khai tự động hai môi trường độc lập: Backend API và Worker xử lý hàng đợi. |
+| **Compute** | EC2 Instances | Chạy hệ điều hành Amazon Linux 2023, môi trường Node.js 24, cấu hình loại `t3.micro`. |
+| **Compute** | Auto Scaling Group | Đảm bảo tính sẵn sàng cao với cấu hình tối thiểu 2 instances và tự động nhân rộng lên tối đa 4 instances khi chịu tải cao. |
+| **Frontend** | Amazon S3 | Lưu trữ mã nguồn tĩnh (HTML, CSS, JS) cho trang web frontend, cấu hình Static Website Hosting để tối ưu hóa chi phí. |
+| **Database** | RDS PostgreSQL | Cấu hình cơ sở dữ liệu phiên bản 18.3, loại instance `db.t3.small`, dung lượng 20GB gp3, bảo mật bằng mã hóa KMS và thiết lập Multi-AZ để dự phòng nóng. |
+| **Database Proxy**| RDS Proxy | Giảm thiểu overhead kết nối thông qua Connection Pooling, bảo vệ cơ sở dữ liệu không bị cạn kiệt tài nguyên kết nối. |
+| **Cache** | ElastiCache Redis | Cụm Redis phiên bản 7.0.7 gồm 2 nodes (`cache.t3.micro`) gồm 1 Primary và 1 Replica thực hiện lưu cache session và dữ liệu các sự kiện hot. |
+| **Messaging** | SQS FIFO | Hàng đợi thông tin đặt vé `booking-queue.fifo` đảm bảo xử lý chính xác theo thứ tự, đi kèm `checkout-dlq.fifo` (Dead Letter Queue) để cô lập các bản ghi lỗi. |
+| **Email & Noti** | SNS & SES | **SES** gửi email chứa vé điện tử cho khách hàng. **SNS** gửi thông báo vận hành hệ thống và thông báo cảnh báo lỗi. |
+| **Security** | IAM, Secrets Manager, KMS | **Cognito** quản lý thông tin người dùng; **Secrets Manager** lưu trữ thông tin đăng nhập RDS tự động đổi mã khóa sau 7 ngày; **KMS** mã hóa dữ liệu. |
+| **CI/CD** | CodePipeline, CodeBuild, CodeCommit | Tự động hóa hoàn toàn quy trình đóng gói và phát hành ứng dụng (CI/CD). |
+| **Monitoring** | CloudWatch | Theo dõi số liệu (Metrics) phần cứng, lưu trữ Log tập trung và kích hoạt hệ thống cảnh báo tự động (Alarms). |
+
+---
+
+### 4. Triển khai kỹ thuật
+
+#### Các giai đoạn triển khai
+Dự án được phân chia thành 2 giai đoạn cụ thể diễn ra trong vòng 2 tuần:
+1.  **Thiết lập hạ tầng mạng, Bảo mật & Cơ sở dữ liệu (Tuần 1):** Khởi tạo VPC, phân chia Subnet Public/Private trên 2 Availability Zones, NAT Gateways và Security Group Chaining. Triển khai RDS PostgreSQL Multi-AZ + RDS Proxy, cụm ElastiCache Redis, SQS FIFO (Booking Queue & DLQ) và Cognito User Pool.
+2.  **Tích hợp, Triển khai & Tự động hóa giám sát (Tuần 2):** Triển khai ứng dụng Backend & Worker lên Elastic Beanstalk, cấu hình các thuộc tính môi trường để kết nối DB/Redis/SQS và tạo S3 Static Frontend. Thiết lập luồng CI/CD qua CodePipeline và cấu hình 10 bộ CloudWatch Alarms kèm SNS gửi cảnh báo lỗi qua email.
+
+#### Yêu cầu chuẩn bị (Prerequisites)
+*   **Tài nguyên & Công cụ:** Tài khoản AWS với quyền Administrator cụ thể cho các dịch vụ sử dụng, AWS CLI đã cấu hình, Node.js 24.x và Git.
+*   **Kiến thức cơ bản:** VPC Networking (Subnets, NAT Gateway, Security Groups), Elastic Beanstalk, RDS PostgreSQL, SQS/SNS, và IAM Roles & Policies.
+
+
+---
+
+### 5. Lộ trình & Mốc triển khai
+*   **Tuần 1: Xây dựng hạ tầng lõi & Tầng dữ liệu/hàng đợi**
+    *   Thiết kế VPC, Subnets, Gateways và thiết lập Security Groups bảo mật.
+    *   Triển khai RDS PostgreSQL, RDS Proxy, ElastiCache Redis.
+    *   Cấu hình SQS FIFO Queue (Booking & DLQ) và Cognito User Pool.
+    *   Kiểm tra khả năng kết nối an toàn từ môi trường test tới DB và Cache.
+*   **Tuần 2: Triển khai ứng dụng, CI/CD & Nghiệm thu**
+    *   Phát triển logic đẩy thông tin giao dịch vào SQS (Backend API) và logic xử lý giao dịch lưu vào DB (Worker).
+    *   Triển khai Backend & Worker lên Beanstalk, cấu hình S3 Static Frontend.
+    *   Xây dựng CodePipeline tự động hóa deploy.
+    *   Thiết lập CloudWatch Logs và 10 Alarms cảnh báo lỗi hệ thống.
+    *   Chạy thử nghiệm tải giả lập (Load Testing) và bàn giao/dọn dẹp tài nguyên.
+
+
+---
+
+### 6. Ước tính ngân sách
+Bảng tính chi phí chi tiết của hệ thống dựa trên công cụ ước tính [AWS Pricing Calculator](https://calculator.aws) (đã cấu hình sẵn cho các dịch vụ cụ thể của Ticket-App).
+
+#### Chi phí hạ tầng hàng tháng (Môi trường Staging/Production quy mô nhỏ)
+
+| STT | Dịch vụ AWS | Cấu hình & Tham số tính toán | Chi phí/Tháng |
+| :--- | :--- | :--- | :--- |
+| 1 | Elastic Beanstalk + EC2 | 4 instances `t3.micro` chạy 24/7 (2 Backend, 2 Worker) | ~ $41.60 |
+| 2 | RDS PostgreSQL | Cấu hình `db.t3.small` Multi-AZ, 20GB gp3 storage | ~ $34.00 |
+| 3 | RDS Proxy | Hoạt động trên database instance db.t3.small | ~ $7.30 |
+| 4 | ElastiCache Redis | Cụm 2 nodes `cache.t3.micro` (Primary + Replica) | ~ $15.20 |
+| 5 | NAT Gateways | 2 NAT Gateways hoạt động trên 2 Availability Zones | ~ $65.70 |
+| 6 | SQS / SNS / SES | Dưới 1 triệu tin nhắn, hầu như nằm trong Free Tier | ~ $1.50 |
+| 7 | AWS Cognito | Free Tier cho 50,000 người dùng hoạt động hàng tháng (MAU) | $0.00 |
+| 8 | Secrets Manager & KMS | Lưu trữ 1 secret, 3 mã khóa KMS thực hiện xoay vòng | ~ $4.20 |
+| 9 | CloudWatch & Data Transfer| Giám sát logs nâng cao, lưu trữ dữ liệu truyền tải | ~ $8.00 |
+| **Tổng** | **Ước tính chi phí hàng tháng** | | **~ $177.50** |
+
+*Lưu ý:* Chi phí phần cứng thiết bị phát triển ban đầu của đội ngũ dự án là $0.00 do sử dụng máy trạm sẵn có. Chi phí hạ tầng cloud có thể giảm đáng kể xuống còn dưới **$50.00/tháng** trong môi trường Development bằng cách:
+*   Chỉ sử dụng 1 NAT Gateway thay vì 2 NAT Gateways (tiết kiệm hơn $32.00/tháng).
+*   Chuyển RDS sang chế độ Single-AZ (tiết kiệm gần $17.00/tháng).
+*   Chỉ chạy 1 node Redis và giảm số lượng instances EC2 Beanstalk xuống tối thiểu 1 instance khi không kiểm thử tải.
+
+---
+
+### 7. Đánh giá rủi ro
+
+#### Ma trận rủi ro
+
+| Rủi ro xác định | Khả năng xảy ra | Mức độ ảnh hưởng | Chiến lược giảm thiểu & Phòng ngừa |
+| :--- | :--- | :--- | :--- |
+| **Cạn kiệt kết nối Database** | Trung bình | Rất cao | Sử dụng **RDS Proxy** để chia sẻ và duy trì kết nối tối ưu. Thực hiện Caching dữ liệu ít thay đổi qua Redis. |
+| **Lỗi mất mát tin nhắn đơn hàng** | Thấp | Rất cao | Sử dụng hàng đợi **SQS FIFO** (exactly-once) để đảm bảo không mất tin nhắn, cấu hình **Dead Letter Queue (DLQ)** để giữ lại tin nhắn bị lỗi xử lý để debug sau. |
+| **Chi phí hạ tầng vượt kiểm soát** | Trung bình | Trung bình | Thiết lập **CloudWatch Alarms** cảnh báo ngân sách AWS khi vượt ngưỡng 80% và 100% dự kiến. Sử dụng Auto Scaling thông minh để giảm instances ngoài giờ cao điểm. |
+| **Tấn công rò rỉ dữ liệu** | Thấp | Rất cao | Không công khai bất kỳ DB hay EC2 nào ra Internet. Đặt toàn bộ tài nguyên trong Private Subnets, cấu hình bảo mật bằng Security Group Chaining nghiêm ngặt và mã hóa dữ liệu với KMS. |
+
+#### Kế hoạch dự phòng (Contingency Plan)
+*   **Trường hợp sự cố hạ tầng lớn:** Sử dụng mã nguồn hạ tầng CloudFormation/CDK để nhanh chóng khởi tạo lại toàn bộ môi trường hạ tầng tại một AWS Region khác.
+*   **Lỗi đồng bộ thanh toán:** Khi một đơn đặt vé bị lỗi ở tầng Worker, hệ thống tự động đưa tin nhắn lỗi vào DLQ và gửi thông báo qua SNS cho nhóm vận hành xử lý thủ công hoặc chạy script xử lý lại đơn hàng đó mà không làm nghẽn toàn bộ hệ thống đặt vé.
+
+---
+
+### 8. Kết quả kỳ vọng
+*   **Cải tiến kỹ thuật:** 
+    *   Hệ thống vận hành mượt mà, thời gian phản hồi API đặt vé (Response Time) luôn dưới 200ms nhờ cơ chế xử lý bất đồng bộ qua hàng đợi.
+    *   Khả năng chịu tải tăng vượt bậc, sẵn sàng tiếp nhận hàng chục nghìn lượt đặt vé đồng thời mà không gặp tình trạng nghẽn cổ chai database.
+*   **Giá trị lâu dài:**
+    *   Xây dựng được kiến trúc ứng dụng 3-tier chuẩn, bảo mật, sẵn sàng mở rộng (High Availability & Scalable) trên nền tảng AWS.
+    *   Giảm thiểu tối đa lỗi do con người gây ra thông qua hệ thống tự động hóa CI/CD, chuẩn bị sẵn sàng hạ tầng cho các dự án thương mại điện tử quy mô lớn tiếp theo của doanh nghiệp.
