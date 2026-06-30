@@ -14,33 +14,36 @@ Trong phần này, chúng ta sẽ triển khai máy chủ API Backend và máy c
 
 #### 1. Triển khai Beanstalk Backend (Web Server Environment)
 
+**Bước 1.1: Tạo Application**
 1. Mở [AWS Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/applications).
-2. Click **Create application**.
-3. Cấu hình ban đầu:
-   * **Application name**: Nhập ```ticket-app-App```.
-   * **Platform**: Chọn **Node.js**.
-   * **Platform branch**: Chọn **Node.js 20 running on 64bit Amazon Linux 2023**.
-   * **Application code**: Chọn **Sample application**.
-   * Click **Next**.
+2. Click **Create application** (trên trang Applications).
+3. Nhập **Application name**: ```ticket-app-App``` và click **Create**.
+
+**Bước 1.2: Tạo Environment (Backend)**
+1. Trong màn hình quản lý Application ```ticket-app-App```, click **Create a new environment**.
+2. **Environment tier**: Chọn **Web server environment**.
+3. **Environment name**: Nhập ```ticket-app-Backend-env```.
+4. **Platform**: Chọn **Node.js** và **Platform branch** là **Node.js 20 running on 64bit Amazon Linux 2023**.
+5. **Application code**: Chọn **Sample application**.
+6. Click **Next**.
 
 ![EB Platform](/images/5-Workshop/5.5-Application-Messaging/eb_platform.png)
 
-4. Cấu hình **Service Access**:
+7. Cấu hình **Service Access**:
    * **Service role**: Chọn **Use an existing service role** (chọn role mặc định của Beanstalk) hoặc để hệ thống tự tạo mới.
    * **EC2 instance profile**: Chọn Role Instance Profile đã có sẵn (đảm bảo role này được gán các quyền SQS, RDS, và Secrets Manager).
    * Click **Next**.
-5. Cấu hình **Networking**:
+8. Cấu hình **Networking**:
    * **VPC**: Chọn VPC ```ticket-app-vpc```.
    * **Instance subnets**: Tích chọn hai **Private Subnets** (chỉ cho phép EC2 chạy ẩn bên trong mạng private).
    * **Load balancer subnets**: Tích chọn hai **Public Subnets** (để Load Balancer có IP public tiếp nhận request).
    * Click **Next**.
-6. Cấu hình **Instances & Auto Scaling**:
+9. Cấu hình **Instances & Auto Scaling**:
    * **Environment type**: Chọn **Load balanced**.
    * **Instances**: t3.micro.
    * **Auto Scaling Group**: Min: ```2```, Max: ```4```.
    * **Scaling triggers**: Metric chọn ```CPUUtilization``` (Upper: ```70%```, Lower: ```30%```).
-   * Click **Next** -> **Next** -> click **Submit** để khởi tạo môi trường.
-   * Môi trường sau khi tạo sẽ có tên: ```ticket-app-Backend-env```.
+   * Bỏ qua các màn hình cấu hình sau bằng cách click **Next** liên tục, cuối cùng click **Submit** để khởi tạo môi trường.
 
 ![EB Application and Environment](/images/5-Workshop/5.5-Application-Messaging/beanstalk_environments.png)
 

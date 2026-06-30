@@ -14,33 +14,36 @@ In this section, we will deploy the API Backend server and the Worker server usi
 
 #### 1. Deploy Beanstalk Backend (Web Server Environment)
 
+**Step 1.1: Create Application**
 1. Open the [AWS Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/applications).
-2. Click **Create application**.
-3. Initial configuration:
-   * **Application name**: Enter ```ticket-app-App```.
-   * **Platform**: Select **Node.js**.
-   * **Platform branch**: Select **Node.js 20 running on 64bit Amazon Linux 2023**.
-   * **Application code**: Select **Sample application**.
-   * Click **Next**.
+2. Click **Create application** (on the Applications page).
+3. Enter **Application name**: ```ticket-app-App``` and click **Create**.
+
+**Step 1.2: Create Environment (Backend)**
+1. Inside the ```ticket-app-App``` application, click **Create a new environment**.
+2. **Environment tier**: Select **Web server environment**.
+3. **Environment name**: Enter ```ticket-app-Backend-env```.
+4. **Platform**: Select **Node.js** and **Platform branch**: **Node.js 20 running on 64bit Amazon Linux 2023**.
+5. **Application code**: Select **Sample application**.
+6. Click **Next**.
 
 ![EB Platform](/images/5-Workshop/5.5-Application-Messaging/eb_platform.png)
 
-4. Configure **Service Access**:
+7. Configure **Service Access**:
    * **Service role**: Select **Use an existing service role** or let the system create a new one.
    * **EC2 instance profile**: Select your instance profile role (ensure it has permissions for SQS, RDS, and Secrets Manager).
    * Click **Next**.
-5. Configure **Networking**:
+8. Configure **Networking**:
    * **VPC**: Select the ```ticket-app-vpc``` VPC.
    * **Instance subnets**: Check the two **Private Subnets**.
    * **Load balancer subnets**: Check the two **Public Subnets**.
    * Click **Next**.
-6. Configure **Instances & Auto Scaling**:
+9. Configure **Instances & Auto Scaling**:
    * **Environment type**: Select **Load balanced**.
    * **Instances**: t3.micro.
    * **Auto Scaling Group**: Min: ```2```, Max: ```4```.
    * **Scaling triggers**: Metric: ```CPUUtilization``` (Upper: ```70%```, Lower: ```30%```).
-   * Click **Next** -> **Next** -> click **Submit** to initialize.
-   * Environment name: ```ticket-app-Backend-env```.
+   * Click **Next** for the subsequent screens and click **Submit** to initialize.
 
 ![EB Application and Environment](/images/5-Workshop/5.5-Application-Messaging/beanstalk_environments.png)
 

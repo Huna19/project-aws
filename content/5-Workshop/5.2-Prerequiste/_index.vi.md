@@ -293,9 +293,9 @@ Hãy đảm bảo máy trạm của bạn đã được cài đặt sẵn các c
 #### 3. Tải mã nguồn dự án (Project Source Code)
 
 Mã nguồn của ứng dụng Ticket-App được chia làm 3 thư mục chính:
-1.  **frontend/**: Giao diện React tĩnh hiển thị danh sách sự kiện và đặt vé.
-2.  **backend/**: Mã nguồn Node.js API (Express) xử lý tiếp nhận lượt booking, xác thực Cognito và đẩy tin nhắn vào SQS.
-3.  **worker/**: Mã nguồn chạy tác vụ ngầm tiêu thụ SQS để ghi nhận thông tin đặt vé vào PostgreSQL DB.
+1.  **ticket-booking-frontend/**: Giao diện React tĩnh hiển thị danh sách sự kiện và đặt vé.
+2.  **Worldcup/** (Backend API): Mã nguồn Node.js API (Express) xử lý tiếp nhận lượt booking, xác thực Cognito và đẩy tin nhắn vào SQS.
+3.  **hunglo/** (Worker): Mã nguồn chạy tác vụ ngầm tiêu thụ SQS để ghi nhận thông tin đặt vé vào PostgreSQL DB.
 
 Hãy clone dự án từ repository workshop của bạn:
 ```bash
