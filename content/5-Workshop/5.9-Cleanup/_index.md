@@ -9,12 +9,20 @@ pre : " <b> 5.9. </b> "
 ### Resource Cleanup
 
 {{% notice warning %}}
-To avoid incurring unexpected costs on your personal AWS account, please clean up all resources by following the instructions below immediately after completing the hands-on lab.
+To avoid incurring unexpected costs on your personal AWS account, please clean up all resources immediately after completing the hands-on lab.
 {{% /notice %}}
+
+Please choose the appropriate cleanup method based on the deployment method you used in Chapter **5.2**:
+
+*   **Case A: If you deployed using CloudFormation (Option A in Chapter 5.2)**
+    *   Do **NOT** manually delete individual resources first. Doing so will break the CloudFormation Stack's state, leading to errors where the Stack gets stuck or reports `DELETE_FAILED` during deletion.
+    *   Scroll down and follow **Section 2. CloudFormation Cleanup Instructions**.
+*   **Case B: If you manually created resources (Option B in Chapter 5.2)**
+    *   Follow **Section 1. Clean Up Manually Deployed Resources**.
 
 ---
 
-#### 1. Clean Up Manually Deployed Resources
+#### 1. Clean Up Manually Deployed Resources (For Option B)
 
 Delete resources in the following order from top to bottom:
 
@@ -56,13 +64,14 @@ Delete resources in the following order from top to bottom:
    * Open the [Amazon S3 console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#).
    * You must **Empty** (delete all files) the bucket before you can delete it:
      * Select the Frontend Bucket ```frontend-ticket-app-app-<your-account-id>``` -> click **Empty** -> enter `permanently delete` to confirm.
-     * After emptying, select the Bucket -> click **Delete** -> enter the bucket name to confirm permanent deletion.
+     * Perform the same for the Assets Bucket ```ticket-app-assets-<your-account-id>```.
+     * After emptying, select the Buckets -> click **Delete** -> enter the bucket name to confirm permanent deletion.
 
 ---
 
-#### 2. Delete CloudFormation Stack (If Used)
+#### 2. CloudFormation Cleanup Instructions (For Option A)
 
-If you deployed the core infrastructure using the CloudFormation template file:
+If you deployed the core infrastructure using the CloudFormation template file in Chapter 5.2:
 
 1. Open the [AWS CloudFormation console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks).
 2. Select your Stack (e.g., `ticket-app-stack`).
@@ -71,4 +80,4 @@ If you deployed the core infrastructure using the CloudFormation template file:
 
 ![CloudFormation Delete](/images/5-Workshop/5.9-Cleanup/cf_delete.png)
 
-5. The system will automatically release all networking resources (VPC, Subnets, NAT Gateways, Security Groups...) safely and cleanly.
+5. The system will automatically release all network and server resources (VPC, Subnets, NAT Gateways, Beanstalk, RDS, Redis, S3, Cognito...) safely and cleanly without requiring manual cleanup steps.

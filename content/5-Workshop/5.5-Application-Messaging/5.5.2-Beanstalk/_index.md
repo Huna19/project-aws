@@ -76,7 +76,7 @@ Configure environment properties directly on the Beanstalk Console:
      * ```AWS_REGION```: ```us-east-1```
      * ```DB_HOST```: *(Enter RDS Proxy endpoint)*
      * ```DB_PORT```: ```5432```
-     * ```DB_NAME```: ```ticketdb```
+     * ```DB_NAME```: ```ticketing_db```
      * ```DB_USER```: ```postgres```
      * ```DB_PASSWORD```: ```TicketingAppPassword2026!```
      * ```REDIS_HOST```: *(Enter Redis Primary endpoint)*

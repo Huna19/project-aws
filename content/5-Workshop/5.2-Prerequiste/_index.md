@@ -307,7 +307,20 @@ cd ticket-app-workshop
 
 ---
 
-#### 4. Deploy Infrastructure with AWS CloudFormation
+#### 4. Choose Infrastructure Deployment Method (VPC, RDS, Beanstalk, SQS,...)
+
+In this workshop, you can choose one of the following two methods to build your network and server infrastructure:
+
+*   **Option A (Recommended - Fast): Automate deployment using AWS CloudFormation**
+    *   The infrastructure will be automatically initialized in about 15-20 minutes.
+    *   Chapters **5.3 to 5.7** will serve as guides for you to **Verify and Validate** the created resources rather than recreating them.
+*   **Option B: Manually configure step-by-step (Manual)**
+    *   You will **skip** Step 4 (running CloudFormation) below.
+    *   Starting from Chapter **5.3**, you will manually follow the instructions on the AWS Console to build the system from scratch.
+
+---
+
+#### Instructions for Option A: Automatic Deployment using CloudFormation
 
 The entire core infrastructure of the application (VPC, RDS, Redis, Beanstalk, SQS, Cognito, API Gateway, CloudFront, CI/CD Pipeline) will be deployed automatically using the CloudFormation template file ```template.yaml```.
 
@@ -325,8 +338,7 @@ The entire core infrastructure of the application (VPC, RDS, Redis, Beanstalk, S
    * **Parameters**:
      * **EnvironmentName**: Enter ```ticket-app```.
      * **DBMasterUsername**: ```postgres```.
-     * **DBName**: ```ticketdb```.
-     * **DBMasterUserPassword**: Enter a secret password for the Database (e.g., ```TicketingAppPassword2026!``` - this password must match the one stored in Secrets Manager).
+     * **DBName**: ```ticketing_db``` (Be sure to use this Database name consistently throughout the lab).
      * Keep the other default parameters.
    * Click **Next**.
 
@@ -343,4 +355,4 @@ The entire core infrastructure of the application (VPC, RDS, Redis, Beanstalk, S
 
 ![CloudFormation CREATE_COMPLETE](/images/5-Workshop/5.2-Prerequiste/cf_complete.png)
 
-After the CloudFormation Stack deploys successfully, your basic infrastructure is complete! In the following chapters, we will verify resource configurations and begin deploying the application source code for each component.
+After the CloudFormation Stack deploys successfully, your basic infrastructure is complete! In the following chapters, if you choose **Option A**, you only need to navigate through the services to **verify and check** configurations, then proceed to the source code deployment steps.

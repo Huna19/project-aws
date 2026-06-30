@@ -307,7 +307,20 @@ cd ticket-app-workshop
 
 ---
 
-#### 4. Triển khai hạ tầng bằng AWS CloudFormation
+#### 4. Lựa chọn Phương thức Triển khai Hạ tầng (VPC, RDS, Beanstalk, SQS,...)
+
+Trong workshop này, bạn có thể lựa chọn 1 trong 2 phương thức sau để xây dựng cơ sở hạ tầng mạng và máy chủ:
+
+*   **Lựa chọn A (Khuyên dùng - Nhanh chóng): Triển khai tự động bằng AWS CloudFormation**
+    *   Hạ tầng sẽ được khởi tạo hoàn toàn tự động chỉ sau 15-20 phút.
+    *   Các chương từ **5.3 đến 5.7** sẽ đóng vai trò là hướng dẫn để bạn **Kiểm tra và Xác thực** cấu hình tài nguyên đã được tạo thay vì phải tự tạo lại.
+*   **Lựa chọn B: Tự tay cấu hình thủ công từng bước (Manual)**
+    *   Bạn sẽ **bỏ qua** bước 4 (chạy CloudFormation) dưới đây.
+    *   Bắt đầu từ chương **5.3**, bạn sẽ tự tay làm theo từng bước hướng dẫn trên AWS Console để tự xây dựng hệ thống từ con số 0.
+
+---
+
+#### Hướng dẫn cho Lựa chọn A: Triển khai tự động bằng CloudFormation
 
 Toàn bộ hạ tầng cốt lõi của ứng dụng (VPC, RDS, Redis, Beanstalk, SQS, Cognito, API Gateway, CloudFront, CI/CD Pipeline) sẽ được triển khai tự động thông qua file CloudFormation template ```template.yaml```.
 
@@ -325,8 +338,7 @@ Toàn bộ hạ tầng cốt lõi của ứng dụng (VPC, RDS, Redis, Beanstalk
    * **Parameters**:
      * **EnvironmentName**: Nhập ```ticket-app```.
      * **DBMasterUsername**: ```postgres```.
-     * **DBName**: ```ticketdb```.
-     * **DBMasterUserPassword**: Nhập mật khẩu bí mật cho Database (ví dụ: ```TicketingAppPassword2026!``` - mật khẩu này phải khớp với mật khẩu bạn lưu ở Secrets Manager).
+     * **DBName**: ```ticketing_db``` (Lưu ý sử dụng đồng bộ tên Database này xuyên suốt bài lab).
      * Giữ nguyên các tham số mặc định khác.
    * Click **Next**.
 
@@ -343,4 +355,4 @@ Toàn bộ hạ tầng cốt lõi của ứng dụng (VPC, RDS, Redis, Beanstalk
 
 ![CloudFormation CREATE_COMPLETE](/images/5-Workshop/5.2-Prerequiste/cf_complete.png)
 
-Sau khi CloudFormation Stack triển khai thành công, hạ tầng cơ bản của bạn đã hoàn thành! Ở các chương tiếp theo, chúng ta sẽ tiến hành kiểm tra cấu hình tài nguyên và bắt đầu triển khai mã nguồn cho các cấu phần của ứng dụng.
+Sau khi CloudFormation Stack triển khai thành công, hạ tầng cơ bản của bạn đã hoàn thành! Ở các chương tiếp theo, nếu đi theo **Lựa chọn A**, bạn chỉ cần đi qua các dịch vụ để **xác minh và kiểm tra** cấu hình, sau đó tiến hành các bước deploy source code.

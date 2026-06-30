@@ -9,12 +9,20 @@ pre : " <b> 5.9. </b> "
 ### Dọn dẹp tài nguyên (Resource Cleanup)
 
 {{% notice warning %}}
-Để tránh phát sinh các chi phí ngoài ý muốn trên tài khoản AWS cá nhân của bạn, hãy thực hiện dọn dẹp toàn bộ tài nguyên theo hướng dẫn dưới đây ngay sau khi hoàn thành bài lab thực hành.
+Để tránh phát sinh các chi phí ngoài ý muốn trên tài khoản AWS cá nhân của bạn, hãy thực hiện dọn dẹp toàn bộ tài nguyên ngay sau khi hoàn thành bài lab thực hành.
 {{% /notice %}}
+
+Vui lòng chọn phương án dọn dẹp phù hợp với phương thức triển khai bạn đã sử dụng ở chương **5.2**:
+
+*   **Trường hợp A: Nếu bạn triển khai bằng CloudFormation (Lựa chọn A ở chương 5.2)**
+    *   Bạn **KHÔNG ĐƯỢC** xóa thủ công từng tài nguyên riêng lẻ trước. Việc xóa thủ công sẽ phá vỡ trạng thái liên kết của CloudFormation Stack, dẫn đến lỗi Stack bị treo hoặc báo lỗi `DELETE_FAILED` khi xóa.
+    *   Hãy cuộn xuống và thực hiện trực tiếp **Mục 2. Hướng dẫn Dọn dẹp bằng CloudFormation**.
+*   **Trường hợp B: Nếu bạn tự tạo tài nguyên thủ công (Lựa chọn B ở chương 5.2)**
+    *   Hãy làm theo hướng dẫn tại **Mục 1. Dọn dẹp thủ công từng tài nguyên**.
 
 ---
 
-#### 1. Dọn dẹp các tài nguyên triển khai thủ công
+#### 1. Dọn dẹp thủ công từng tài nguyên (Dành cho Lựa chọn B)
 
 Thực hiện xóa các tài nguyên theo trình tự từ trên xuống dưới:
 
@@ -56,13 +64,14 @@ Thực hiện xóa các tài nguyên theo trình tự từ trên xuống dưới
    * Mở [Amazon S3 console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#).
    * Bạn phải **Empty** (xóa sạch file) trong bucket trước khi có thể xóa bucket:
      * Chọn Frontend Bucket ```frontend-ticket-app-app-<your-account-id>``` -> click **Empty** -> nhập `permanently delete` để xác nhận.
-     * Sau khi empty xong, chọn Bucket -> click **Delete** -> nhập tên bucket để xác nhận xóa hẳn.
+     * Thực hiện tương tự với Assets Bucket ```ticket-app-assets-<your-account-id>```.
+     * Sau khi empty xong, chọn các Bucket -> click **Delete** -> nhập tên bucket để xác nhận xóa hẳn.
 
 ---
 
-#### 2. Xóa CloudFormation Stack (Nếu có dùng)
+#### 2. Hướng dẫn Dọn dẹp bằng CloudFormation (Dành cho Lựa chọn A)
 
-Nếu bạn deploy toàn bộ hạ tầng cơ bản thông qua file template CloudFormation:
+Nếu bạn deploy toàn bộ hạ tầng thông qua file template CloudFormation ở chương 5.2:
 
 1. Mở [AWS CloudFormation console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks).
 2. Chọn Stack của bạn (ví dụ: `ticket-app-stack`).
@@ -71,4 +80,4 @@ Nếu bạn deploy toàn bộ hạ tầng cơ bản thông qua file template Clo
 
 ![CloudFormation Delete](/images/5-Workshop/5.9-Cleanup/cf_delete.png)
 
-5. Hệ thống sẽ tự động giải phóng toàn bộ tài nguyên mạng (VPC, Subnets, NAT Gateways, Security Groups...) một cách an toàn và sạch sẽ.
+5. Hệ thống sẽ tự động giải phóng toàn bộ tài nguyên mạng và máy chủ (VPC, Subnets, NAT Gateways, Beanstalk, RDS, Redis, S3, Cognito...) một cách an toàn và sạch sẽ mà không cần phải thực hiện dọn dẹp thủ công từng bước.

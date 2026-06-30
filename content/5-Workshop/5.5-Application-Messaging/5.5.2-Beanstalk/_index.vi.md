@@ -77,7 +77,7 @@ Lưu ý quan trọng: Beanstalk Worker Environment trong dự án này thực ch
      * ```AWS_REGION```: ```us-east-1```
      * ```DB_HOST```: *(Nhập Proxy endpoint của RDS Proxy - xem chương 5.6)*
      * ```DB_PORT```: ```5432```
-     * ```DB_NAME```: ```ticketdb```
+     * ```DB_NAME```: ```ticketing_db```
      * ```DB_USER```: ```postgres```
      * ```DB_PASSWORD```: ```TicketingAppPassword2026!```
      * ```REDIS_HOST```: *(Nhập Primary endpoint của Redis - xem chương 5.6)*
