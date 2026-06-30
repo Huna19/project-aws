@@ -20,3 +20,7 @@ In this chapter, we will configure the **Amazon SQS FIFO** message queue and the
    * Deploy the Web API server `ticket-app-Backend-env` in Private Subnets behind a Load Balancer.
    * Deploy the Worker server `ticket-app-Worker-env` to process the queue.
    * Configure Environment properties for the Beanstalk environments.
+
+3. **[SNS Notifications & DLQ Monitoring](5.5.3-sns/)**
+   * Create 2 SNS Topics to send email notifications to the operations team (Ops) and end users.
+   * Configure a CloudWatch Alarm to monitor the Dead Letter Queue and alert when ticket bookings fail.

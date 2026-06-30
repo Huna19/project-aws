@@ -31,7 +31,42 @@ S3 Bucket sẽ được chặn toàn bộ quyền truy cập công cộng. Chỉ
 
 ---
 
-#### 2. Khởi tạo CloudFront Distribution & Cấu hình OAC
+#### 2. Khởi tạo Amazon S3 Bucket cho Assets (Hình ảnh & E-tickets)
+
+{{% notice info %}}
+Ngoài Frontend Bucket, ứng dụng cần thêm một S3 Bucket riêng để lưu trữ hình ảnh trận đấu, vé điện tử (e-tickets) và các tài nguyên khác do Backend upload. Bucket này cho phép truy cập công khai để hiển thị hình ảnh trên giao diện.
+{{% /notice %}}
+
+1. Quay lại [Amazon S3 console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#) → click **Create bucket**.
+2. Trong giao diện cấu hình **Create bucket**:
+   * **Bucket name**: Đặt tên theo cú pháp: ```ticket-app-assets-<your-account-id>``` (Ví dụ: `ticket-app-assets-123456789012`).
+   * **AWS Region**: Chọn ```us-east-1``` (hoặc region bạn đang chạy lab).
+   * **Object Ownership**: Chọn **ACLs disabled (recommended)**.
+   * **Block Public Access settings for this bucket**:
+     * **Bỏ tích** (uncheck) ô **Block all public access** (Cho phép truy cập công khai đọc hình ảnh).
+     * Tích xác nhận ô "I acknowledge that the current settings might result in this bucket and the objects within becoming public."
+
+![S3 Assets Bucket](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create.png)
+
+3. Click **Create bucket** ở cuối trang.
+4. Sau khi bucket được tạo, vào trang chi tiết bucket → chọn tab **Permissions** → cuộn đến mục **Cross-origin resource sharing (CORS)** → click **Edit** → dán cấu hình CORS sau:
+   ```json
+   [
+     {
+       "AllowedHeaders": ["*"],
+       "AllowedMethods": ["GET", "PUT", "POST"],
+       "AllowedOrigins": ["*"],
+       "MaxAgeSeconds": 3000
+     }
+   ]
+   ```
+5. Click **Save changes**.
+
+![S3 Assets CORS](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_cors.png)
+
+---
+
+#### 3. Khởi tạo CloudFront Distribution & Cấu hình OAC
 
 1. Mở [Amazon CloudFront console](https://us-east-1.console.aws.amazon.com/cloudfront/v4/home?region=us-east-1#/distributions).
 2. Click **Create distribution**.
@@ -58,7 +93,7 @@ S3 Bucket sẽ được chặn toàn bộ quyền truy cập công cộng. Chỉ
 
 ---
 
-#### 3. Cập nhật S3 Bucket Policy
+#### 4. Cập nhật S3 Bucket Policy
 
 {{% notice note %}}
 Sau khi CloudFront Distribution được tạo, bạn phải cập nhật lại chính sách (Bucket Policy) của S3 để cho phép dịch vụ CloudFront Principal đọc được các tệp tin trong bucket của bạn.
@@ -79,7 +114,7 @@ Sau khi CloudFront Distribution được tạo, bạn phải cập nhật lại 
 
 ---
 
-#### 4. Cấu hình và Build mã nguồn Frontend
+#### 5. Cấu hình và Build mã nguồn Frontend
 
 Trước khi upload code Frontend lên S3, chúng ta cần cấu hình để Frontend có thể giao tiếp với Cognito User Pool và API Gateway.
 
@@ -99,7 +134,7 @@ Trước khi upload code Frontend lên S3, chúng ta cần cấu hình để Fro
 
 ---
 
-#### 5. Upload mã nguồn lên S3 Frontend Bucket
+#### 6. Upload mã nguồn lên S3 Frontend Bucket
 
 1. Quay lại trang chi tiết S3 Bucket ```frontend-ticket-app-app-<your-account-id>``` trên AWS Console.
 2. Tại tab **Objects**, click **Upload**.

@@ -31,7 +31,42 @@ The S3 Bucket will block all public access entirely. Only the CloudFront Distrib
 
 ---
 
-#### 2. Create CloudFront Distribution & Configure OAC
+#### 2. Create Amazon S3 Bucket for Assets (Images & E-tickets)
+
+{{% notice info %}}
+In addition to the Frontend Bucket, the application needs a separate S3 Bucket to store match images, e-tickets, and other assets uploaded by the Backend. This bucket allows public access to display images on the frontend interface.
+{{% /notice %}}
+
+1. Return to the [Amazon S3 console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#) → click **Create bucket**.
+2. In the **Create bucket** configuration interface:
+   * **Bucket name**: Enter a name following this format: ```ticket-app-assets-<your-account-id>``` (e.g., `ticket-app-assets-123456789012`).
+   * **AWS Region**: Select ```us-east-1``` (or the region you are using for the lab).
+   * **Object Ownership**: Select **ACLs disabled (recommended)**.
+   * **Block Public Access settings for this bucket**:
+     * **Uncheck** the **Block all public access** box (Allow public read access for images).
+     * Check the acknowledgment box "I acknowledge that the current settings might result in this bucket and the objects within becoming public."
+
+![S3 Assets Bucket](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create.png)
+
+3. Click **Create bucket** at the bottom of the page.
+4. After the bucket is created, go to the bucket details page → select the **Permissions** tab → scroll to **Cross-origin resource sharing (CORS)** → click **Edit** → paste the following CORS configuration:
+   ```json
+   [
+     {
+       "AllowedHeaders": ["*"],
+       "AllowedMethods": ["GET", "PUT", "POST"],
+       "AllowedOrigins": ["*"],
+       "MaxAgeSeconds": 3000
+     }
+   ]
+   ```
+5. Click **Save changes**.
+
+![S3 Assets CORS](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_cors.png)
+
+---
+
+#### 3. Create CloudFront Distribution & Configure OAC
 
 1. Open the [Amazon CloudFront console](https://us-east-1.console.aws.amazon.com/cloudfront/v4/home?region=us-east-1#/distributions).
 2. Click **Create distribution**.
@@ -58,7 +93,7 @@ The S3 Bucket will block all public access entirely. Only the CloudFront Distrib
 
 ---
 
-#### 3. Update S3 Bucket Policy
+#### 4. Update S3 Bucket Policy
 
 {{% notice note %}}
 After the CloudFront Distribution is created, you must update the S3 Bucket Policy to allow the CloudFront Principal service to read files from your bucket.
@@ -79,7 +114,7 @@ After the CloudFront Distribution is created, you must update the S3 Bucket Poli
 
 ---
 
-#### 4. Configure and Build Frontend Source Code
+#### 5. Configure and Build Frontend Source Code
 
 Before uploading the Frontend code to S3, we need to configure the Frontend to communicate with the Cognito User Pool and API Gateway.
 
@@ -99,7 +134,7 @@ Before uploading the Frontend code to S3, we need to configure the Frontend to c
 
 ---
 
-#### 5. Upload Source Code to S3 Frontend Bucket
+#### 6. Upload Source Code to S3 Frontend Bucket
 
 1. Go back to the S3 Bucket details page for ```frontend-ticket-app-app-<your-account-id>``` on the AWS Console.
 2. In the **Objects** tab, click **Upload**.
