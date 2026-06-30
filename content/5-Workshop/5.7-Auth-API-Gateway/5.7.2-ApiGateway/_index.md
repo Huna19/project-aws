@@ -65,3 +65,20 @@ We use **Amazon API Gateway** (HTTP API) to secure API endpoints via a **Cognito
    * Under **Authorization**: click **Edit** -> Choose **ticket-app-cognito-authorizer** -> click **Save**.
 
 ![API Gateway Routes List](/images/5-Workshop/5.7-Auth-API-Gateway/api_routes.png)
+
+---
+
+#### 4. Configure CORS (Cross-Origin Resource Sharing)
+
+Since API Gateway blocks preflight `OPTIONS` requests when using JWT Authorizer, you must configure CORS at the HTTP API level so the browser can make valid requests.
+
+1. On the left menu, select **CORS**.
+2. Click **Configure**.
+3. Fill in the following information:
+   * **Access-Control-Allow-Origin**: Enter your CloudFront domain (e.g., `https://dxxxxxxxxxx.cloudfront.net`). Click **Add**.
+   * **Access-Control-Allow-Headers**: Enter `content-type` and `authorization`. Click **Add**.
+   * **Access-Control-Allow-Methods**: Select `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`.
+   * **Access-Control-Allow-Credentials**: Select **Yes**.
+4. Click **Save**.
+
+![API Gateway CORS](/images/5-Workshop/5.7-Auth-API-Gateway/api_cors.png)

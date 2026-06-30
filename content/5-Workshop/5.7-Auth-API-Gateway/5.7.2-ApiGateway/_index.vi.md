@@ -67,3 +67,20 @@ Chúng ta cần khai báo rõ ràng các API Routes và gán quyền truy cập 
    * Tại mục **Authorization**: click **Edit** -> Chọn **ticket-app-cognito-authorizer** làm Authorizer -> click **Save**.
 
 ![API Gateway Routes List](/images/5-Workshop/5.7-Auth-API-Gateway/api_routes.png)
+
+---
+
+#### 4. Cấu hình CORS (Cross-Origin Resource Sharing)
+
+Vì API Gateway chặn các preflight `OPTIONS` requests khi sử dụng JWT Authorizer, bạn cần cấu hình CORS ở mức HTTP API để trình duyệt có thể truy cập hợp lệ.
+
+1. Trên menu trái, chọn **CORS**.
+2. Click **Configure**.
+3. Điền các thông tin sau:
+   * **Access-Control-Allow-Origin**: Nhập domain CloudFront của bạn (ví dụ: `https://dxxxxxxxxxx.cloudfront.net`). Bấm **Add**.
+   * **Access-Control-Allow-Headers**: Nhập `content-type` và `authorization`. Bấm **Add**.
+   * **Access-Control-Allow-Methods**: Chọn `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`.
+   * **Access-Control-Allow-Credentials**: Chọn **Yes**.
+4. Click **Save**.
+
+![API Gateway CORS](/images/5-Workshop/5.7-Auth-API-Gateway/api_cors.png)
