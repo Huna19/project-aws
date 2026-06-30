@@ -100,9 +100,12 @@ Chúng ta sẽ thiết lập luồng tích hợp và triển khai tự động c
 #### 2. Kiểm tra trạng thái triển khai
 
 1. Quay lại trang quản lý CodePipeline.
-2. Xác nhận Pipeline ```ticket-app-worker-pipeline``` kích hoạt thành công trạng thái **In Progress** ngay sau khi push code.
+2. Xác nhận Pipeline kích hoạt thành công trạng thái **In Progress** ngay sau khi push code.
 3. Đợi cho đến khi các giai đoạn (Source -> Build -> Deploy) hiển thị màu xanh **Succeeded**.
 
-   *(Ghi chú: Bạn nhớ chụp một tấm ảnh màn hình Pipeline Worker thành công và lưu với tên `pipeline_worker.png` rồi chèn vào đây nhé)*
+   ![Pipeline Execution History](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_execution_history.png)
+   ![CodePipeline Worker Success](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_worker_success.png)
 
 4. Vào Elastic Beanstalk console, xác nhận Health Status của môi trường ```ticket-app-Worker-env``` chuyển sang màu xanh **Ok** với phiên bản ứng dụng vừa được build từ CodeCommit.
+
+   ![EB Worker Deployment Success](/images/5-Workshop/5.8-CICD-Pipeline/eb_worker_deployment_success.png)
