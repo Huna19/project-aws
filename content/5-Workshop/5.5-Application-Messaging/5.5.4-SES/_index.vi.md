@@ -17,16 +17,22 @@ Hệ thống Ticket Booking của chúng ta có một tính năng tự động g
 1. Mở [Amazon SES console](https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1).
 2. Trên menu bên trái, chọn **Identities** (dưới mục Configuration).
 3. Click nút **Create identity**.
+
+   ![SES Create Identity Button](/images/5-Workshop/5.5-Application-Messaging/ses_create_identity_btn.jpg)
+
 4. Cấu hình Identity:
    * **Identity type**: Chọn **Email address**.
    * **Email address**: Nhập địa chỉ email thật của bạn (ví dụ: `your-email@gmail.com`). Đây sẽ là email dùng để gửi thư đi (MAIL_FROM).
+
+   ![SES Identity Type](/images/5-Workshop/5.5-Application-Messaging/ses_create_identity_type.jpg)
+
 5. Click **Create identity**.
 
 {{% notice warning %}}
 **Quan trọng:** AWS SES sẽ ngay lập tức gửi một email có tiêu đề *Amazon Web Services – Email Address Verification Request* đến hòm thư của bạn. Bạn **bắt buộc** phải mở email đó ra và click vào link xác nhận. Sau khi xác nhận, trạng thái Identity trong SES sẽ chuyển thành **Verified**.
 {{% /notice %}}
 
-   ![SES Identity](/images/5-Workshop/5.5-Application-Messaging/ses_identity.png)
+   ![SES Identity Verified](/images/5-Workshop/5.5-Application-Messaging/ses_identity_verified.jpg)
 
 ---
 

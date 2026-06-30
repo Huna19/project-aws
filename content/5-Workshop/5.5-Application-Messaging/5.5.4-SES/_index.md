@@ -17,16 +17,22 @@ Our Ticket Booking system automatically sends email notifications to customers u
 1. Open the [Amazon SES console](https://us-east-1.console.aws.amazon.com/ses/home?region=us-east-1).
 2. On the left menu, select **Identities** (under Configuration).
 3. Click the **Create identity** button.
+   
+   ![SES Create Identity Button](/images/5-Workshop/5.5-Application-Messaging/ses_create_identity_btn.jpg)
+
 4. Configure Identity:
    * **Identity type**: Select **Email address**.
    * **Email address**: Enter your real email address (e.g., `your-email@gmail.com`). This will be used as the sender email (`MAIL_FROM`).
+
+   ![SES Identity Type](/images/5-Workshop/5.5-Application-Messaging/ses_create_identity_type.jpg)
+
 5. Click **Create identity**.
 
 {{% notice warning %}}
 **Important:** AWS SES will immediately send a verification email titled *Amazon Web Services – Email Address Verification Request* to your inbox. You **must** open that email and click the verification link. Once clicked, the Identity status in SES will change to **Verified**.
 {{% /notice %}}
 
-![SES Identity](/images/5-Workshop/5.5-Application-Messaging/ses_identity.png)
+![SES Identity Verified](/images/5-Workshop/5.5-Application-Messaging/ses_identity_verified.jpg)
 
 ---
 
@@ -44,6 +50,7 @@ For the application (Worker) to call the SES service and send emails, we need to
    * These parameters are the `SMTP_USERNAME` and `SMTP_PASSWORD` that you need to enter into the **Environment properties** of the Worker environment on Beanstalk (as instructed in Chapter 5.5.2).
 
 ![SES SMTP Credentials](/images/5-Workshop/5.5-Application-Messaging/ses_smtp.png)
+![SES SMTP Download](/images/5-Workshop/5.5-Application-Messaging/ses_smtp_download.png)
 
 {{% notice info %}}
 By default, your SES account is in the Sandbox environment, meaning you can only send emails TO addresses that you have also Verified. Therefore, when testing the booking feature, make sure to enter the email you verified in Step 1 (or verify additional emails) to receive the notifications!
