@@ -87,7 +87,8 @@ Trước khi thao tác với CodeCommit, bạn cần khởi tạo thông tin đ�
 
    * **Build stage**: Build provider: **AWS CodeBuild** | Project name: ```ticket-app-backend-build``` -> click **Next**.
 
-     ![CodePipeline Backend Build Stage Network](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_backend_network.png)
+     ![CodePipeline Backend Build Stage](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_build_stage.png)
+     ![CodePipeline Backend Build Stage Bottom](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_build_stage_bottom.png)
 
    * **Deploy stage**: Deploy provider: **AWS Elastic Beanstalk** | Application: ```ticket-app-App``` | Environment: ```ticket-app-Backend-env``` -> click **Next** -> **Create pipeline**.
 

@@ -68,12 +68,10 @@ Chúng ta sẽ thiết lập luồng tích hợp và triển khai tự động c
      
      ![CodePipeline Worker Source](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_worker_source.png)
      
-   * **Build stage**: 
-     * Build provider: Chọn **Other build providers** -> **AWS CodeBuild**.
-     * Project name: ```ticket-app-worker-build```
-     * Click **Next**.
-     
-     ![CodePipeline Worker Build](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_worker_build.png)
+   * **Build stage**: Build provider: **AWS CodeBuild** | Project name: ```ticket-app-worker-build``` -> click **Next**.
+
+     ![CodePipeline Worker Build Stage](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_build_stage.png)
+     ![CodePipeline Worker Build Stage Bottom](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_build_stage_bottom.png)
      
    * **Deploy stage**: 
      * Deploy provider: **AWS Elastic Beanstalk**
