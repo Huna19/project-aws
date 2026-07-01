@@ -17,15 +17,15 @@ chapter: false
 
 &emsp; **Ngành:** Công nghệ thông tin
 
-&emsp; **Lớp:** AWS052026
+&emsp; **Lớp:** 22DTHC1
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam (AWS Vietnam)
 
-&emsp; **Vị trí thực tập:** FCAJ Cloud Intern
+&emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Thời gian thực tập:** Từ ngày 17/04/2026 đến ngày 10/07/2026
+&emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 10/07/2026
 
-![Ảnh đại diện của bạn](/images/avatar.png)
+<img src="/images/avatar.jpg" alt="Ảnh đại diện của bạn" width="350" style="border-radius: 8px;" />
 
 
 

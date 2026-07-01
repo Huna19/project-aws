@@ -18,15 +18,15 @@ chapter: false
 
 &emsp; **Major:** Information Technology
 
-&emsp; **Class:** AWS052026
+&emsp; **Class:** 22DTHC1
 
 &emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Internship Position:** FCAJ Cloud Intern
+&emsp; **Internship Position:** Workforce Bootcamp - First Cloud AI Journey
 
-&emsp; **Internship Duration:** From 17/04/2026 to 10/07/2026
+&emsp; **Internship Duration:** From 20/04/2026 to 10/07/2026
 
-![Your profile picture](/images/avatar.png)
+<img src="/images/avatar.jpg" alt="Your profile picture" width="350" style="border-radius: 8px;" />
 
 ### Report Content
 

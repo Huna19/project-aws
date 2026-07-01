@@ -186,6 +186,7 @@ Lưu ý quan trọng: Beanstalk Worker Environment trong dự án này thực ch
 1. **Cấu hình cho Backend (```ticket-app-Backend-env```)**:
    * Vào chi tiết môi trường ```ticket-app-Backend-env``` -> chọn **Configuration** ở menu trái.
    * Tìm mục **Updates, monitoring, and logging** -> click **Edit**.
+   * Tại phần **CloudWatch Logs**, bật (tick chọn) **Stream logs** và đặt **Retention** là `7 days`.
    * Cuộn xuống mục **Environment properties** ở cuối trang và nhập các biến sau:
      * ```PORT```: ```8080```
      * ```AWS_REGION```: ```us-east-1```

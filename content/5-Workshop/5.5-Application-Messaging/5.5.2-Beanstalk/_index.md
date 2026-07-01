@@ -175,6 +175,7 @@ Configure environment properties directly on the Beanstalk Console:
 
 1. **Configure Backend (```ticket-app-Backend-env```)**:
    * Go to ```ticket-app-Backend-env``` details -> click **Configuration** -> **Updates, monitoring, and logging** -> click **Edit**.
+   * Under the **CloudWatch Logs** section, check **Stream logs** and set **Retention** to `7 days`.
    * Under **Environment properties**, add:
      * ```PORT```: ```8080```
      * ```AWS_REGION```: ```us-east-1```
