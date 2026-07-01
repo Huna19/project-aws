@@ -112,27 +112,27 @@ The project is divided into 2 specific phases over a 2-week period:
 ---
 
 ### 6. Budget Estimation
-This estimate is based on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01) configured for the Ticket-App.
+This estimate is based on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=55c11e259b0f9e28ba8a407449988fd53d95b250) configured for the Ticket-App.
 
 #### Infrastructure Costs (Staging/Production Environment)
 
 | No. | AWS Service | Configuration Details | Monthly Cost |
 | :--- | :--- | :--- | :--- |
-| 1 | Elastic Beanstalk + EC2 | 4 `t3.micro` instances running 24/7 (2 API, 2 Worker) | ~ $41.60 |
-| 2 | RDS PostgreSQL | `db.t3.small` Multi-AZ, 20GB gp3 storage | ~ $34.00 |
-| 3 | RDS Proxy | Attaches to db.t3.small database | ~ $7.30 |
-| 4 | ElastiCache Redis | 2-node cluster of `cache.t3.micro` (Primary + Replica) | ~ $15.20 |
-| 5 | NAT Gateways | 2 NAT Gateways operating across 2 Availability Zones | ~ $65.70 |
-| 6 | SQS / SNS / SES | Less than 1 million messages monthly (mostly Free Tier) | ~ $1.50 |
-| 7 | AWS Cognito | Free tier up to 50,000 Monthly Active Users (MAUs) | $0.00 |
-| 8 | Secrets Manager & KMS | 1 secret storage, 3 KMS keys with auto-rotation | ~ $4.20 |
-| 9 | CloudWatch & Data Transfer| Logging, metrics, and intra-VPC data transfer | ~ $8.00 |
-| **Total** | **Estimated Monthly Total** | | **~ $177.50** |
+| 1 | Elastic Beanstalk (EC2 + ALB) | 4 instances `t3.micro`, 2 Application Load Balancers | ~ $55.15 |
+| 2 | RDS PostgreSQL | `db.t3.small` Multi-AZ, 20GB gp3 (Utilization 30%) | ~ $60.52 |
+| 3 | ElastiCache Redis | 2-node cluster of `cache.t3.micro` | ~ $24.82 |
+| 4 | NAT Gateways | 1 NAT Gateway operating across 2 Availability Zones | ~ $66.15 |
+| 5 | S3 & CloudFront | 20GB Standard Storage, CloudFront Free Tier | ~ $0.53 |
+| 6 | API Gateway | 1 million requests/month | ~ $1.00 |
+| 7 | AWS Cognito | Free tier up to 10,000 Monthly Active Users (MAUs) | $0.00 |
+| 8 | CI/CD (CodePipeline & CodeBuild) | 2 pipelines, 1 build/month | ~ $3.50 |
+| 9 | CloudWatch & Secrets Manager & SES | Log storage, 1 secret, 5000 emails/month | ~ $5.99 |
+| **Total** | **Estimated Monthly Total** | | **~ $217.67** |
 
-*Note:* The cloud infrastructure cost can be trimmed to **under $50.00/month** in development environments by:
-*   Running only 1 NAT Gateway instead of 2 (saves ~$32.00/month).
-*   Switching RDS to Single-AZ instead of Multi-AZ (saves ~$17.00/month).
-*   Reducing EC2 instances to 1 per tier and running Redis as a single node when load testing is not active.
+*Note:* The cloud infrastructure cost can be trimmed to **under $100.00/month** in development environments by:
+*   Removing NAT Gateways and keeping resources in Public Subnets (saves ~$66.15/month), or running only 1 NAT Gateway instead of 2 (saves ~$33.00/month).
+*   Switching RDS to Single-AZ instead of Multi-AZ (saves ~$30.00/month).
+*   Reducing EC2 instances to 1 per tier and running Redis as a single node when load testing is not active (saves ~$28.00/month).
 
 ---
 
