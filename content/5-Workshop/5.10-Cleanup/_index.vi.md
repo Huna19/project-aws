@@ -29,7 +29,11 @@ Thực hiện xóa các tài nguyên theo trình tự từ trên xuống dưới
 1. **Xóa môi trường Elastic Beanstalk**:
    * Mở [Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/environments).
    * Chọn môi trường ```ticket-app-Backend-env``` -> click **Actions** -> chọn **Terminate environment**.
+   ![Terminate Backend Env](/images/5-Workshop/5.10-Cleanup/eb_1.jpg)
+   ![Confirm Backend Env](/images/5-Workshop/5.10-Cleanup/eb_2.jpg)
    * Thực hiện tương tự để Terminate môi trường ```ticket-app-Worker-env```.
+   ![Terminate Worker Env](/images/5-Workshop/5.10-Cleanup/eb_3.jpg)
+   ![Confirm Worker Env](/images/5-Workshop/5.10-Cleanup/eb_4.jpg)
    * Chờ cho đến khi quá trình hủy môi trường hoàn tất, sau đó xóa Application: Quay lại trang **Applications** -> chọn ```ticket-app-App``` -> click **Actions** -> **Delete application**.
 
 2. **Xóa API Gateway**:

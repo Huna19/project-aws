@@ -26,11 +26,15 @@ Please choose the appropriate cleanup method based on the deployment method you 
 
 Delete resources in the following order from top to bottom:
 
-1. **Delete Elastic Beanstalk Environments**:
+1. **Delete Elastic Beanstalk environments**:
    * Open the [Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/environments).
-   * Select the environment ```ticket-app-Backend-env``` -> click **Actions** -> select **Terminate environment**.
-   * Repeat the same to Terminate the ```ticket-app-Worker-env``` environment.
-   * Wait until the environment termination is complete, then delete the Application: Go to the **Applications** page -> select ```ticket-app-App``` -> click **Actions** -> **Delete application**.
+   * Select the ```ticket-app-Backend-env``` environment -> click **Actions** -> select **Terminate environment**.
+   ![Terminate Backend Env](/images/5-Workshop/5.10-Cleanup/eb_1.jpg)
+   ![Confirm Backend Env](/images/5-Workshop/5.10-Cleanup/eb_2.jpg)
+   * Perform the same steps to terminate the ```ticket-app-Worker-env``` environment.
+   ![Terminate Worker Env](/images/5-Workshop/5.10-Cleanup/eb_3.jpg)
+   ![Confirm Worker Env](/images/5-Workshop/5.10-Cleanup/eb_4.jpg)
+   * Wait until the environment termination is complete, then delete the Application: Navigate back to the **Applications** page -> select ```ticket-app-App``` -> click **Actions** -> **Delete application**.
 
 2. **Delete API Gateway**:
    * Open the [API Gateway console](https://us-east-1.console.aws.amazon.com/apigateway/main/apis?region=us-east-1).
