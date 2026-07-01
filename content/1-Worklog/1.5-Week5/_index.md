@@ -1,33 +1,30 @@
 ---
 title: "Week 5 Worklog"
 date: 2024-01-01
-weight: 1
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 ### Week 5 Objectives:
 
-* Continue studying in-depth technical documentation and practicing configurations on **AWS Console**.
-* Attend **AWS Event** (05/23) and directly analyze 6 technical topics.
-* Study **Amazon CloudFront** architecture and **Multi-Agent** architecture.
+* Analyze AWS official architecture guides for high-load systems.
+* Attend **AWS Event** (05/23) and analyze topics on High Availability and Microservices.
+* Study **Event-Driven Architecture** and **Serverless** concepts.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Continue studying in-depth technical documentation per the roadmap <br> - Practice configurations on **AWS Console** to stay on track                                                                  | 05/18/2026 | 05/18/2026      |                                           |
-| 3   | - Continue practicing and linking Cloud and AI knowledge blocks                                                                                                                                          | 05/19/2026 | 05/19/2026      |                                           |
-| 4   | - Review previously learned modules, prepare for AWS Event                                                                                                                                               | 05/20/2026 | 05/20/2026      |                                           |
-| 5   | - Continue studying in-depth documentation, linking Cloud and AI knowledge                                                                                                                               | 05/21/2026 | 05/21/2026      |                                           |
-| 6   | - Consolidate and document knowledge in preparation for weekend AWS Event                                                                                                                                | 05/22/2026 | 05/22/2026      |                                           |
-| 7   | - Attend **AWS Event** (05/23), directly analyze **6 technical topics**: <br> - Building **Second Brain** through **Context Engineering** <br> - Virtual assistant architecture **Agentic AI** <br> - Solutions to overcome **Token Limits** barriers <br> - The nature of **LLM** non-determinism <br> - **Amazon CloudFront** content distribution architecture (reducing latency with Edge caching) <br> - Enterprise-grade **Multi-Agent Paradigm** architecture | 05/23/2026 | 05/23/2026      |                                           |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Review AWS official web hosting architecture guides <br> - Explore High Availability architecture models on AWS | 05/18/2026 | 05/18/2026 | |
+| 3 | - Learn the differences between Monolithic and Microservices architectures | 05/19/2026 | 05/19/2026 | |
+| 4 | - Practice configuring Application Load Balancer (ALB) and Auto Scaling Group on AWS Console | 05/20/2026 | 05/20/2026 | |
+| 5 | - Basic research on Event-Driven Architecture | 05/21/2026 | 05/21/2026 | |
+| 6 | - Draft initial architecture diagrams for the ticket booking system to visualize service connections | 05/22/2026 | 05/22/2026 | |
+| 7 | - Attend **AWS Event** (05/23), analyze topics: <br> - Building **High Availability** systems on AWS <br> - Decoupling applications with **Microservices** <br> - Cost optimization with **Auto Scaling** <br> - **Amazon CloudFront** content distribution architecture <br> - Enterprise-grade **Event-Driven Architecture** | 05/23/2026 | 05/23/2026 | |
 
 ### Week 5 Achievements:
 
-This week I mainly **continued researching** in-depth technical documentation and practicing configurations on AWS Console to stay on track, linking Cloud and AI knowledge blocks.
+This week I primarily focused on **analyzing AWS official architecture guides** to grasp the standards for high-load systems, preparing a solid foundation for the upcoming large-scale project.
 
-The biggest highlight was **attending the AWS Event on 05/23** — directly analyzing **6 technical topics**: building **Second Brain** through **Context Engineering**, virtual assistant architecture **Agentic AI**, solutions to overcome **Token Limits** barriers, the nature of **LLM** non-determinism, **Amazon CloudFront** content distribution architecture (reducing latency with Edge caching), and enterprise-grade **Multi-Agent Paradigm** architecture.
+The biggest highlight was **attending the AWS Event on 05/23** — directly analyzing technical topics that are extremely useful for real-world projects: building **High Availability** systems, application decoupling with **Microservices**, cost optimization with **Auto Scaling**, **Amazon CloudFront** content distribution, and especially enterprise-grade **Event-Driven Architecture**.
 
-CloudFront and Multi-Agent were the two most practical topics — CloudFront directly connects with AWS infrastructure knowledge already learned, while Multi-Agent shows how AI can coordinate in complex architectures.
-
-
+CloudFront and Event-Driven Architecture were the two most practical topics, helping me shape the mindset of designing decoupled systems rather than bundling everything into a single server.

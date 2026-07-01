@@ -22,7 +22,7 @@ chapter: false
 
 &emsp; **Internship Company:** Amazon Web Services Vietnam Co., Ltd.
 
-&emsp; **Internship Position:** FCJ Cloud Intern
+&emsp; **Internship Position:** FCAJ Cloud Intern
 
 &emsp; **Internship Duration:** From 17/04/2026 to 10/07/2026
 

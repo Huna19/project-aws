@@ -1,52 +1,27 @@
 ---
 title: "Week 11 Worklog"
 date: 2024-01-01
-weight: 2
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Finalize Backend code, deploy to **Elastic Beanstalk** and **S3 Frontend**.
+* Build automated CI/CD pipelines using **CodePipeline**.
+* Set up **CloudWatch Alarms** monitoring and execute Load Testing.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   |                                                                                                                                                                                                          | 06/29/2026 | 06/29/2026      |                                           |
-| 3   |                                                                                                                                                                                                          | 06/30/2026 | 06/30/2026      |                                           |
-| 4   |                                                                                                                                                                                                          | 07/01/2026 | 07/01/2026      |                                           |
-| 5   |                                                                                                                                                                                                          | 07/02/2026 | 07/02/2026      |                                           |
-| 6   |                                                                                                                                                                                                          | 07/03/2026 | 07/03/2026      |                                           |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Completed deployment of Backend and Worker to **Elastic Beanstalk** and Frontend to **S3** <br> - Successfully set up automated CI/CD pipeline via **CodePipeline** | 06/29/2026 | 06/29/2026 | |
+| 3 | - Wrote the Project Proposal detailing the architecture and deployment roadmap | 06/30/2026 | 06/30/2026 | |
+| 4 | - Drafted the End-to-End guide documentation in preparation for the Workshop | 07/01/2026 | 07/01/2026 | |
+| 5 | | 07/02/2026 | 07/02/2026 | |
+| 6 | | 07/03/2026 | 07/03/2026 | |
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Early this week, the team went all out to **complete the entire application deployment** (Backend to Beanstalk, Frontend to S3) and successfully set up the CI/CD automation pipeline via CodePipeline.
 
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+As soon as the system was running stably, I dedicated Tuesday and Wednesday entirely to documentation: **writing the Project Proposal** and **drafting the End-to-End guide** for the upcoming Workshop. (Tasks regarding CloudWatch monitoring configuration and Load Testing will be carried out in the upcoming days).

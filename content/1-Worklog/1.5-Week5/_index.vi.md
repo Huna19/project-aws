@@ -1,33 +1,30 @@
 ---
 title: "Worklog Tuần 5"
 date: 2024-01-01
-weight: 1
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
 ### Mục tiêu tuần 5:
 
-* Duy trì nghiên cứu tài liệu kỹ thuật chuyên sâu và thực hành cấu hình **AWS Console**.
-* Tham dự **AWS Event** (23/05) và phân tích 6 chuyên đề kỹ thuật.
-* Nghiên cứu kiến trúc **Amazon CloudFront** và kiến trúc **Multi-Agent**.
+* Đọc kỹ tài liệu kiến trúc chuẩn của AWS về thiết kế hệ thống chịu tải cao.
+* Tham dự **AWS Event** (23/05) và phân tích các chuyên đề về High Availability và Microservices.
+* Nghiên cứu kiến trúc **Event-Driven Architecture** và **Serverless**.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Duy trì nghiên cứu tài liệu kỹ thuật chuyên sâu theo lộ trình <br> - Thực hành cấu hình trên **AWS Console** nhằm bám sát tiến độ                                                       | 18/05/2026   | 18/05/2026      |                                           |
-| 3   | - Tiếp tục thực hành và liên kết các khối kiến thức về Cloud và AI đã học                                                                                                                   | 19/05/2026   | 19/05/2026      |                                           |
-| 4   | - Ôn tập các module đã học, chuẩn bị cho AWS Event                                                                                                                                          | 20/05/2026   | 20/05/2026      |                                           |
-| 5   | - Tiếp tục nghiên cứu tài liệu chuyên sâu, liên kết kiến thức Cloud và AI                                                                                                                  | 21/05/2026   | 21/05/2026      |                                           |
-| 6   | - Đúc kết và ghi chú lại kiến thức chuẩn bị cho AWS Event cuối tuần                                                                                                                         | 22/05/2026   | 22/05/2026      |                                           |
-| 7   | - Tham dự **AWS Event** (23/05), trực tiếp phân tích **6 chuyên đề** kỹ thuật: <br> - Xây dựng **Second Brain** qua **Context Engineering** <br> - Kiến trúc trợ lý ảo **Agentic AI** <br> - Giải pháp vượt rào cản **Token Limits** <br> - Bản chất tính bất định của **LLM** <br> - Kiến trúc phân phối nội dung **Amazon CloudFront** (giảm độ trễ bằng Edge caching) <br> - Ứng dụng kiến trúc **Đa đại lý (Multi-Agent Paradigm)** chuẩn doanh nghiệp | 23/05/2026   | 23/05/2026      |                                           |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Đọc tài liệu hướng dẫn triển khai Web của AWS <br> - Tìm hiểu các mô hình kiến trúc High Availability trên AWS | 18/05/2026 | 18/05/2026 | |
+| 3 | - Tìm hiểu sự khác biệt giữa kiến trúc Monolithic và Microservices | 19/05/2026 | 19/05/2026 | |
+| 4 | - Lên AWS Console cấu hình thử Application Load Balancer (ALB) và Auto Scaling Group | 20/05/2026 | 20/05/2026 | |
+| 5 | - Nghiên cứu cơ bản về Event-Driven Architecture (Kiến trúc hướng sự kiện) | 21/05/2026 | 21/05/2026 | |
+| 6 | - Phác thảo sơ đồ kiến trúc nháp cho hệ thống bán vé để xem các dịch vụ kết nối thế nào | 22/05/2026 | 22/05/2026 | |
+| 7 | - Tham dự **AWS Event** (23/05), phân tích các chuyên đề: <br> - Xây dựng hệ thống **High Availability** trên AWS <br> - Phân rã ứng dụng với **Microservices** <br> - Tối ưu hóa chi phí với **Auto Scaling** <br> - Kiến trúc phân phối nội dung **Amazon CloudFront** <br> - Ứng dụng **Event-Driven Architecture** chuẩn doanh nghiệp | 23/05/2026 | 23/05/2026 | |
 
 ### Kết quả đạt được tuần 5:
 
-Tuần này mình chủ yếu **duy trì nghiên cứu** tài liệu kỹ thuật chuyên sâu và thực hành cấu hình trên AWS Console nhằm bám sát tiến độ, liên kết các khối kiến thức về Cloud và AI.
+Tuần này mình chủ yếu dành thời gian **nghiên cứu tài liệu kiến trúc gốc của AWS** để nắm được các chuẩn thiết kế hệ thống chịu tải cao, làm nền tảng vững chắc cho kiến trúc dự án lớn.
 
-Điểm nhấn lớn nhất là **tham dự AWS Event ngày 23/05** — được trực tiếp phân tích **6 chuyên đề** kỹ thuật: xây dựng **Second Brain** qua **Context Engineering**, kiến trúc trợ lý ảo **Agentic AI**, giải pháp vượt rào cản **Token Limits**, bản chất tính bất định của **LLM**, kiến trúc phân phối nội dung **Amazon CloudFront** (giảm độ trễ bằng Edge caching) và ứng dụng kiến trúc **Đa đại lý (Multi-Agent Paradigm)** chuẩn doanh nghiệp.
+Điểm nhấn lớn nhất là **tham dự AWS Event ngày 23/05** — được trực tiếp phân tích các chuyên đề kỹ thuật cực kỳ hữu ích cho dự án thực tế: xây dựng hệ thống **High Availability**, phân rã ứng dụng với **Microservices**, tối ưu hóa chi phí bằng **Auto Scaling**, kiến trúc phân phối nội dung **Amazon CloudFront**, và đặc biệt là **Event-Driven Architecture** (kiến trúc hướng sự kiện) chuẩn doanh nghiệp.
 
-Phần CloudFront và Multi-Agent là hai chuyên đề mình thấy thực tế nhất — CloudFront liên kết trực tiếp với kiến thức hạ tầng AWS đã học, còn Multi-Agent cho thấy cách AI có thể phối hợp trong kiến trúc phức tạp.
-
-
+Phần CloudFront và Event-Driven Architecture là hai chuyên đề mình thấy thực tế nhất, giúp mình định hình tư duy thiết kế hệ thống tách rời (decoupled) thay vì gom tất cả vào một máy chủ duy nhất.

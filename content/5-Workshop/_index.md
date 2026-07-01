@@ -5,9 +5,6 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 # Deploying a Secure, Scalable 3-Tier Ticketing Application on AWS
 
@@ -33,4 +30,5 @@ Key services and components implemented in this workshop:
 6. [Database & Caching Tier](5.6-Database-Caching/)
 7. [Authentication & API Gateway](5.7-Auth-API-Gateway/)
 8. [CI/CD Pipeline](5.8-CICD-Pipeline/)
-9. [Resource Cleanup](5.9-Cleanup/)
+9. [Test & Validation](5.9-Test-Validation/)
+10. [Resource Cleanup](5.10-Cleanup/)

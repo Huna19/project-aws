@@ -1,54 +1,23 @@
 ---
 title: "Worklog Tuần 12"
 date: 2024-01-01
-weight: 2
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
 ### Mục tiêu tuần 12:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* (Đang cập nhật...)
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   |                                                                                                                                                                                             | 06/07/2026   | 06/07/2026      |                                           |
-| 3   |                                                                                                                                                                                             | 07/07/2026   | 07/07/2026      |                                           |
-| 4   |                                                                                                                                                                                             | 08/07/2026   | 08/07/2026      |                                           |
-| 5   |                                                                                                                                                                                             | 09/07/2026   | 09/07/2026      |                                           |
-| 6   |                                                                                                                                                                                             | 10/07/2026   | 10/07/2026      |                                           |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | | 06/07/2026 | 06/07/2026 | |
+| 3 | | 07/07/2026 | 07/07/2026 | |
+| 4 | | 08/07/2026 | 08/07/2026 | |
+| 5 | | 09/07/2026 | 09/07/2026 | |
+| 6 | | 10/07/2026 | 10/07/2026 | |
 
 ### Kết quả đạt được tuần 12:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* (Đang cập nhật...)

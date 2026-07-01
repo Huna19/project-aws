@@ -10,15 +10,35 @@ pre: " <b> 2. </b> "
 ## Giải pháp AWS 3-Tier High Availability cho hệ thống đặt vé sự kiện thời gian thực
 
 ### 1. Tóm tắt điều hành
-**Ticketing-App** là một nền tảng ứng dụng web đa sự kiện được thiết kế nhằm phục vụ nhu cầu đặt vé trực tuyến cho nhiều loại hình sự kiện khác nhau như liveshow ca nhạc, concert, giải đấu thể thao (bao gồm World Cup), và các sự kiện giải trí lớn. Do đặc thù các sự kiện hot thường thu hút lượng truy cập cực kỳ khổng lồ trong các khung giờ mở bán vé, hệ thống được thiết kế đặc biệt để giải quyết triệt để bài toán nghẽn mạng và quá tải cơ sở dữ liệu bằng cơ chế xử lý đơn hàng bất đồng bộ (decoupled processing) kết hợp hàng đợi. 
-
-Hệ thống tận dụng tối đa các dịch vụ hạ tầng đám mây AWS để xây dựng một kiến trúc 3-tier chuẩn chỉ: sử dụng **AWS Elastic Beanstalk** để quản lý co giãn tự động cho cả tầng xử lý API và tầng Worker, **AWS SQS FIFO** để đảm bảo tính chính xác từng đơn hàng (exactly-once), và hệ quản trị cơ sở dữ liệu **RDS PostgreSQL** kết hợp **RDS Proxy** cùng bộ nhớ đệm **ElastiCache Redis**. Hệ thống đảm bảo tính sẵn sàng cao (High Availability), bảo mật tuyệt đối với Cognito, và tự động hóa quy trình phát hành qua CI/CD Pipeline.
+**Ticketing-App** là một nền tảng ứng dụng web đa sự kiện được thiết kế nhằm phục vụ nhu cầu đặt vé trực tuyến cho nhiều loại hình sự kiện khác nhau (liveshow ca nhạc, thể thao). Hệ thống được thiết kế đặc biệt để giải quyết triệt để bài toán nghẽn mạng và quá tải cơ sở dữ liệu bằng cơ chế xử lý đơn hàng bất đồng bộ (decoupled processing) kết hợp hàng đợi trên AWS.
 
 ---
 
-### 2. Tuyên bố vấn đề
-*   **Vấn đề hiện tại:**
-    Các hệ thống bán vé truyền thống thường gặp sự cố sập máy chủ web hoặc cạn kiệt kết nối cơ sở dữ liệu (connection exhaustion) khi hàng trăm ngàn người dùng cùng lúc thực hiện thanh toán và đặt chỗ tại một thời điểm cho các sự kiện hot. Việc thiếu cơ chế hàng đợi khiến các yêu cầu bị tắc nghẽn, dẫn đến mất dữ liệu đơn hàng và tạo trải nghiệm tồi tệ cho khách hàng. Ngoài ra, việc triển khai thủ công làm tăng nguy cơ lỗi cấu hình và chậm trễ trong việc cập nhật ứng dụng.
+### 2. Ý tưởng & Mục tiêu (Tuyên bố vấn đề)
+
+#### 2.1 Bối cảnh & Bài toán
+*   **Hệ thống dùng để làm gì?** 
+    Ticketing-App là nền tảng đặt vé sự kiện trực tuyến, đặc biệt thiết kế để xử lý tải cao trong các đợt mở bán vé "flash sale".
+*   **Khách hàng là ai?** 
+    Khách hàng (End-user) là những khán giả cần trải nghiệm mua vé mượt mà. Khách hàng doanh nghiệp (B2B) là các ban tổ chức sự kiện cần một nền tảng ổn định, không sập nguồn để bảo vệ hình ảnh thương hiệu.
+*   **Giải quyết vấn đề gì?**
+    Các hệ thống bán vé truyền thống thường sập máy chủ hoặc cạn kiệt kết nối DB (connection exhaustion) khi có hàng ngàn truy cập đồng thời. Ticketing-App giải quyết bài toán này bằng kiến trúc phân rã kết hợp hàng đợi, đảm bảo không rớt đơn hàng.
+
+#### 2.2 Mục tiêu cụ thể
+*   **Output mong muốn:** 
+    * Hạ tầng 3-tier hoàn chỉnh được tự động hóa.
+    * Hệ thống giám sát (Monitoring): CloudWatch Dashboard, Logs tập trung và Alerts/Alarms tự động gửi qua email/SNS.
+    * Tài liệu hướng dẫn triển khai (Workshop) chi tiết end-to-end.
+*   **Tiêu chí đánh giá thành công:** 
+    * Thời gian phản hồi API (Response Time) luôn dưới 200ms khi chịu tải.
+    * Đảm bảo tính toàn vẹn dữ liệu: Không mất tin nhắn đặt vé, không đặt trùng vé (double-booking) nhờ SQS FIFO.
+    * Hệ thống tự động co giãn (Auto Scaling) chính xác khi mô phỏng tải.
+
+#### 2.3 Phù hợp với chương trình
+*   **Use-case gắn với FCAJ / AWS:** 
+    Dự án mô phỏng chính xác bài toán chịu tải cao của các hệ thống e-commerce thực tế, áp dụng trực tiếp các dịch vụ cốt lõi của AWS (Elastic Beanstalk, RDS Multi-AZ, SQS, ElastiCache, CloudFront) được đào tạo trong chương trình First Cloud AI Journey (FCAJ).
+*   **Đúng trọng tâm Cloud:** 
+    Giải pháp tập trung sâu vào High Availability, Security và Scalability – những triết lý cốt lõi của điện toán đám mây, hoàn toàn bám sát tiêu chí đánh giá năng lực hạ tầng Cloud.
 *   **Giải pháp đề xuất:**
     Xây dựng một hệ thống đặt vé phân rã (Decoupled Architecture) trên AWS:
     1.  **Frontend:** Được lưu trữ tĩnh giá rẻ trên **S3 Static Website Hosting** để đảm bảo tải trang cực nhanh và không bị sập do lượng truy cập.
@@ -45,7 +65,7 @@ Hệ thống được thiết kế theo mô hình VPC chuẩn với các lớp m
 
 #### 3.2 Các dịch vụ AWS sử dụng
 
-| Phân nhóm | Dịch vụ AWS | Vai trò & Chi tiết cấu hình |
+| Phân nhóm | Dịch vụ AWS | Lý do lựa chọn & Vai trò |
 | :--- | :--- | :--- |
 | **Compute** | Elastic Beanstalk | Quản lý triển khai tự động hai môi trường độc lập: Backend API và Worker xử lý hàng đợi. |
 | **Compute** | EC2 Instances | Chạy hệ điều hành Amazon Linux 2023, môi trường Node.js 24, cấu hình loại `t3.micro`. |
@@ -56,7 +76,7 @@ Hệ thống được thiết kế theo mô hình VPC chuẩn với các lớp m
 | **Cache** | ElastiCache Redis | Cụm Redis phiên bản 7.0.7 gồm 2 nodes (`cache.t3.micro`) gồm 1 Primary và 1 Replica thực hiện lưu cache session và dữ liệu các sự kiện hot. |
 | **Messaging** | SQS FIFO | Hàng đợi thông tin đặt vé `booking-queue.fifo` đảm bảo xử lý chính xác theo thứ tự, đi kèm `checkout-dlq.fifo` (Dead Letter Queue) để cô lập các bản ghi lỗi. |
 | **Email & Noti** | SNS & SES | **SES** gửi email chứa vé điện tử cho khách hàng. **SNS** gửi thông báo vận hành hệ thống và thông báo cảnh báo lỗi. |
-| **Security** | IAM, Secrets Manager, KMS | **Cognito** quản lý thông tin người dùng; **Secrets Manager** lưu trữ thông tin đăng nhập RDS tự động đổi mã khóa sau 7 ngày; **KMS** mã hóa dữ liệu. |
+| **Security** | IAM, Secrets Manager, KMS | **IAM Role** thiết lập quyền tối thiểu (Least Privilege), không hard-code access key. Hạn chế tài nguyên ở Private Subnet. **Cognito** quản lý định danh. **KMS** mã hóa dữ liệu. |
 | **CI/CD** | CodePipeline, CodeBuild, CodeCommit | Tự động hóa hoàn toàn quy trình đóng gói và phát hành ứng dụng (CI/CD). |
 | **Monitoring** | CloudWatch | Theo dõi số liệu (Metrics) phần cứng, lưu trữ Log tập trung và kích hoạt hệ thống cảnh báo tự động (Alarms). |
 
@@ -110,7 +130,7 @@ Bảng tính chi phí chi tiết của hệ thống dựa trên công cụ ướ
 | 9 | CloudWatch & Data Transfer| Giám sát logs nâng cao, lưu trữ dữ liệu truyền tải | ~ $8.00 |
 | **Tổng** | **Ước tính chi phí hàng tháng** | | **~ $177.50** |
 
-*Lưu ý:* Chi phí phần cứng thiết bị phát triển ban đầu của đội ngũ dự án là $0.00 do sử dụng máy trạm sẵn có. Chi phí hạ tầng cloud có thể giảm đáng kể xuống còn dưới **$50.00/tháng** trong môi trường Development bằng cách:
+*Lưu ý:* Chi phí hạ tầng cloud có thể giảm đáng kể xuống còn dưới **$50.00/tháng** trong môi trường Development bằng cách:
 *   Chỉ sử dụng 1 NAT Gateway thay vì 2 NAT Gateways (tiết kiệm hơn $32.00/tháng).
 *   Chuyển RDS sang chế độ Single-AZ (tiết kiệm gần $17.00/tháng).
 *   Chỉ chạy 1 node Redis và giảm số lượng instances EC2 Beanstalk xuống tối thiểu 1 instance khi không kiểm thử tải.
@@ -129,7 +149,7 @@ Bảng tính chi phí chi tiết của hệ thống dựa trên công cụ ướ
 | **Tấn công rò rỉ dữ liệu** | Thấp | Rất cao | Không công khai bất kỳ DB hay EC2 nào ra Internet. Đặt toàn bộ tài nguyên trong Private Subnets, cấu hình bảo mật bằng Security Group Chaining nghiêm ngặt và mã hóa dữ liệu với KMS. |
 
 #### Kế hoạch dự phòng (Contingency Plan)
-*   **Trường hợp sự cố hạ tầng lớn:** Sử dụng mã nguồn hạ tầng CloudFormation/CDK để nhanh chóng khởi tạo lại toàn bộ môi trường hạ tầng tại một AWS Region khác.
+*   **Trường hợp sự cố dữ liệu hoặc hạ tầng lớn:** Sử dụng tính năng Automated Backups và Snapshots của RDS để khôi phục (restore) lại cơ sở dữ liệu về thời điểm trước khi xảy ra sự cố (Point-in-Time Recovery), đảm bảo không bị mất mát dữ liệu đơn hàng quan trọng.
 *   **Lỗi đồng bộ thanh toán:** Khi một đơn đặt vé bị lỗi ở tầng Worker, hệ thống tự động đưa tin nhắn lỗi vào DLQ và gửi thông báo qua SNS cho nhóm vận hành xử lý thủ công hoặc chạy script xử lý lại đơn hàng đó mà không làm nghẽn toàn bộ hệ thống đặt vé.
 
 ---

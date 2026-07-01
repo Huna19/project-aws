@@ -1,54 +1,27 @@
 ---
 title: "Worklog Tuần 11"
 date: 2024-01-01
-weight: 2
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hoàn thiện code Backend, triển khai lên **Elastic Beanstalk** và **S3 Frontend**.
+* Xây dựng luồng tự động hóa CI/CD với **CodePipeline**.
+* Thiết lập hệ thống giám sát **CloudWatch Alarms** và thực hiện Load Testing.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   |                                                                                                                                                                                             | 29/06/2026   | 29/06/2026      |                                           |
-| 3   |                                                                                                                                                                                             | 30/06/2026   | 30/06/2026      |                                           |
-| 4   |                                                                                                                                                                                             | 01/07/2026   | 01/07/2026      |                                           |
-| 5   |                                                                                                                                                                                             | 02/07/2026   | 02/07/2026      |                                           |
-| 6   |                                                                                                                                                                                             | 03/07/2026   | 03/07/2026      |                                           |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 2 | - Hoàn thành triển khai Backend, Worker lên **Elastic Beanstalk** và Frontend lên **S3** <br> - Thiết lập thành công luồng CI/CD tự động qua **CodePipeline** | 29/06/2026 | 29/06/2026 | |
+| 3 | - Viết bản đề xuất dự án (Project Proposal) chi tiết hóa kiến trúc và lộ trình triển khai | 30/06/2026 | 30/06/2026 | |
+| 4 | - Soạn thảo tài liệu hướng dẫn End-to-End để chuẩn bị cho buổi Workshop | 01/07/2026 | 01/07/2026 | |
+| 5 | | 02/07/2026 | 02/07/2026 | |
+| 6 | | 03/07/2026 | 03/07/2026 | |
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Đầu tuần này, team đã dồn sức **hoàn thành toàn bộ việc triển khai ứng dụng** (Backend lên Beanstalk, Frontend lên S3) và thiết lập xong luồng tự động hóa CI/CD qua CodePipeline. 
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Ngay sau khi hệ thống chạy ổn định, mình đã dành trọn ngày Thứ 3 và Thứ 4 để tập trung vào mảng document: **viết bản đề xuất dự án (Proposal)** và **biên soạn tài liệu hướng dẫn End-to-End** chuẩn bị cho buổi Workshop sắp tới. (Các tác vụ về cấu hình giám sát CloudWatch và Load Testing sẽ được team tiếp tục thực hiện vào những ngày tiếp theo).

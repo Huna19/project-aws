@@ -10,15 +10,35 @@ pre: " <b> 2. </b> "
 ## High-Availability AWS 3-Tier Solution for Real-Time Event Booking
 
 ### 1. Executive Summary
-**Ticket-App** is a multi-event web-based platform designed to handle online ticket reservations for various types of events such as live music shows, concerts, sports tournaments (including the World Cup), and large-scale entertainment events. Due to the massive spikes in traffic during ticket release windows, the system is specifically designed to prevent server crashes and database connection exhaustion through decoupled, asynchronous message processing.
-
-The system leverages AWS cloud services to construct a standard 3-tier architecture: **AWS Elastic Beanstalk** manages automated scaling for both the API Backend and the processing Workers, **AWS SQS FIFO** guarantees exact-order, duplicate-free booking processing (exactly-once), and **RDS PostgreSQL** operates behind **RDS Proxy** alongside **ElastiCache Redis** caching. The system ensures high availability, user security via Amazon Cognito, and deployment automation via CI/CD pipelines.
+**Ticketing-App** is a multi-event web application platform designed to handle online ticket reservations for various events (e.g., live concerts, sports). The system is specifically engineered to resolve network bottlenecks and database overload by utilizing an asynchronous decoupled processing mechanism and message queuing on AWS.
 
 ---
 
-### 2. Problem Statement
-*   **Current Problem:**
-    Traditional booking platforms often experience web server crashes or database connection pool exhaustion when millions of users attempt to purchase tickets simultaneously for highly anticipated events. The absence of message queues leads to lost orders, inconsistent transaction states, and a poor user experience. Additionally, manual deployments increase configuration errors and slow down software delivery.
+### 2. Concept & Objectives (Problem Statement)
+
+#### 2.1 Context & Problem
+*   **What is the system used for?** 
+    Ticketing-App is an online event ticketing platform designed to handle high concurrency during "flash sale" events.
+*   **Who is the customer?** 
+    End-users are audiences expecting a smooth ticket-purchasing experience. Business clients (B2B) are event organizers who need a stable, crash-free platform to protect their brand image.
+*   **What problem does it solve?**
+    Traditional ticketing systems often crash or suffer from database connection exhaustion when thousands of users access them simultaneously. Ticketing-App solves this with a decoupled architecture and message queuing, ensuring zero dropped orders.
+
+#### 2.2 Specific Goals
+*   **Desired Output:** 
+    * A fully automated 3-tier cloud infrastructure.
+    * A comprehensive Monitoring system: CloudWatch Dashboards, centralized Logs, and automated Alerts/Alarms sent via email/SNS.
+    * A detailed end-to-end Workshop deployment guide.
+*   **Success Criteria:** 
+    * API Response Time remains under 200ms under heavy load.
+    * Data integrity is guaranteed: No lost booking messages, and zero double-bookings thanks to SQS FIFO.
+    * The system scales precisely (Auto Scaling) when load is simulated.
+
+#### 2.3 Program Alignment
+*   **FCAJ / AWS Use-case:** 
+    The project accurately simulates the high-load challenges of real-world e-commerce systems, directly applying the core AWS services (Elastic Beanstalk, RDS Multi-AZ, SQS, ElastiCache, CloudFront) taught in the First Cloud AI Journey (FCAJ) program.
+*   **Cloud Focus:** 
+    The solution deeply focuses on High Availability, Security, and Scalability—the core philosophies of cloud computing, perfectly aligning with cloud infrastructure evaluation criteria.
 *   **Proposed Solution:**
     Implement a decoupled architecture on AWS:
     1.  **Frontend:** Hosted on **Amazon S3 Static Website Hosting** for cost efficiency and crash-resistant page loading.
@@ -45,7 +65,7 @@ The system is deployed in a custom VPC with isolated Public and Private subnets 
 
 #### 3.2 AWS Services Details
 
-| Category | AWS Service | Role & Configuration Details |
+| Category | AWS Service | Selection Rationale & Configuration |
 | :--- | :--- | :--- |
 | **Compute** | Elastic Beanstalk | Deploys and manages two isolated environments: Backend API and SQS processing Worker. |
 | **Compute** | EC2 Instances | Runs Amazon Linux 2023, Node.js 24 runtime, utilizing `t3.micro` instance types. |
@@ -56,7 +76,7 @@ The system is deployed in a custom VPC with isolated Public and Private subnets 
 | **Cache** | ElastiCache Redis | 2-node cluster of `cache.t3.micro` instances (1 Primary, 1 Replica) running Redis 7.0.7 for session store and event data caching. |
 | **Messaging** | SQS FIFO | Managed queues: `booking-queue.fifo` for processing purchases sequentially, with `checkout-dlq.fifo` (Dead Letter Queue) to capture exceptions. |
 | **Email & Alerts** | SNS & SES | **SES** delivers electronic tickets. **SNS** sends operational alerts and infrastructure notifications to administrators. |
-| **Security** | IAM, Secrets Manager, KMS | **Cognito** manages user accounts; **Secrets Manager** secures database credentials with a 7-day auto-rotation; **KMS** encrypts at-rest data. |
+| **Security** | IAM, Secrets Manager, KMS | **IAM Roles** configured with Least Privilege principle, no hard-coded access keys. Restricted public access via Private Subnets. **Cognito** for identities; **KMS** for data encryption. |
 | **CI/CD** | CodePipeline, CodeBuild, CodeCommit | Automates software deployment from commit to production. |
 | **Monitoring** | CloudWatch | Collects logs, gathers infrastructure metrics, and runs alarms. |
 
@@ -109,7 +129,7 @@ This estimate is based on the [AWS Pricing Calculator](https://calculator.aws/#/
 | 9 | CloudWatch & Data Transfer| Logging, metrics, and intra-VPC data transfer | ~ $8.00 |
 | **Total** | **Estimated Monthly Total** | | **~ $177.50** |
 
-*Note:* Initial local machine hardware development cost is $0.00. The cloud infrastructure cost can be trimmed to **under $50.00/month** in development environments by:
+*Note:* The cloud infrastructure cost can be trimmed to **under $50.00/month** in development environments by:
 *   Running only 1 NAT Gateway instead of 2 (saves ~$32.00/month).
 *   Switching RDS to Single-AZ instead of Multi-AZ (saves ~$17.00/month).
 *   Reducing EC2 instances to 1 per tier and running Redis as a single node when load testing is not active.
@@ -128,7 +148,7 @@ This estimate is based on the [AWS Pricing Calculator](https://calculator.aws/#/
 | **Unauthorized Access / Breaches** | Low | High | Enforce security group chaining, keep application servers and databases in Private Subnets, and encrypt data at rest via KMS. |
 
 #### Contingency Plan
-*   **Disaster Recovery:** Use CloudFormation/CDK configurations to redeploy the entire stack in another AWS Region in the event of an outage.
+*   **Disaster Recovery:** Utilize RDS Automated Backups and Snapshots to perform Point-in-Time Recovery (PITR), ensuring no loss of critical booking data in the event of a major data or infrastructure failure.
 *   **Failed Booking Re-processing:** If order processing fails at the Worker tier, it lands in the DLQ. Admin notifications are dispatched via SNS, and script utilities can re-ingest the message after the database state is resolved.
 
 ---

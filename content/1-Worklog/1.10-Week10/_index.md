@@ -1,52 +1,29 @@
 ---
 title: "Week 10 Worklog"
 date: 2024-01-01
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
 ### Week 10 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Set up core network infrastructure: VPC, Subnets, NAT Gateways, Security Groups.
+* Provision data tier: **RDS PostgreSQL**, **ElastiCache Redis**.
+* Set up queue and authentication services: **SQS FIFO**, **Cognito**.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   |                                                                                                                                                                                                          | 06/22/2026 | 06/22/2026      |                                           |
-| 3   |                                                                                                                                                                                                          | 06/23/2026 | 06/23/2026      |                                           |
-| 4   |                                                                                                                                                                                                          | 06/24/2026 | 06/24/2026      |                                           |
-| 5   |                                                                                                                                                                                                          | 06/25/2026 | 06/25/2026      |                                           |
-| 6   |                                                                                                                                                                                                          | 06/26/2026 | 06/26/2026      |                                           |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 2 | - Design VPC, segment into Public/Private Subnets across 2 Availability Zones, NAT Gateways, and set up Security Group Chaining | 06/22/2026 | 06/22/2026 | |
+| 3 | - Deploy **RDS PostgreSQL Multi-AZ** with **RDS Proxy** and provision **ElastiCache Redis** cluster | 06/23/2026 | 06/23/2026 | |
+| 4 | - Configure **Amazon Cognito User Pool** to manage user authentication and login | 06/24/2026 | 06/24/2026 | |
+| 5 | - Provision **SQS FIFO Queues** (Booking Queue & Dead Letter Queue - DLQ) to guarantee ticket ordering | 06/25/2026 | 06/25/2026 | |
+| 6 | - Test secure connections from the test environment to the Database, Cache, and Queue | 06/26/2026 | 06/26/2026 | |
 
 ### Week 10 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+This week, the Flash Sale ticket booking system deployment officially kicked off (Phase 1).
 
-* Successfully created and configured an AWS Free Tier account.
+I completed the secure network infrastructure setup with a custom **VPC**, clearly segmenting Public/Private Subnets across 2 AZs. At the data tier, instead of standard configurations, I deployed **RDS PostgreSQL Multi-AZ** combined with **RDS Proxy** (for better connection pool management under load) and successfully provisioned **ElastiCache Redis**.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+Additionally, I set up the **Cognito User Pool** in preparation for the login flow and created the **SQS FIFO queues** (including Booking Queue and DLQ) to handle reservation logic. All connections from the internal test environment to the DB and Cache have been securely verified via Security Groups. The core infrastructure is now fully ready for next week's application deployment!

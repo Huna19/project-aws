@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 # Triển khai Ứng dụng Đặt vé (Ticketing App) 3 lớp Bảo mật và Tự động co giãn trên AWS
 
@@ -35,4 +31,5 @@ Các dịch vụ và thành phần cốt lõi được triển khai trong worksh
 6. [Tầng Cơ sở dữ liệu & Bộ nhớ đệm](5.6-Database-Caching/)
 7. [Xác thực & Cổng API](5.7-Auth-API-Gateway/)
 8. [Tự động hóa triển khai](5.8-CICD-Pipeline/)
-9. [Dọn dẹp tài nguyên](5.9-Cleanup/)
+9. [Kiểm thử & Xác thực](5.9-Test-Validation/)
+10. [Dọn dẹp tài nguyên](5.10-Cleanup/)
