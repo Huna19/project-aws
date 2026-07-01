@@ -256,7 +256,7 @@ If you want to configure a least privilege policy, follow these steps to create 
 6. Enter a name for the policy (e.g., `TicketAppCleanupPolicy`), add an optional description, and click **Create policy**.
 7. Attach this policy to your **IAM User** (navigate to **Users** -> select your User -> **Add permissions** -> **Attach policies directly** and select the `TicketAppCleanupPolicy` you just created).
 
-![Create IAM Policy](/images/5-Workshop/5.2-Prerequiste/iam_policy.png)
+
 
 ---
 
@@ -303,7 +303,7 @@ git clone https://github.com/free-cloud-journey/ticket-app-workshop.git
 cd ticket-app-workshop
 ```
 
-![Download Source Code](/images/5-Workshop/5.2-Prerequiste/git_clone.png)
+
 
 ---
 
