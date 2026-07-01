@@ -102,5 +102,3 @@ Nhóm bảo mật (Security Group) hoạt động như một tường lửa ảo
    * Click **Create security group**.
 
    ![RDS Instance SG](/images/5-Workshop/5.3-Network-Security/sg_rds_instance.png)
-
-![Security Groups Complete](/images/5-Workshop/5.3-Network-Security/security_groups.png)

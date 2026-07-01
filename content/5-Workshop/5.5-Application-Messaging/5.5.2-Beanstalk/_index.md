@@ -117,7 +117,7 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
    * **EC2 key pair**: Select `test` (Or your own key pair).
    * Click **Next**.
 
-![EB Service Access](/images/5-Workshop/5.5-Application-Messaging/eb_service_access.png)
+![EB Service Access](/images/5-Workshop/5.5-Application-Messaging/eb_service_access.jpg)
 8. Configure **Step 3 - Set up networking**:
    * **VPC**: Select the project VPC (e.g., `ticket-app-vpc`).
    * **Public IP address**: Select **Disabled**.

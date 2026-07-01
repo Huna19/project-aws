@@ -19,7 +19,7 @@ The S3 Bucket will block all public access entirely. Only the CloudFront Distrib
 1. Open the [Amazon S3 console](https://s3.console.aws.amazon.com/s3/home?region=us-east-1#).
 2. Click **Create bucket**.
 3. In the **Create bucket** configuration interface:
-   * **Bucket name**: Enter a globally unique name following this format: ```frontend-ticket-app-<your-account-id>``` (e.g., `frontend-ticket-app-123456789012`).
+   * **Bucket name**: Enter a globally unique name following this format: ```frontend-ticket-app-app-<your-account-id>``` (e.g., `frontend-ticket-app-app-123456789012`).
    * **AWS Region**: Select ```us-east-1``` (or the region you are using for the lab).
    * **Object Ownership**: Select **ACLs disabled (recommended)**.
    * **Block Public Access settings for this bucket**:
@@ -43,14 +43,18 @@ In addition to the Frontend Bucket, the application needs a separate S3 Bucket t
 2. In the **Create bucket** configuration interface:
    * **Bucket name**: Enter a name following this format: ```ticket-app-assets-<your-account-id>``` (e.g., `ticket-app-assets-123456789012`).
    * **AWS Region**: Select ```us-east-1``` (or the region you are using for the lab).
+
+   ![S3 Assets Bucket Name](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create_name.jpg)
+
    * **Object Ownership**: Select **ACLs disabled (recommended)**.
+
+   ![S3 Assets Ownership](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create_ownership.jpg)
+
    * **Block Public Access settings for this bucket**:
      * **Uncheck** the **Block all public access** box (Allow public read access for images).
      * Check the acknowledgment box "I acknowledge that the current settings might result in this bucket and the objects within becoming public."
 
-![S3 Assets Bucket Name](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create_name.png)
-![S3 Assets Ownership](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create_ownership.png)
-![S3 Assets Public Access](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_create_public.png)
+   ![S3 Assets Public Access](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_public_access.jpg)
 
 3. Click **Create bucket** at the bottom of the page.
 4. After the bucket is created, go to the bucket details page → select the **Permissions** tab → scroll to **Cross-origin resource sharing (CORS)** → click **Edit** → paste the following CORS configuration:
@@ -66,7 +70,7 @@ In addition to the Frontend Bucket, the application needs a separate S3 Bucket t
    ```
 5. Click **Save changes**.
 
-![S3 Assets CORS](/images/5-Workshop/5.4-Frontend-Tier/s3_assets_cors.png)
+
 
 ---
 
@@ -75,38 +79,56 @@ In addition to the Frontend Bucket, the application needs a separate S3 Bucket t
 1. Open the [Amazon CloudFront console](https://us-east-1.console.aws.amazon.com/cloudfront/v4/home?region=us-east-1#/distributions).
 2. Click **Create distribution**.
 3. In the **Create distribution** configuration interface:
-   * **Distribution information**:
+   * **Distribution options**:
      * **Distribution name**: Enter ```ticket-app-frontend``` or leave as default.
      * **Project type**: Select **Single website or app**.
+
+   ![CloudFront Distribution Options](/images/5-Workshop/5.4-Frontend-Tier/cf_oac.png)
+
+   * **Domain**:
+     * Select **Skip domain setup** (We will use the default domain provided by CloudFront).
+
+   ![CloudFront Domain Setup](/images/5-Workshop/5.4-Frontend-Tier/cf_waf.png)
+
    * **Origin**:
      * **Origin type**: Select **Amazon S3**.
-     * **S3 origin**: Select **Browse S3** -> Select the ```frontend-ticket-app-<your-account-id>``` bucket created in the previous step.
-     * **Origin settings**: Select **Use recommended origin settings**. (CloudFront will automatically create and assign OAC, configure Sign requests, and set optimal parameters).
+     * **S3 origin**: Select **Browse S3** -> Select the ```frontend-ticket-app-app-<your-account-id>``` bucket created in the previous step.
 
-{{% notice warning %}}
-Note: The S3 bucket must be a standard bucket (REST endpoint), and Static Website Hosting **must not be enabled**, as OAC does not support Website Endpoints.
-{{% /notice %}}
+   ![CloudFront S3 Origin](/images/5-Workshop/5.4-Frontend-Tier/cf_price_class.png)
 
-![CloudFront Origin OAC](/images/5-Workshop/5.4-Frontend-Tier/cf_oac.png)
+     * **Origin settings**: Select **Use recommended origin settings** (CloudFront will automatically create the OAC configuration to securely connect to the S3 Private Bucket).
+
+   {{% notice warning %}}
+   Note: The S3 bucket must be a standard bucket (REST endpoint), and Static Website Hosting **must not be enabled**, as OAC does not support Website Endpoints.
+   {{% /notice %}}
+
+   ![CloudFront Origin Settings](/images/5-Workshop/5.4-Frontend-Tier/cf_origin_settings.jpg)
 
    * **Security protections**:
-     * **AWS WAF**: Select **Do not enable security protections** (For lab purposes to avoid costs).
+     * **AWS WAF**: Keep the default configuration and click **Next**.
 
-![CloudFront WAF](/images/5-Workshop/5.4-Frontend-Tier/cf_waf.png)
+   ![CloudFront Security Settings](/images/5-Workshop/5.4-Frontend-Tier/cf_waf_settings.jpg)
 
-   * **Default cache behavior**:
-     * **Viewer protocol policy**: Select **Redirect HTTP to HTTPS** (Automatically redirect users to HTTPS).
-     * **Allowed HTTP methods**: Select ```GET, HEAD, OPTIONS```.
-   * **Settings**:
-     * **Price class**: Select **Use only North America and Europe** (or appropriate Price Class for cost optimization).
-     * **Default root object**: Enter ```index.html```.
-
-![CloudFront Price Class](/images/5-Workshop/5.4-Frontend-Tier/cf_price_class.png)
+   {{% notice note %}}
+   Note: Since **Project type = Single website or app** has been selected, AWS will automatically apply the appropriate default configuration for the CloudFront Distribution. For this workshop, just keep the default values and click **Next** to continue. Settings such as Cache Behavior, Viewer Protocol Policy, or Allowed HTTP Methods can be edited later if needed.
+   {{% /notice %}}
 
 4. Click **Create distribution** at the bottom.
+
+   ![CloudFront Review and Create](/images/5-Workshop/5.4-Frontend-Tier/cf_review_2.jpg)
+
 5. Once the Distribution is successfully created, CloudFront will display its details. Copy the **Distribution domain name** (e.g., `dxxxxxxxxxx.cloudfront.net`). This is the address used to access the website after deployment is complete.
 
-![CloudFront Domain](/images/5-Workshop/5.4-Frontend-Tier/cf_domain.png)
+6. Configure the **Default root object** for the Distribution:
+   * Since the CloudFront creation wizard does not support setting the Default root object directly, you need to go to the details page of the newly created Distribution.
+   * Under the **General** tab, scroll down to the **Settings** section -> click **Edit** on the right side.
+
+   ![CloudFront Domain](/images/5-Workshop/5.4-Frontend-Tier/cf_domain.png)
+
+   * In the **Default root object** field, enter ```index.html```.
+   * Scroll to the bottom of the page and click **Save changes**.
+
+   ![CloudFront Save Settings](/images/5-Workshop/5.4-Frontend-Tier/cf_save_settings.jpg)
 
 ---
 
@@ -122,6 +144,9 @@ Since the Frontend application is built with React (a Single Page Application), 
    * **Response page path**: Enter `/index.html`.
    * **HTTP Response code**: Enter **200: OK**.
    * Click **Create custom error response**.
+
+   ![CloudFront Custom Error 403](/images/5-Workshop/5.4-Frontend-Tier/cf_error_403.png)
+
 4. Repeat the steps above to configure for **404** error:
    * **HTTP error code**: Select **404: Not Found**.
    * **Customize error response**: Select **Yes**.
@@ -129,7 +154,7 @@ Since the Frontend application is built with React (a Single Page Application), 
    * **HTTP Response code**: Enter **200: OK**.
    * Click **Create custom error response**.
 
-![CloudFront Error Pages](/images/5-Workshop/5.4-Frontend-Tier/cf_error_pages.png)
+   ![CloudFront Custom Error 404](/images/5-Workshop/5.4-Frontend-Tier/cf_error_404.png)
 
 ---
 
@@ -139,18 +164,28 @@ Since the Frontend application is built with React (a Single Page Application), 
 After the CloudFront Distribution is created, you must update the S3 Bucket Policy to allow the CloudFront Principal service to read files from your bucket.
 {{% /notice %}}
 
-1. When the screen navigates to the newly created CloudFront Distribution details page, you will see a yellow banner displaying a notification requesting you to update the S3 Bucket Policy.
-2. Click the **Copy policy** button on the right side of the banner.
+1. In the newly created CloudFront Distribution details page, switch to the **Origins** tab.
+2. Select the S3 origin and click **Edit**.
 
-![Copy S3 Policy](/images/5-Workshop/5.4-Frontend-Tier/copy_policy.png)
+   ![CloudFront Origins Tab](/images/5-Workshop/5.4-Frontend-Tier/cf_origins_tab.jpg)
 
-3. Go back to the S3 Bucket details page for ```frontend-ticket-app-<your-account-id>```:
+3. In the **Edit origin** interface, scroll down to the policy warning section and click **Copy policy**.
+
+   ![CloudFront Copy Policy](/images/5-Workshop/5.4-Frontend-Tier/cf_copy_policy.jpg)
+
+4. Go back to the S3 Bucket details page for ```frontend-ticket-app-app-<your-account-id>```:
    * Select the **Permissions** tab.
    * Scroll down to the **Bucket policy** section -> click **Edit**.
-   * Paste the entire JSON policy content you just copied into the editor.
-   * Click **Save changes**.
 
-![Save S3 Policy](/images/5-Workshop/5.4-Frontend-Tier/s3_policy_save.png)
+   ![S3 Edit Policy](/images/5-Workshop/5.4-Frontend-Tier/s3_edit_policy.jpg)
+
+5. Paste the entire JSON policy content you just copied into the editor.
+
+   ![S3 Paste Policy](/images/5-Workshop/5.4-Frontend-Tier/s3_paste_policy.jpg)
+
+6. Scroll to the bottom and click **Save changes**.
+
+   ![S3 Save Policy](/images/5-Workshop/5.4-Frontend-Tier/s3_save_policy_btn.jpg)
 
 ---
 
@@ -170,25 +205,24 @@ Before uploading the Frontend code to S3, we need to configure the Frontend to c
    npm install
    npm run build
    ```
-   * After running successfully, a ```build``` or ```dist``` folder will be created containing static files (index.html, JS, CSS, images).
-
-![Frontend Build](/images/5-Workshop/5.4-Frontend-Tier/npm_build.png)
+   * After running successfully, an ```out``` folder will be created containing static files (index.html, JS, CSS, images).
 
 ---
 
 #### 7. Upload Source Code to S3 Frontend Bucket
 
-1. Go back to the S3 Bucket details page for ```frontend-ticket-app-<your-account-id>``` on the AWS Console.
+1. Go back to the S3 Bucket details page for ```frontend-ticket-app-app-<your-account-id>``` on the AWS Console.
 2. In the **Objects** tab, click **Upload**.
-3. Drag and drop all files and subfolders **inside** the ```build``` (or ```dist```) folder generated in Step 6 into the upload area.
+
+   ![S3 Upload Button](/images/5-Workshop/5.4-Frontend-Tier/s3_upload_btn.jpg)
+
+3. Drag and drop all files and subfolders **inside** the ```out``` folder generated in Step 6 into the upload area.
    * *Note: The `index.html` file must be uploaded directly to the root directory of the S3 Bucket.*
 
-![S3 Uploading](/images/5-Workshop/5.4-Frontend-Tier/s3_uploading.png)
+   ![S3 Upload Files](/images/5-Workshop/5.4-Frontend-Tier/s3_upload_files.jpg)
 
 4. Click **Upload** at the bottom of the page and wait for the process to complete.
 
-![S3 Upload Complete](/images/5-Workshop/5.4-Frontend-Tier/s3_uploaded_objects.png)
+   ![S3 Execute Upload](/images/5-Workshop/5.4-Frontend-Tier/s3_upload_execute.jpg)
 
 After a successful upload, access the website through the CloudFront Distribution domain name to confirm the interface is displaying correctly.
-
-![Access Website via CloudFront](/images/5-Workshop/5.4-Frontend-Tier/website_access.png)

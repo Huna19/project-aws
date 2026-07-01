@@ -20,7 +20,7 @@ To allow instances in the Private Subnets to connect to the internet to download
    * On the navigation bar, select **Internet gateways** -> click **Create internet gateway**.
 
 ![Create IGW Button](/images/5-Workshop/5.3-Network-Security/igw_create_btn.png)
-![Create IGW](/images/5-Workshop/5.3-Network-Security/igw_create.png)
+![Create IGW](/images/5-Workshop/5.3-Network-Security/igw_name.png)
 
    * **Name tag**: Enter ```ticket-app-igw``` -> click **Create internet gateway**.
    * After creation, click **Actions** -> Select **Attach to VPC**.
@@ -29,13 +29,13 @@ To allow instances in the Private Subnets to connect to the internet to download
 
    * Select the ```ticket-app-vpc``` VPC -> click **Attach internet gateway**.
 
-![Attach IGW](/images/5-Workshop/5.3-Network-Security/igw_attach.png)
+![Attach IGW](/images/5-Workshop/5.3-Network-Security/igw_attach_vpc.png)
 
 2. **Allocate Elastic IPs**:
    * Select **Elastic IPs** -> click **Allocate Elastic IP address**.
 
 ![Allocate EIP Button](/images/5-Workshop/5.3-Network-Security/eip_allocate_btn.png)
-![Allocate EIP](/images/5-Workshop/5.3-Network-Security/eip_allocate.png)
+![Allocate EIP](/images/5-Workshop/5.3-Network-Security/eip_allocate_confirm.png)
 
    * Click **Allocate** (Repeat this step 2 times to get 2 static IP addresses for 2 NAT Gateways).
 
@@ -49,8 +49,8 @@ To allow instances in the Private Subnets to connect to the internet to download
      * **Elastic IP allocation ID**: Select the first allocated EIP.
      * Click **Create NAT gateway**.
 
-![Create NAT A Top](/images/5-Workshop/5.3-Network-Security/nat_a_create_top.png)
-![Create NAT A Bottom](/images/5-Workshop/5.3-Network-Security/nat_a_create_bottom.png)
+![Create NAT A Top](/images/5-Workshop/5.3-Network-Security/nat_a_details.png)
+![Create NAT A Bottom](/images/5-Workshop/5.3-Network-Security/nat_a_eip.png)
 
    * Click **Create NAT gateway** again to create the second one:
      * **Name**: ```ticket-app-nat-gateway-b```
@@ -58,8 +58,8 @@ To allow instances in the Private Subnets to connect to the internet to download
      * **Elastic IP allocation ID**: Select the second EIP.
      * Click **Create NAT gateway**.
 
-![Create NAT B Top](/images/5-Workshop/5.3-Network-Security/nat_b_create_top.png)
-![Create NAT B Bottom](/images/5-Workshop/5.3-Network-Security/nat_b_create_bottom.png)
+![Create NAT B Top](/images/5-Workshop/5.3-Network-Security/nat_b_details.png)
+![Create NAT B Bottom](/images/5-Workshop/5.3-Network-Security/nat_b_eip.png)
 
 ---
 
@@ -71,9 +71,11 @@ We need to separate the routing paths for Public Subnets (via Internet Gateway) 
    * Select **Route tables** -> click **Create route table**.
 
 ![Create Route Table Button](/images/5-Workshop/5.3-Network-Security/rt_create_btn.png)
-![Create Public Route Table](/images/5-Workshop/5.3-Network-Security/rt_public_create.png)
 
    * **Name**: ```ticket-app-public-rt``` -> Select the ```ticket-app-vpc``` VPC -> click **Create**.
+
+![Create Public Route Table](/images/5-Workshop/5.3-Network-Security/rt_public_name.png)
+
    * Select the newly created ```ticket-app-public-rt``` route table -> Select the **Routes** tab -> click **Edit routes**:
 
 ![Edit Public Routes Button](/images/5-Workshop/5.3-Network-Security/rt_public_edit_routes_btn.png)
@@ -81,27 +83,27 @@ We need to separate the routing paths for Public Subnets (via Internet Gateway) 
      * Click **Add route**: Destination ```0.0.0.0/0``` -> Target select **Internet Gateway** -> Select ```ticket-app-igw```.
      * Click **Save changes**.
 
-![Edit Public Routes](/images/5-Workshop/5.3-Network-Security/rt_public_edit_routes.png)
+![Edit Public Routes](/images/5-Workshop/5.3-Network-Security/rt_public_add_route_igw.png)
 
    * Switch to the **Subnet associations** tab -> click **Edit subnet associations**:
 
-![Edit Public Subnets Button](/images/5-Workshop/5.3-Network-Security/rt_public_edit_subnets_btn.png)
+![Edit Public Subnets Button](/images/5-Workshop/5.3-Network-Security/rt_public_edit_subnet_assoc_btn.png)
 
      * Check **ticket-app-subnet-public-a** and **ticket-app-subnet-public-b** -> click **Save associations**.
 
-![Edit Public Subnets](/images/5-Workshop/5.3-Network-Security/rt_public_edit_subnets.png)
+![Edit Public Subnets](/images/5-Workshop/5.3-Network-Security/rt_public_assoc_subnets.png)
 
 2. **Private Route Table A**:
    * Click **Create route table** -> Name: ```ticket-app-private-rt-a``` -> Select VPC -> click **Create**.
    * **Routes** tab -> click **Edit routes** -> Add route: Destination ```0.0.0.0/0``` -> Target select **NAT Gateway** -> Select ```ticket-app-nat-gateway-a``` -> Save.
 
 ![Edit Private A Routes Button](/images/5-Workshop/5.3-Network-Security/rt_private_a_edit_routes_btn.png)
-![Edit Private A Routes](/images/5-Workshop/5.3-Network-Security/rt_private_a_edit_routes.png)
+![Edit Private A Routes](/images/5-Workshop/5.3-Network-Security/rt_private_a_add_route_nat.png)
 
    * **Subnet associations** tab -> Edit -> Select **ticket-app-subnet-private-a** -> Save.
 
-![Edit Private A Subnets Button](/images/5-Workshop/5.3-Network-Security/rt_private_a_edit_subnets_btn.png)
-![Edit Private A Subnets](/images/5-Workshop/5.3-Network-Security/rt_private_a_edit_subnets.png)
+![Edit Private A Subnets Button](/images/5-Workshop/5.3-Network-Security/rt_private_a_edit_subnet_assoc_btn.png)
+![Edit Private A Subnets](/images/5-Workshop/5.3-Network-Security/rt_private_a_assoc_subnets.png)
 
 3. **Private Route Table B**:
    * Create ```ticket-app-private-rt-b``` similarly -> route ```0.0.0.0/0``` to **NAT Gateway B** -> Associate with **ticket-app-subnet-private-b**.

@@ -71,9 +71,11 @@ Chúng ta cần phân tách luồng định tuyến cho Public Subnets (đi qua 
    * Chọn **Route tables** -> click **Create route table**.
 
    ![Create Route Table Button](/images/5-Workshop/5.3-Network-Security/rt_create_btn.png)
+   
+   * **Name**: ```ticket-app-public-rt``` -> Chọn VPC ```ticket-app-vpc``` -> click **Create**.
+
    ![Create Public Route Table](/images/5-Workshop/5.3-Network-Security/rt_public_name.png)
 
-   * **Name**: ```ticket-app-public-rt``` -> Chọn VPC ```ticket-app-vpc``` -> click **Create**.
    * Chọn route table ```ticket-app-public-rt``` vừa tạo -> Chọn tab **Routes** -> click **Edit routes**:
 
    ![Edit Public Routes Button](/images/5-Workshop/5.3-Network-Security/rt_public_edit_routes_btn.png)
