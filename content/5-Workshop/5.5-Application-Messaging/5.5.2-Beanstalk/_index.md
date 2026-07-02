@@ -93,6 +93,8 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 
 9. Click **Next** -> Save the Inline Policy as `ticket-app-beanstalk-inline-policy` and click **Create policy**.
 
+   ![EB IAM Inline Policy](/images/5-Workshop/5.5-Application-Messaging/eb_iam_inline_policy.png)
+
 ---
 
 #### 2. Deploy Beanstalk Backend (Web Server Environment)
@@ -101,6 +103,8 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 1. Open the [AWS Elastic Beanstalk console](https://us-east-1.console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/applications).
 2. Click **Create application** (on the Applications page).
 3. Enter **Application name**: ```ticket-app-App``` and click **Create**.
+
+![EB Create Application](/images/5-Workshop/5.5-Application-Messaging/eb_create_app.png)
 
 **Step 1.2: Create Environment (Backend)**
 1. In the `ticket-app-App` Application management screen, click **Create a new environment** (or **Create environment**).
@@ -117,14 +121,14 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 ![EB Create Environment](/images/5-Workshop/5.5-Application-Messaging/eb_create_env.png)
 ![EB Platform](/images/5-Workshop/5.5-Application-Messaging/eb_platform.png)
 
-7. Configure **Step 2 - Configure service access**:
+3. Configure **Step 2 - Configure service access**:
    * **Service role**: Select **aws-elasticbeanstalk-service-role**.
    * **EC2 instance profile**: Select `ticket-app-beanstalk-ec2-role` (Created in Step 1).
    * **EC2 key pair**: Select `test` (Or your own key pair).
    * Click **Next**.
 
 ![EB Service Access](/images/5-Workshop/5.5-Application-Messaging/eb_service_access.jpg)
-8. Configure **Step 3 - Set up networking**:
+4. Configure **Step 3 - Set up networking**:
    * **VPC**: Select the project VPC (e.g., `ticket-app-vpc`).
    * **Public IP address**: Select **Disabled**.
    * **Instance subnets**: Check two **Private Subnets** (e.g., `ticket-app-subnet-private-a` and `ticket-app-subnet-private-b`).
@@ -132,7 +136,7 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 
 ![EB Instance Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_instance_subnets.jpg)
 
-9. Configure **Step 4 - Configure instance traffic and scaling**:
+5. Configure **Step 4 - Configure instance traffic and scaling**:
    * **EC2 security groups**: Check the `ticket-app-ec2-worker-sg` Security Group.
    * Scroll down to **Capacity** -> **Auto scaling group**:
      * **Environment type**: Select **Load balanced**.
@@ -141,13 +145,13 @@ Elastic Beanstalk requires an IAM Role (Instance Profile) to grant EC2 instances
 
 ![EB Security and Scaling](/images/5-Workshop/5.5-Application-Messaging/eb_security_scaling.jpg)
 
-10. Still in Step 4, scroll down to **Load balancer network settings**:
+6. Still in Step 4, scroll down to **Load balancer network settings**:
    * **Visibility**: Select **Public**.
    * **Load balancer subnets**: Check two **Public Subnets** (e.g., `ticket-app-subnet-public-a` and `ticket-app-subnet-public-b`).
 
 ![EB Load Balancer Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_lb_subnets.jpg)
 
-11. Under the **Processes** section (below Load balancer security groups), check the default process (usually `default`), click **Actions -> Edit**:
+7. Under the **Processes** section (below Load balancer security groups), check the default process (usually `default`), click **Actions -> Edit**:
    * Change **Health check path** from `/` to `/health`. Click **Save**.
    * Skip the remaining configurations by clicking **Next** until the final screen (Step 6 - Review), click **Submit** to initialize the environment.
 

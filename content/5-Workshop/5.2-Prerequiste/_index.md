@@ -279,15 +279,6 @@ Ensure your workstation has the following tools installed and configured:
     git --version
     ```
 
-##### C. AWS CLI & Configure
-*   Install the AWS Command Line Interface (AWS CLI) to interact with your AWS account.
-*   After installation, run the following command to configure your credentials (Access Key & Secret Key) of the authorized IAM User:
-    ```bash
-    aws configure
-    ```
-    *   *Default region name:* `us-east-1` (N. Virginia)
-    *   *Default output format:* `json`
-
 ---
 
 #### 3. Download Project Source Code
@@ -327,11 +318,10 @@ To prepare the environment for the workshop, we deploy the following CloudFormat
 {{% notice info %}}
 **Note on Deployment Scope**: 
 If you choose automatic deployment via CloudFormation, the system will automatically initialize the basic resources. You can **skip the manual creation steps** and only read the instructions to **Verify/Check** configurations for the following parts:
-*   **Chapter 5.3 (Network & Security)**: Completely (VPC, Subnets, NAT, Security Groups).
-*   **Chapter 5.4 (Frontend Tier)**: S3 Bucket creation step (you **still need to manually configure** CloudFront CDN + WAF).
-*   **Chapter 5.5 (Application & Messaging Tier)**: Completely (Elastic Beanstalk Backend/Worker and SQS).
-*   **Chapter 5.6 (Database & Caching)**: Secrets Manager configuration step (you **still need to manually create** RDS Database, RDS Proxy, and ElastiCache Redis).
-*   **Chapter 5.7 (Auth & API Gateway)**: Cognito User Pool creation step (you **still need to manually create** API Gateway).
+*   **Chapter 5.3 (Network & Security Infrastructure)**: 5.3.1 (Create VPC & Subnets), 5.3.2 (Configure Routing & NAT Gateways), and a part of 5.3.3 (Secrets Manager, 2 Security Groups `ticket-app-alb-sg` and `ticket-app-ec2-worker-sg`).
+*   **Chapter 5.4 (Frontend Tier)**: 5.4.1 (Create Amazon S3 Buckets).
+*   **Chapter 5.5 (Application & Messaging Tier)**: 5.5.1 (Configure SQS FIFO & DLQ), 5.5.2 (Deploy Beanstalk).
+*   **Chapter 5.7 (Authentication & API Gateway)**: 5.7.1 (Cognito User Pool).
 {{% /notice %}}
 
 1. The browser will open the CloudFormation Console with the configuration pre-filled.
@@ -339,4 +329,15 @@ If you choose automatic deployment via CloudFormation, the system will automatic
 3. Scroll to the bottom of the Review page, check **I acknowledge that AWS CloudFormation might create IAM resources with custom names.** and click **Submit** to start deployment.
 4. Wait for the deployment process to complete (Status changes to `CREATE_COMPLETE`).
 
-After the CloudFormation Stack deploys successfully, your basic infrastructure is complete! In the following chapters, if you choose **Option A**, you only need to navigate through the services to **verify and check** configurations, then proceed to the source code deployment steps.
+After the CloudFormation Stack deploys successfully, most of your basic infrastructure is ready! In the following chapters, if you choose **Option A**, you only need to read the instructions to **verify configurations** for automatically created resources, but you **must manually perform** the following configuration and deployment steps:
+
+*   **Section 5.3.3 (Security)**: Create the remaining 3 Security Groups (`ticket-app-rds-proxy-sg`, `ticket-app-rds-instance-sg`, `ticket-app-redis-sg`).
+*   **Section 5.4.2 (CloudFront)**: Configure CloudFront Distribution & WAF Security.
+*   **Section 5.4.3 (Deploy)**: Deploy Frontend code to S3.
+*   **Section 5.5.3 (SNS)**: SNS Notifications & DLQ Monitoring.
+*   **Section 5.5.4 (SES)**: Configure Amazon SES (Email) & SMTP Credentials.
+*   **Section 5.6.1 (RDS)**: Create RDS PostgreSQL Database & RDS Proxy.
+*   **Section 5.6.2 (Redis)**: Configure ElastiCache Redis.
+*   **Section 5.7.2 (ApiGateway)**: Create API Gateway & configure Cognito Authorizer, Routes, and CORS.
+*   **Chapter 5.8 (CI/CD)**: Create CodeCommit, CodeBuild, CodePipeline & push source code to trigger CI/CD.
+*   **Chapter 5.9 (Test)**: Test & Validate the system.

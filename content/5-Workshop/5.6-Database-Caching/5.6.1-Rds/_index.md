@@ -41,12 +41,24 @@ For security, the database instance only accepts internal connections from Priva
    ![RDS Create Database Button](/images/5-Workshop/5.6-Database-Caching/rds_create_btn.png)
 
    * **Engine options**: Select **PostgreSQL**.
+
+   ![RDS Engine](/images/5-Workshop/5.6-Database-Caching/rds_engine.png)
+
    * **Templates**: Select **Production** or **Dev/Test**.
-   * **Deployment options**: Select **Multi-AZ DB instance**.
+
+   ![RDS Templates](/images/5-Workshop/5.6-Database-Caching/rds_templates.png)
+
    * **Settings**:
      * **DB instance identifier**: ```database-ticket-app```.
      * **Master username**: ```postgres```.
      * **Master password**: Enter matching password with Secrets Manager.
+
+   ![RDS Credentials](/images/5-Workshop/5.6-Database-Caching/rds_credentials.png)
+
+   * **Instance configuration**: Select an appropriate instance class for your needs.
+
+   ![RDS Instance Class](/images/5-Workshop/5.6-Database-Caching/rds_instance_class.png)
+
    * **Connectivity**:
      * **Virtual private cloud (VPC)**: Select your VPC.
      * **DB subnet group**: Select ```db-subnet-group-ticket-app```.

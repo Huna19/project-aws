@@ -279,15 +279,6 @@ Hãy đảm bảo máy trạm của bạn đã được cài đặt sẵn các c
     git --version
     ```
 
-##### C. AWS CLI & Configure
-*   Cài đặt công cụ dòng lệnh AWS CLI để tương tác với tài khoản AWS.
-*   Sau khi cài đặt, chạy lệnh sau để cấu hình thông tin xác thực (Access Key & Secret Key) của IAM User đã được phân quyền:
-    ```bash
-    aws configure
-    ```
-    *   *Default region name:* `us-east-1` (N. Virginia)
-    *   *Default output format:* `json`
-
 ---
 
 #### 3. Tải mã nguồn dự án (Project Source Code)
@@ -326,12 +317,11 @@ Trong workshop này, bạn có thể lựa chọn 1 trong 2 phương thức sau 
 
 {{% notice info %}}
 **Lưu ý về phạm vi triển khai**: 
-Nếu chọn triển khai tự động bằng CloudFormation, hệ thống sẽ tự khởi tạo sẵn các tài nguyên cơ bản. Bạn có thể **bỏ qua bước tạo thủ công** và chỉ cần đọc hướng dẫn để **Kiểm tra/Xác minh** cấu hình đối với các phần sau:
-*   **Chương 5.3 (Mạng & Bảo mật)**: Toàn bộ (VPC, Subnet, NAT, Security Groups).
-*   **Chương 5.4 (Tầng Frontend)**: Bước tạo S3 Bucket (bạn **vẫn phải tự làm** bước cấu hình CloudFront CDN + WAF).
-*   **Chương 5.5 (Tầng Application & Messaging)**: Toàn bộ (Elastic Beanstalk Backend/Worker và SQS).
-*   **Chương 5.6 (Database & Caching)**: Bước cấu hình Secrets Manager (bạn **vẫn phải tự làm** bước tạo RDS Database, RDS Proxy và ElastiCache Redis).
-*   **Chương 5.7 (Auth & API Gateway)**: Bước tạo Cognito User Pool (bạn **vẫn phải tự làm** bước tạo API Gateway).
+Nếu chọn triển khai tự động bằng CloudFormation, hệ thống sẽ tự động khởi tạo sẵn các tài nguyên cơ bản. Bạn có thể **bỏ qua bước tạo thủ công** và chỉ cần đọc hướng dẫn để **Kiểm tra/Xác minh** cấu hình đối với các phần sau:
+*   **Chương 5.3 (Hạ tầng Mạng & Bảo mật)**: 5.3.1 (Khởi tạo VPC & Subnets), 5.3.2 (Định tuyến & NAT Gateways), và một phần của 5.3.3 (Secrets Manager, 2 Security Groups `ticket-app-alb-sg` và `ticket-app-ec2-worker-sg`).
+*   **Chương 5.4 (Tầng Giao diện)**: 5.4.1 (Khởi tạo Amazon S3 Buckets).
+*   **Chương 5.5 (Tầng Application & Messaging)**: 5.5.1 (Cấu hình SQS FIFO & DLQ), 5.5.2 (Triển khai Beanstalk).
+*   **Chương 5.7 (Xác thực & Cổng API)**: 5.7.1 (Cognito User Pool).
 {{% /notice %}}
 
 1. Trình duyệt sẽ mở bảng điều khiển CloudFormation Console và tự động điền sẵn các cấu hình.
@@ -339,4 +329,15 @@ Nếu chọn triển khai tự động bằng CloudFormation, hệ thống sẽ 
 3. Cuộn xuống cuối trang Review, tích chọn **I acknowledge that AWS CloudFormation might create IAM resources with custom names.** và click **Submit** để bắt đầu triển khai.
 4. Đợi cho đến khi quá trình khởi tạo hoàn tất (Trạng thái chuyển sang `CREATE_COMPLETE`).
 
-Sau khi CloudFormation Stack triển khai thành công, hạ tầng cơ bản của bạn đã hoàn thành! Ở các chương tiếp theo, nếu đi theo **Lựa chọn A**, bạn chỉ cần đi qua các dịch vụ để **xác minh và kiểm tra** cấu hình, sau đó tiến hành các bước deploy source code.
+Sau khi CloudFormation Stack triển khai thành công, phần lớn hạ tầng cơ bản của bạn đã hoàn tất! Ở các chương tiếp theo, nếu đi theo **Lựa chọn A**, bạn chỉ cần đọc hướng dẫn để **xác minh cấu hình** đối với các phần đã được tạo tự động, đồng thời **bắt buộc phải tự tay thực hiện** các bước cấu hình và triển khai sau:
+
+*   **Bài 5.3.3 (Bảo mật)**: Tạo 3 Security Groups còn lại (`ticket-app-rds-proxy-sg`, `ticket-app-rds-instance-sg`, `ticket-app-redis-sg`).
+*   **Bài 5.4.2 (CloudFront)**: Cấu hình CloudFront Distribution & Bảo mật WAF.
+*   **Bài 5.4.3 (Deploy)**: Triển khai code Frontend lên S3.
+*   **Bài 5.5.3 (SNS)**: Thông báo SNS & Giám sát DLQ.
+*   **Bài 5.5.4 (SES)**: Cấu hình Amazon SES (Email) & SMTP Credentials.
+*   **Bài 5.6.1 (RDS)**: Tạo Database RDS PostgreSQL & RDS Proxy.
+*   **Bài 5.6.2 (Redis)**: Cấu hình ElastiCache Redis.
+*   **Bài 5.7.2 (ApiGateway)**: Tạo API Gateway & cấu hình Cognito Authorizer, Routes, CORS.
+*   **Chương 5.8 (CI/CD)**: Tạo CodeCommit, CodeBuild, CodePipeline & đẩy mã nguồn để kích hoạt CI/CD.
+*   **Chương 5.9 (Test)**: Kiểm thử & Xác thực hệ thống.

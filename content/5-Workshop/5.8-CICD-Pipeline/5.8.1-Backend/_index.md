@@ -101,7 +101,7 @@ Before interacting with CodeCommit, you need to initialize HTTPS Git credentials
      ![CodePipeline Backend Deploy Stage](/images/5-Workshop/5.8-CICD-Pipeline/pipeline_backend_deploy.png)
 
 4. Push Backend code to CodeCommit:
-   * Open a Terminal in your Backend directory ```ticket-booking-backend-web```.
+   * Open a Terminal in your Backend directory ```ticket-booking-backend```.
    * **Note**: Make sure to **delete the old hidden `.git` folder** (if exists) in this directory to avoid Remote configuration conflicts when running git init.
    * Initialize Git and push:
      ```bash

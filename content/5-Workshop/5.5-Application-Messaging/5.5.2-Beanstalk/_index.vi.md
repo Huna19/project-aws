@@ -121,14 +121,14 @@ Elastic Beanstalk cần một IAM Role (Instance Profile) để cấp quyền ch
 ![EB Create Environment](/images/5-Workshop/5.5-Application-Messaging/eb_create_env.png)
 ![EB Platform](/images/5-Workshop/5.5-Application-Messaging/eb_platform.png)
 
-7. Cấu hình **Step 2 - Configure service access**:
+3. Cấu hình **Step 2 - Configure service access**:
    * **Service role**: Chọn **aws-elasticbeanstalk-service-role**.
    * **EC2 instance profile**: Chọn `ticket-app-beanstalk-ec2-role` (Role đã tạo ở Bước 1).
    * **EC2 key pair**: Chọn `test` (Hoặc key pair của bạn).
    * Click **Next**.
 
 ![EB Service Access](/images/5-Workshop/5.5-Application-Messaging/eb_service_access.jpg)
-8. Cấu hình **Step 3 - Set up networking**:
+4. Cấu hình **Step 3 - Set up networking**:
    * **VPC**: Chọn VPC của dự án (ví dụ: `ticket-app-vpc`).
    * **Public IP address**: Chọn **Disabled**.
    * **Instance subnets**: Tích chọn hai **Private Subnets** (ví dụ: `ticket-app-subnet-private-a` và `ticket-app-subnet-private-b`).
@@ -136,7 +136,7 @@ Elastic Beanstalk cần một IAM Role (Instance Profile) để cấp quyền ch
 
 ![EB Instance Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_instance_subnets.jpg)
 
-9. Cấu hình **Step 4 - Configure instance traffic and scaling**:
+5. Cấu hình **Step 4 - Configure instance traffic and scaling**:
    * **EC2 security groups**: Tích chọn Security Group `ticket-app-ec2-worker-sg`.
    * Kéo xuống phần **Capacity** -> **Auto scaling group**:
      * **Environment type**: Chọn **Load balanced**.
@@ -145,13 +145,13 @@ Elastic Beanstalk cần một IAM Role (Instance Profile) để cấp quyền ch
 
 ![EB Security and Scaling](/images/5-Workshop/5.5-Application-Messaging/eb_security_scaling.jpg)
 
-10. Vẫn ở Step 4, kéo xuống phần **Load balancer network settings**:
+6. Vẫn ở Step 4, kéo xuống phần **Load balancer network settings**:
    * **Visibility**: Chọn **Public**.
    * **Load balancer subnets**: Tích chọn hai **Public Subnets** (ví dụ: `ticket-app-subnet-public-a` và `ticket-app-subnet-public-b`).
 
 ![EB Load Balancer Subnets](/images/5-Workshop/5.5-Application-Messaging/eb_lb_subnets.jpg)
 
-11. Tại mục **Processes** (Nằm dưới phần Load balancer security groups), tick chọn process mặc định (thường là `default`), click **Actions -> Edit**:
+7. Tại mục **Processes** (Nằm dưới phần Load balancer security groups), tick chọn process mặc định (thường là `default`), click **Actions -> Edit**:
    * Sửa **Health check path** từ `/` thành `/health`. Click **Save**.
    * Bỏ qua các cấu hình còn lại bằng cách click **Next** đến màn hình cuối cùng (Step 6 - Review), click **Submit** để khởi tạo môi trường.
 

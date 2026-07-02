@@ -27,9 +27,9 @@ The S3 Bucket will block all public access entirely. Only the CloudFront Distrib
    * **Block Public Access settings for this bucket**:
      * Check **Block all public access** (Completely block direct access from the internet).
 
-![S3 Bucket Name](/images/5-Workshop/5.4-Frontend-Tier/s3_create_name.png)
-![S3 Object Ownership](/images/5-Workshop/5.4-Frontend-Tier/s3_create_ownership.png)
-![S3 Create Button](/images/5-Workshop/5.4-Frontend-Tier/s3_create_button.png)
+   ![S3 Bucket Name](/images/5-Workshop/5.4-Frontend-Tier/s3_create_name.png)
+   ![S3 Object Ownership](/images/5-Workshop/5.4-Frontend-Tier/s3_create_ownership.png)
+   ![S3 Create Button](/images/5-Workshop/5.4-Frontend-Tier/s3_create_button.png)
 
    * Keep the other default settings and click **Create bucket** at the bottom of the page.
 

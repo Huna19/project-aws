@@ -37,7 +37,7 @@ After creating the S3 Buckets, we will configure an **Amazon CloudFront Distribu
      * **Origin settings**: Select **Use recommended origin settings** (CloudFront will automatically create an OAC configuration to securely connect to the S3 Private Bucket).
 
 
-![CloudFront Origin Settings](/images/5-Workshop/5.4-Frontend-Tier/cf_origin_settings.jpg)
+   ![CloudFront Origin Settings](/images/5-Workshop/5.4-Frontend-Tier/cf_origin_settings.jpg)
 
    * **Web Application Firewall (WAF)** (under **Security protections**):
      * Keep the default security protections settings as is (AWS WAF is automatically enabled to protect your website against common vulnerabilities). Click **Next**.
