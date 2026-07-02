@@ -7,17 +7,17 @@ chapter: false
 
 # Báo cáo thực tập
 ### Thông tin sinh viên:
-&emsp; **Họ và tên:** Nguyễn Phúc Thịnh
+&emsp; **Họ và tên:** Đặng Tấn Hưng
 
-&emsp; **Số điện thoại:** 0365981370
+&emsp; **Số điện thoại:** 0393247155
 
-&emsp; **Email:** thinh270924@gmail.com
+&emsp; **Email:** dangtanhung190804@gmail.com
 
 &emsp; **Trường:** Trường Đại học Công nghệ TP.HCM (HUTECH)
 
 &emsp; **Ngành:** Công nghệ thông tin
 
-&emsp; **Lớp:** 22DTHC1
+&emsp; **Lớp:** 22DTHG8
 
 &emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam (AWS Vietnam)
 
@@ -25,7 +25,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 20/04/2026 đến ngày 10/07/2026
 
-<img src="/images/avatar.jpg" alt="Ảnh đại diện của bạn" width="350" style="border-radius: 8px;" />
+<img src="/images/Capture.PNG" alt="Ảnh đại diện của bạn" width="350" style="border-radius: 8px;" />
 
 
 
