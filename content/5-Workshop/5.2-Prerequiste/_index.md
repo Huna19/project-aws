@@ -299,8 +299,8 @@ The Ticket-App source code is structured into three main directories:
 
 Clone the project from your workshop repository:
 ```bash
-git clone https://github.com/first-cloud-ai-journey/ticket-app-workshop.git
-cd ticket-app-workshop
+git clone https://github.com/thinh2709/Project-FCAJ.git
+cd Project-FCAJ
 ```
 
 

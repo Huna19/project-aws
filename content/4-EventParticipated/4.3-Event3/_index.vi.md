@@ -51,7 +51,7 @@ Sự kiện gồm 4 phần trình bày cực kỳ "thực chiến":
 
 #### 4) Danh Hoàng Hiếu Nghị — From First Cloud AI Journey to AWS Partner
 
-- **Lộ trình 8 bước**: Bắt đầu từ sự tò mò (Student Curiosity) → Tìm đúng môi trường (First Cloud Journey) → Học qua thực hành (Hands-on Labs) → Thể hiện năng lực (Portfolio) → Trở thành AWS Partner → Lan tỏa lại cộng đồng (Share Back).
+- **Lộ trình 8 bước**: Bắt đầu từ sự tò mò (Student Curiosity) → Tìm đúng môi trường (First Cloud AI Journey) → Học qua thực hành (Hands-on Labs) → Thể hiện năng lực (Portfolio) → Trở thành AWS Partner → Lan tỏa lại cộng đồng (Share Back).
 - **Sức mạnh cộng đồng**: Có việc làm mới là khởi đầu. Dấn thân vào cộng đồng (AWS Student Builder Group, AWS Community Builder) mang lại mạng lưới quan hệ (network) tuyệt vời và hỗ trợ thiết thực: voucher thi chứng chỉ, AWS Credits, swags.
 
 ### Những Gì Học Được

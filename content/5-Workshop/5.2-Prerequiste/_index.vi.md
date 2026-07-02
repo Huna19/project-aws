@@ -299,8 +299,8 @@ Mã nguồn của ứng dụng Ticket-App được chia làm 3 thư mục chính
 
 Hãy clone dự án từ repository workshop của bạn:
 ```bash
-git clone https://github.com/first-cloud-ai-journey/ticket-app-workshop.git
-cd ticket-app-workshop
+git clone https://github.com/thinh2709/Project-FCAJ.git
+cd Project-FCAJ
 ```
 
 

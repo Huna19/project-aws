@@ -51,7 +51,7 @@ The event featured 4 highly practical sessions:
 
 #### 4) Danh Hoang Hieu Nghi — From First Cloud AI Journey to AWS Partner
 
-- **8-Step Roadmap**: Starting from Student Curiosity → Finding the right environment (First Cloud Journey) → Hands-on Labs → Demonstrating capability (Portfolio) → Becoming an AWS Partner → Share Back to the community.
+- **8-Step Roadmap**: Starting from Student Curiosity → Finding the right environment (First Cloud AI Journey) → Hands-on Labs → Demonstrating capability (Portfolio) → Becoming an AWS Partner → Share Back to the community.
 - **Community Power**: Getting a job is just the beginning. Engaging in communities (AWS Student Builder Group, AWS Community Builder) provides an excellent network and practical support: certification vouchers, AWS Credits, and exclusive swags.
 
 ### What I Learned
