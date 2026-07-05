@@ -98,10 +98,5 @@ The content was practical and easy to relate to—especially the “addicted to 
   <img src="/images/4-EventParticipated/4.1-Event1/06-turn-knowledge-dopamine.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/04-three-brain-hacks.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/05-advanced-techniques.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/07-why-prompt-engineering-matters.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/03-solution-architecture.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/09-process-to-production.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/10-ai-ready-fresher-criteria.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/11-bmad-team.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/02-thank-you-qrs.png" style="width:220px;height:auto" />
+
 </div>

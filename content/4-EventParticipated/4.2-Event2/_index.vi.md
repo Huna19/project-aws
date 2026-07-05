@@ -95,12 +95,5 @@ Sự kiện mang lại hàm lượng kỹ thuật cực kỳ cao. Nếu Event 1 
   <img src="/images/4-EventParticipated/4.2-Event2/53ed98464f9bcec5978a14.jpg" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.2-Event2/5b603dceea136b4d320223.jpg" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.2-Event2/64fbaf53788ef9d0a09f21.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/6c14edba3a67bb39e27616.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/a39a3d34eae96bb732f824.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/d3aafc022bdfaa81f3ce15.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/d4174ebf9962183c417311.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/dc4096ed4130c06e992128.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/e4abac027bdffa81a3ce22.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/fe4d0ce7db3a5a64032b13.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/ff0763a9b474352a6c6525.jpg" style="width:220px;height:auto" />
+  
 </div>
