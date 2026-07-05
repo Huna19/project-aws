@@ -24,4 +24,4 @@ pre: " <b> 1.6. </b> "
 
 Tuần này mình hoàn thành **2 Module** cuối cùng của khóa học: **Module 10** (Migration, Snow Family) và **Module 11** (Well-Architected Framework). Đặc biệt **Module 11** giúp mình nắm vững thiết kế hạ tầng AWS theo **6 trụ cột** cốt lõi (Bảo mật, Hiệu suất, Tối ưu chi phí, Độ tin cậy, Vận hành xuất sắc, Phát triển bền vững) — đây là nền tảng cực kỳ quan trọng để thiết kế kiến trúc chuẩn. Mình cũng đã làm quen với **AWS Pricing Calculator** để ước tính chi phí.
 
-Cuối tuần mình **tổng ôn toàn bộ 11 Module** rồi hoàn thành bài **Final Assessment** — chính thức chốt lộ trình lý thuyết **AWS Cloud Practitioner**. Coi như xong một cột mốc lớn 🎉, tạo tiền đề vững chắc để bắt tay vào thiết kế và triển khai dự án thực tế trong các tuần tới.
+Cuối tuần mình **tổng ôn toàn bộ 11 Module** rồi hoàn thành bài **Final Assessment** — chính thức chốt lộ trình lý thuyết **AWS Cloud Practitioner**. Coi như xong một cột mốc lớn , tạo tiền đề vững chắc để bắt tay vào thiết kế và triển khai dự án thực tế trong các tuần tới.
