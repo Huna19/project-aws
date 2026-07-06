@@ -8,22 +8,24 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Goals:
 
-* Learn about **AI/ML**, **Security**, and **IAM** on AWS.
-* Get hands-on with **IAM** and **Security Groups** on the Console.
-* Review and consolidate before moving to the next topics.
+* Get a solid grasp of **IAM** — how to control access to AWS resources.
+* Understand the basic **security layers** on AWS.
+* Practice access control and Security Group configuration directly on the Console.
 
 ### Daily breakdown:
 
 | Day | Work performed | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Monday | - Study AI and machine learning on AWS <br> - Overview of AI/ML and Generative AI solutions | 05/11/2026 | 05/11/2026 | |
-| Tuesday | - Study security on AWS <br> - Learn IAM: Users, Groups, Roles, Policies and how they work together | 05/12/2026 | 05/12/2026 | |
-| Wednesday | - Hands-on IAM: Open **IAM** on Console <br> - Review existing users, groups, and attached policies <br> - Check account security recommendations | 05/13/2026 | 05/13/2026 | |
-| Thursday | - Review AI/ML and security topics <br> - Note key concepts: AI/ML services, IAM structure, AWS security layers <br> - Summarize services covered and their intended use cases | 05/14/2026 | 05/14/2026 | |
-| Friday | - Hands-on Security Group: Open **Security Group** attached to EC2 <br> - Review inbound/outbound rules <br> - Adjust basic SSH and HTTP rules <br> - Apply Principle of Least Privilege in IAM and Security Group setup | 05/15/2026 | 05/15/2026 | |
+| Monday | - Study **IAM**: Users, Groups, Roles, Policies <br> - Understand how IAM controls access to each AWS service <br> - Principle of Least Privilege | 05/11/2026 | 05/11/2026 | |
+| Tuesday | - Study AWS security layers: Security Group, NACL, VPC flow logs <br> - Differentiate Security Group (stateful) vs NACL (stateless) | 05/12/2026 | 05/12/2026 | |
+| Wednesday | - Hands-on IAM on Console <br> - Create an IAM User, attach a Policy, verify access permissions <br> - Review account security recommendations (MFA, root account lockdown) | 05/13/2026 | 05/13/2026 | |
+| Thursday | - Study **AWS Organizations** and multi-account management <br> - Study **CloudTrail** to track account activity and changes | 05/14/2026 | 05/14/2026 | |
+| Friday | - Hands-on Security Group: open EC2 on Console <br> - View and adjust inbound/outbound rules (SSH, HTTP, HTTPS) <br> - Apply Least Privilege principle in a real configuration | 05/15/2026 | 05/15/2026 | |
 
 ### Weekly outcomes:
 
-This week covered AI/ML and security. The AI/ML side felt more abstract — Generative AI and data analytics are more directional than hands-on at this stage — but it's useful to know where AWS is heading. IAM and security were more immediately relevant: IAM connects directly to everything built so far with EC2 and VPC, so the security layer finally clicked.
+This week focused entirely on **IAM and security** — two areas many beginners skip but that are critical in any real-world AWS setup. IAM isn't just about "creating users" — it's the foundation for controlling who can do what across the entire infrastructure.
 
-Wednesday I explored **IAM** on Console (users, groups, policies) and reviewed security recommendations. Friday I opened the **Security Group** on EC2, checked inbound/outbound rules, and made a few test adjustments to SSH and HTTP access. Thursday was review day — noted the things I kept getting mixed up to revisit later.
+The trickiest part was distinguishing **Security Group** (operates at instance level, stateful — allowing inbound automatically covers the corresponding outbound response) from **NACL** (operates at subnet level, stateless — both inbound and outbound rules must be explicitly defined). The difference only became clear after actually working with both on the Console.
+
+Learning about **CloudTrail** also turned out to be immediately relevant — in production environments, knowing who did what and when is essential for incident response, not optional.

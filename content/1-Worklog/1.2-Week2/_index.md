@@ -10,7 +10,7 @@ pre: " <b> 1.2. </b> "
 
 * Learn more about compute, networking, and core AWS services.
 * Navigate the Console to get comfortable with **Region**, **VPC**, and **Security Group**.
-* Redo **EC2 + PM2** and spin up a simple **Lambda** to experience what serverless feels like.
+* Create a simple **Lambda** function to experience the difference between serverless and traditional VMs.
 
 ### Daily breakdown:
 
@@ -20,10 +20,10 @@ pre: " <b> 1.2. </b> "
 | Tuesday | - Study AWS Regions, Availability Zones and Edge Locations <br> - Distinguish between Global and Regional service scopes | 04/28/2026 | 04/28/2026 | |
 | Wednesday | - Learn networking components: Subnet, Security Group, Network ACL <br> - Other ways to connect to the AWS Cloud | 04/29/2026 | 04/29/2026 | |
 | Thursday | - Hands-on practice on Console <br> - Select a Region, explore VPC and Subnets <br> - Configure basic Security Group rules for EC2 <br> - Practice switching between Regions | 04/30/2026 | 04/30/2026 | |
-| Friday | - Start up **EC2 Ubuntu**, run **Node.js** app with **PM2** <br> - Create a simple **Lambda** function, invoke it from the Console <br> - Check execution logs in Amazon CloudWatch Logs | 05/01/2026 | 05/01/2026 | |
+| Friday | - Create a simple **Lambda** function, invoke it from the Console <br> - Check execution logs in Amazon **CloudWatch Logs** <br> - Compare the experience between Lambda (serverless) and EC2 (always-on) from week 1 | 05/01/2026 | 05/01/2026 | |
 
 ### Weekly outcomes:
 
 This week covered compute, going global, and networking — things started to connect: Lambda, containers, other compute services; then Regions and AWS infrastructure; then VPC, Subnet, Security Group, NACL — by this point it wasn't just theory anymore but mapped to the actual Console.
 
-The last two days were mostly hands-on exploration: browsing Regions, VPC/Subnet, Security Group; restarting **EC2 Ubuntu** with **Node.js** and **PM2** like week 1, then creating a small **Lambda** to feel the difference between an always-on VM and serverless. No large labs this week — just consolidation.
+The end of the week was hands-on: walked through Regions, VPC/Subnet, Security Group on the Console, then created a simple **Lambda** function and invoked it. Compared to EC2 from week 1, Lambda requires no setup at all — write code, deploy, call it, done. This was the first time serverless actually made sense in practice, not just as a concept on paper.

@@ -8,22 +8,24 @@ pre: " <b> 1.4. </b> "
 
 ### Mục tiêu tuần này:
 
-* Tìm hiểu về **AI/ML**, **bảo mật** và **IAM** trên AWS.
-* Thực hành **IAM** và **Security Group** trên Console.
-* Ôn lại và củng cố trước khi chuyển sang các chủ đề tiếp theo.
+* Nắm vững **IAM** — cách quản lý quyền truy cập tài nguyên AWS.
+* Tìm hiểu các lớp **bảo mật** cơ bản trên AWS.
+* Thực hành phân quyền và cấu hình Security Group trực tiếp trên Console.
 
 ### Công việc từng ngày:
 
 | Ngày | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | - Tìm hiểu AI và machine learning trên AWS <br> - Tổng quan giải pháp AI/ML và Generative AI | 11/05/2026 | 11/05/2026 | |
-| Thứ 3 | - Tìm hiểu bảo mật trên AWS <br> - Tìm hiểu IAM: User, Group, Role, Policy và cách chúng phối hợp với nhau | 12/05/2026 | 12/05/2026 | |
-| Thứ 4 | - Thực hành IAM: Mở **IAM** trên Console <br> - Xem user, group và policy đang gắn <br> - Kiểm tra khuyến nghị bảo mật tài khoản | 13/05/2026 | 13/05/2026 | |
-| Thứ 5 | - Ôn lại AI/ML và bảo mật <br> - Ghi chú các khái niệm quan trọng: dịch vụ AI/ML, cấu trúc IAM, các lớp bảo mật trên AWS <br> - Tổng hợp dịch vụ đã học và phạm vi sử dụng | 14/05/2026 | 14/05/2026 | |
-| Thứ 6 | - Thực hành Security Group: Mở **Security Group** gắn vào EC2 <br> - Xem các rule inbound/outbound <br> - Chỉnh thử rule SSH và HTTP cơ bản <br> - Áp dụng nguyên tắc Least Privilege trong IAM và Security Group | 15/05/2026 | 15/05/2026 | |
+| Thứ 2 | - Tìm hiểu **IAM**: User, Group, Role, Policy <br> - Hiểu cách IAM kiểm soát quyền truy cập vào từng dịch vụ AWS <br> - Nguyên tắc Least Privilege | 11/05/2026 | 11/05/2026 | |
+| Thứ 3 | - Tìm hiểu các lớp bảo mật trên AWS: Security Group, NACL, VPC flow logs <br> - Phân biệt Security Group (stateful) vs NACL (stateless) | 12/05/2026 | 12/05/2026 | |
+| Thứ 4 | - Thực hành IAM trên Console <br> - Tạo IAM User, gắn Policy, kiểm tra quyền truy cập <br> - Xem khuyến nghị bảo mật tài khoản (MFA, root account) | 13/05/2026 | 13/05/2026 | |
+| Thứ 5 | - Tìm hiểu thêm về **AWS Organizations** và quản lý nhiều tài khoản <br> - Tìm hiểu **CloudTrail** để ghi lại hoạt động trong tài khoản AWS | 14/05/2026 | 14/05/2026 | |
+| Thứ 6 | - Thực hành Security Group: mở EC2 trên Console <br> - Xem và chỉnh sửa rule inbound/outbound (SSH, HTTP, HTTPS) <br> - Áp dụng nguyên tắc Least Privilege vào cấu hình thực tế | 15/05/2026 | 15/05/2026 | |
 
 ### Kết quả trong tuần:
 
-Tuần này tìm hiểu về AI/ML và bảo mật. Phần AI/ML hơi trừu tượng — Generative AI, phân tích dữ liệu vẫn còn mang tính định hướng nhiều hơn thực hành — nhưng ít nhất biết được AWS đang đi về đâu. Phần IAM và bảo mật gần gũi hơn nhiều: IAM kết nối trực tiếp với EC2 và VPC mình đã làm, nên lớp bảo mật cuối cùng cũng có cảm giác rõ ràng hơn.
+Tuần này tập trung hoàn toàn vào **IAM và bảo mật** — hai mảng mà nhiều người hay bỏ qua khi mới học cloud nhưng lại cực kỳ quan trọng trong thực tế. IAM không chỉ là "tạo user" — nó là nền tảng kiểm soát ai được làm gì trên toàn bộ hạ tầng.
 
-Về thực hành: thứ 4 khám phá **IAM** trên Console (user, group, policy) và xem qua các khuyến nghị bảo mật. Thứ 6 mở **Security Group** của EC2, kiểm tra rule vào/ra và chỉnh thử SSH, HTTP. Thứ 5 dành để ôn lại — ghi chú các chỗ hay nhầm để học lại sau.
+Phần dễ nhầm nhất là phân biệt **Security Group** (hoạt động ở mức instance, stateful — chỉ cần cho phép inbound thì outbound tương ứng tự được phép) với **NACL** (hoạt động ở mức subnet, stateless — phải tự khai báo cả chiều vào lẫn chiều ra). Sau khi thực hành trực tiếp trên Console thì sự khác biệt mới thực sự rõ.
+
+Việc tìm hiểu thêm **CloudTrail** cũng hữu ích — trong môi trường production, biết ai đã làm gì, lúc nào là thứ không thể thiếu khi có sự cố.
