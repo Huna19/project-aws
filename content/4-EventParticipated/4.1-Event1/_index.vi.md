@@ -6,87 +6,86 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Bài thu hoạch “AWS Event (09/05/2026)”
+# Ghi chép trải nghiệm "AWS Event (09/05/2026)"
 
-### Mục Đích Của Sự Kiện
+### Định hướng chính của sự kiện
 
-- Chia sẻ kiến thức/thực hành liên quan đến học tập hiệu quả và ứng dụng AI (đặc biệt là prompt engineering) trong công việc.
-- Trao đổi về các kỹ năng cần thiết cho fresher trong bối cảnh AI, và giới thiệu phương pháp làm việc (BMAD).
-- Trải nghiệm demo tối ưu prompt và thảo luận trực tiếp cùng người tham gia.
+- Khám phá góc nhìn thực hành về thói quen học tập hiệu quả và ứng dụng AI trong môi trường làm việc thực tế, đặc biệt là kỹ thuật viết prompt.
+- Phân tích kỹ năng mà sinh viên mới ra trường thực sự cần có trong kỷ nguyên AI, giới thiệu framework làm việc BMAD.
+- Tham gia demo tối ưu prompt trực tiếp và mở sân chơi thảo luận với người tham dự.
 
-### Danh Sách Diễn Giả
+### Đội ngũ diễn giả
 
-- **Anh Long**: “Làm sao để nghiện học như nghiện mạng xã hội”
-- **Thịnh**: “Automated Prompt Engineering”
-- **Anh Khang**: “Sao chưa đi làm?” & “AI-Ready Fresher”
-- **Thư**: Giới thiệu “BMAD” (lợi ích & cách sử dụng)
+- **Anh Long**: "Làm sao để nghiện học như nghiện mạng xã hội"
+- **Thịnh**: "Automated Prompt Engineering"
+- **Anh Khang**: "Sao chưa đi làm?" & "AI-Ready Fresher"
+- **Thư**: Giới thiệu "BMAD" — lợi ích và phương pháp áp dụng
 
-### Nội Dung Nổi Bật
+### Cách thức tổ chức
 
-Event gồm 4 phần trình bày theo thứ tự: **Long → Thịnh → Khang → Thư**.
+Bốn bài trình bày liên tiếp được sắp xếp theo thứ tự: **Long → Thịnh → Khang → Thư**.
 
-#### 1) Long — Làm sao để nghiện học như nghiện mạng xã hội
+#### 1) Long — Điều chỉnh não bộ để khao khát học tập
 
-**Tại sao não lại chọn mạng xã hội thay vì học?**
+**Vấn đề cốt lõi: tại sao não tự động chọn scroll mạng xã hội**
 
-- **Mạng xã hội**: fast rewards, novelty & stimulation, low effort
-- **Việc học**: low results, long periods of focus, no immediate rewards
+- **Mạng xã hội**: phần thưởng tức thời, tính mới lạ liên tục, không cần bất kỳ nỗ lực nào
+- **Học tập**: phải chờ lâu mới có kết quả, yêu cầu tập trung liên tục, không có phản hồi ngay lập tức
 
-**Turn knowledge into a dopamine gamble**
+**Biến việc học thành phần thưởng biến thiên**
 
-- Biến việc học thành “phần thưởng biến thiên” để tăng động lực tiếp tục.
+- Tái cấu trúc vòng lặp học tập sao cho nó mô phỏng lại cấu trúc phần thưởng khó đoán — điều khiến con người bị cuốn vào các ứng dụng.
 
-**Trick the amygdala (đánh lừa vùng phản ứng cảm xúc)**
+**Vượt qua cơ chế phản ứng đe dọa của não**
 
-- Ngắt quãng, chia nhỏ, tăng dần khối lượng (tạo cảm giác “dễ bắt đầu”).
-- **Quy tắc 2 phút**: việc gì dưới 2 phút thì làm ngay.
-- Không xem thường những điều mình học — ghi nhận tiến bộ nhỏ để tạo đà.
+- Chia nhỏ nhiệm vụ, chèn các khoảng nghỉ ngắn, và tăng độ khó dần dần — mục tiêu là giảm "năng lượng khởi động" để bắt đầu.
+- **Quy tắc 2 phút**: bất kỳ việc nào dưới 2 phút nên làm ngay, không cần lên lịch.
+- Ăn mừng những chiến thắng nhỏ. Việc công nhận tiến bộ từng chút một sẽ xây dựng đà để tiếp tục.
 
-**Steal the formula used by social media**
+**Mượn chiến thuật từ các nền tảng xã hội**
 
-- Chuyển các chuỗi hành vi “vô dụng” sang những nơi có tác dụng (thay đổi môi trường/điểm chạm).
-- Tích cực thu thập kiến thức có chủ đích thay vì tiêu thụ thụ động.
+- Chuyển hướng các vòng lặp thói quen giá trị thấp vào ngữ cảnh mà chúng tạo ra điều gì đó có ích (thay đổi trigger và touchpoint).
+- Chủ động thu thập kiến thức — việc chủ động luôn mạnh hơn tiêu thụ thụ động.
 
-#### 2) Thịnh — Automated Prompt Engineering
+#### 2) Thịnh — Tự động hóa việc cải thiện prompt
 
-**Vấn đề phổ biến của prompt**
+**Sai lầm cốt lõi mà mọi người mắc phải**
 
-- Không nên đưa prompt **quá chung chung** rồi kỳ vọng nhận về kết quả **chi tiết và đúng ý**.
+- Prompt mơ hồ, chung chung tạo ra kết quả mơ hồ và chung chung — nhưng phần lớn vẫn kỳ vọng output chính xác và hữu ích.
 
-**Tối ưu prompt để tối ưu chi phí**
+**Chất lượng prompt ảnh hưởng trực tiếp đến chi phí**
 
-- Cần hiểu **giá thành khi dùng AI**: tối ưu prompt để tiết kiệm token/chi phí.
-- Không giải quyết prompt kém bằng cách “nhét tất cả mọi thứ”, bắt AI đọc rồi tự lọc; thay vào đó, cung cấp ngữ cảnh đúng trọng tâm và yêu cầu rõ ràng.
+- Chi phí token là thực: một prompt phình ra, thiếu trọng tâm sẽ tốn tiền và làm giảm chất lượng.
+- Thay vì nhồi nhét mọi thứ vào prompt và hy vọng model tự hiểu, hãy cung cấp ngữ cảnh súc tích và yêu cầu rõ phạm vi.
 
-#### 3) Khang — Sao chưa đi làm? / AI-Ready Fresher
+#### 3) Khang — Chuẩn bị cho môi trường làm việc AI
 
-- Chia sẻ các kỹ năng cần có cho fresher khi bước vào môi trường làm việc.
-- Giải đáp thắc mắc tại hội trường về định hướng nghề nghiệp và câu hỏi “AI có thay thế con người không?”.
+- Trình bày các năng lực thực tế mà sinh viên mới cần có trước khi bước vào môi trường chuyên nghiệp.
+- Trả lời câu hỏi trực tiếp từ khán giả về kế hoạch nghề nghiệp và lo ngại "AI có thay thế chúng ta không?".
 
-#### 4) Thư — BMAD
+#### 4) Thư — BMAD thực chất là gì
 
-- Giới thiệu về **BMAD**, lợi ích của BMAD.
-- Hướng dẫn cách dùng để áp dụng vào quy trình làm việc.
+- Giới thiệu framework **BMAD**, giải thích tại sao nó hữu ích và chỉ cách tích hợp vào quy trình làm việc hàng ngày.
 
-#### Demo
+#### Demo trực tiếp
 
-- Trải nghiệm demo về **generate prompt** và **tối ưu prompt**.
+- Minh họa thực thời về việc tạo prompt và **tối ưu prompt** dần dần.
 
-### Những Gì Học Được
+### Những điều mình ghi nhận
 
-- Tư duy “thiết kế thói quen học” dựa trên cơ chế phần thưởng: chia nhỏ, bắt đầu nhanh, duy trì nhịp.
-- Khi dùng AI, **prompt rõ ràng + trọng tâm** giúp kết quả ổn định hơn và **tiết kiệm chi phí**.
-- Góc nhìn thực tế về kỹ năng cần chuẩn bị cho fresher trong thời đại AI, cùng một phương pháp/khung làm việc để tăng hiệu suất.
+- Học tập là một bài toán thiết kế: giảm ma sát khi bắt đầu, duy trì nhịp độ đều đặn, và xây dựng cơ chế phần thưởng.
+- Khi làm việc với AI, **độ chính xác và tập trung trong prompt** mang lại kết quả đáng tin cậy hơn đồng thời kiểm soát được chi phí token.
+- Một góc nhìn chân thực về những gì sinh viên mới thực sự cần chuẩn bị — cùng với một framework có thể lặp lại để thực thi hiệu quả hơn.
 
-### Ứng Dụng Vào Công Việc
+### Cách mình sẽ áp dụng
 
-- Áp dụng **quy tắc 2 phút** và kỹ thuật chia nhỏ để bắt đầu các task khó (đặc biệt là học/chạy lab).
-- Chuẩn hóa cách viết prompt: mục tiêu → ngữ cảnh cần thiết → ràng buộc → output mong muốn.
-- Tập tối ưu prompt theo hướng “ít nhưng đủ”, tránh lan man gây tốn token.
+- Vận dụng **quy tắc 2 phút** và kỹ thuật chia nhỏ để phá vỡ sự trì hoãn trên các task khó (lab, buổi học, v.v.).
+- Viết prompt theo cấu trúc nhất quán: mục tiêu → ngữ cảnh liên quan → ràng buộc → định dạng output mong đợi.
+- Thiên về prompt "tập trung và đủ" thay vì giải thích quá tải để tránh lãng phí token không cần thiết.
 
-### Trải nghiệm trong event
+### Cảm nhận cá nhân
 
-Buổi event có nội dung gần gũi và thực tế, đặc biệt hữu ích ở phần “nghiện học” (tạo động lực học bền) và phần prompt engineering (viết prompt hiệu quả và có ý thức về chi phí). Demo giúp mình thấy rõ tác động của việc tối ưu prompt tới chất lượng output.
+Thật ra đây là một trong những buổi event mình thấy đáng đi nhất — không phải vì có thông báo gì lớn, mà vì nội dung dễ mang về áp dụng ngay vào thói quen hàng ngày. Phần của anh Long về tâm lý học tập làm mình nhìn lại cách bắt đầu task: thay vì dựa vào ý chí, hãy thiết kế lại môi trường xung quanh. Phần của Thịnh là cú tát nhẹ cho ai đang coi AI như tài nguyên miễn phí vô hạn — yếu tố chi phí là thứ hầu hết người mới hoàn toàn bỏ qua. Demo trực tiếp là phần kéo tất cả lại với nhau, cho thấy sự khác biệt rõ ràng giữa một prompt viết ẩu và một prompt có cấu trúc ngay trên thực tế.
 
 #### Một số hình ảnh khi tham gia sự kiện
 ![Ảnh chụp tập thể tại sự kiện](/images/4-EventParticipated/4.1-Event1/)
@@ -99,4 +98,7 @@ Buổi event có nội dung gần gũi và thực tế, đặc biệt hữu ích
   <img src="/images/4-EventParticipated/4.1-Event1/06-turn-knowledge-dopamine.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/04-three-brain-hacks.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/05-advanced-techniques.png" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:220px;height:auto" />
 </div>

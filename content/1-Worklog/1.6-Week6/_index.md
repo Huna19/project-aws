@@ -5,23 +5,25 @@ weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-### Week 6 Objectives:
 
-* Complete **Module 10** (Migration) and **Module 11** (Well-Architected Framework).
-* Master the 6 core pillars of AWS system design.
-* Comprehensive review of 11 Modules and complete the **Final Assessment**.
+### Week 6 Goals:
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
+* Complete **Module 10** (Migration & Innovation) and **Module 11** (Well-Architected Framework).
+* Firmly understand the 6 core pillars of AWS system design.
+* Do a full review of all 11 Modules and complete the **Final Assessment**.
+
+### Daily breakdown:
+
+| Day | Work performed | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| 2 | - Complete **Module 10 – Migration and Innovation**: AWS CAF, migration strategies, Snow Family | 05/25/2026 | 05/25/2026 | <https://skillbuilder.aws/> |
-| 3 | - Complete **Module 11 – AWS Well-Architected Framework**: master **6 core pillars** | 05/26/2026 | 05/26/2026 | <https://skillbuilder.aws/> |
-| 4 | - Practice cost optimization method: calculate expected costs using **AWS Pricing Calculator** | 05/27/2026 | 05/27/2026 | |
-| 5 | - Comprehensive review of **11 Modules**, note commonly confused areas and map them to learned architectures | 05/28/2026 | 05/28/2026 | |
-| 6 | - Complete the **Final Assessment** to finalize the **AWS Cloud Practitioner** theory roadmap <br> - Review results and note areas for further study | 05/29/2026 | 05/29/2026 | <https://skillbuilder.aws/> |
+| Monday | - Complete **Module 10 – Migration & Innovation** on AWS Skill Builder <br> - Study AWS CAF, cloud migration strategies, Snow Family | 05/25/2026 | 05/25/2026 | <https://skillbuilder.aws/> |
+| Tuesday | - Complete **Module 11 – AWS Well-Architected Framework** <br> - Master the 6 pillars: Security, Reliability, Performance Efficiency, Cost Optimization, Operational Excellence, Sustainability | 05/26/2026 | 05/26/2026 | <https://skillbuilder.aws/> |
+| Wednesday | - Cost optimization practice: use **AWS Pricing Calculator** to estimate costs for a specific architecture | 05/27/2026 | 05/27/2026 | |
+| Thursday | - Full review of all **11 Modules** <br> - Note commonly confused areas, cross-reference with architectures studied in previous weeks | 05/28/2026 | 05/28/2026 | |
+| Friday | - Complete the **Final Assessment** to close out the **AWS Cloud Practitioner** theory track <br> - Review results and note areas that need more study | 05/29/2026 | 05/29/2026 | <https://skillbuilder.aws/> |
 
-### Week 6 Achievements:
+### Weekly outcomes:
 
-This week I completed the final **2 Modules** of the course: **Module 10** (Migration, Snow Family) and **Module 11** (Well-Architected Framework). Especially **Module 11** helped me master AWS infrastructure design based on the **6 core pillars** (Security, Performance, Cost Optimization, Reliability, Operational Excellence, Sustainability) — which is a crucial foundation for standardized architecture design. I also practiced using the **AWS Pricing Calculator** for cost estimation.
+This was a milestone week — finishing the **last 2 modules** of the course: **Module 10** (Migration, Snow Family) and **Module 11** (Well-Architected Framework). Module 11 was arguably the most important so far: understanding the 6 design pillars (Security, Reliability, Performance, Cost Optimization, Operational Excellence, Sustainability) is the foundation for designing architectures that are not just "working" but actually built right.
 
-At the end of the week, I did a **comprehensive review of all 11 Modules** and completed the **Final Assessment** — officially finalizing the **AWS Cloud Practitioner** theory roadmap. Consider this a major milestone completed , providing a solid foundation to start designing and implementing real-world projects in the upcoming weeks.
+The **AWS Pricing Calculator** session was also a practical eye-opener — knowing how to estimate costs before deploying is a real-world skill most beginners overlook. Completing the **Final Assessment** at the end of the week officially closed out the AWS Cloud Practitioner theory phase — from here, it's time to build something real.

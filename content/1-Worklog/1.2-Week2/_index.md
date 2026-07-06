@@ -5,26 +5,25 @@ weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-### Week 2 Objectives:
 
-* Learn **Module 3**, **4**, **5** on Skill Builder (expanded compute, going global, networking).
-* Explore the Console to get familiar with **Region**, **VPC**, **Security Group**.
-* Retry **EC2 + PM2** and create a small **Lambda** to feel how **serverless** differs.
+### Week 2 Goals:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Complete **Module 3 – Exploring Compute Services** (AWS Cloud Practitioner Essentials) on AWS Skill Builder <br> - Introduction to Module 3 <br> - Explore AWS Lambda and its use cases <br>  | 04/27/2026 | 04/27/2026      | <https://skillbuilder.aws/>               |
-| 3   | - Complete **Module 4 – Going Global** on AWS Skill Builder <br>  - Learn about AWS Regions, Availability Zones, and Edge Locations <br>- Distinguish between the scopes of AWS services (Global and Regional)<br>| 04/28/2026 | 04/28/2026      | <https://skillbuilder.aws/>               |
-| 4   | - Complete **Module 5 – Networking** on AWS Skill Builder <br>  <br> - Networking components on AWS: organizing resources <br> - Other ways to connect to AWS Cloud <br> - Subnet, Security Group and Network ACL <br> | 04/29/2026 | 04/29/2026      | <https://skillbuilder.aws/>               |
-| 5   | **Module 4–5 Practice:** on Console — choose Region, get familiar with **VPC/subnet**, basic **Security Group**.<br>- Configure Security Groups for EC2.<br>- Practice switching Regions and familiarize yourself with region-specific resources.<br>                                                                                          | 04/30/2026 | 04/30/2026      |                                           |
-| 6   | **Module 3 Practice:** **EC2 Ubuntu** machine, run **Node.js** app with **PM2**; create a simple **Lambda** function and invoke it on Console.<br>- Check execution logs using Amazon CloudWatch Logs.<br>                                                            | 05/01/2026 | 05/01/2026      |                                           |
+* Continue with **Module 3, 4, 5** on Skill Builder (expanded compute, going global, networking).
+* Navigate the Console to get comfortable with **Region**, **VPC**, and **Security Group**.
+* Redo **EC2 + PM2** and spin up a simple **Lambda** to experience what serverless feels like.
 
+### Daily breakdown:
 
-### Week 2 Achievements:
+| Day | Work performed | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | - Complete **Module 3 – Exploring Compute Services** on AWS Skill Builder <br> - Learn about AWS Lambda and serverless use cases | 04/27/2026 | 04/27/2026 | <https://skillbuilder.aws/> |
+| Tuesday | - Complete **Module 4 – Going Global** <br> - Study AWS Regions, Availability Zones and Edge Locations <br> - Distinguish between Global and Regional service scopes | 04/28/2026 | 04/28/2026 | <https://skillbuilder.aws/> |
+| Wednesday | - Complete **Module 5 – Networking** on AWS Skill Builder <br> - Networking components: Subnet, Security Group, Network ACL <br> - Other ways to connect to the AWS Cloud | 04/29/2026 | 04/29/2026 | <https://skillbuilder.aws/> |
+| Thursday | - **Hands-on practice for Module 4–5** on Console <br> - Select a Region, explore VPC and Subnets <br> - Configure basic Security Group rules for EC2 <br> - Practice switching between Regions | 04/30/2026 | 04/30/2026 | |
+| Friday | - **Hands-on practice for Module 3** <br> - Start up **EC2 Ubuntu**, run **Node.js** app with **PM2** <br> - Create a simple **Lambda** function, invoke it from the Console <br> - Check execution logs in Amazon CloudWatch Logs | 05/01/2026 | 05/01/2026 | |
 
-This week I completed **Module 3**, **4**, **5** on Skill Builder, so the knowledge areas started connecting more: first **compute** (serverless, **Lambda**, containers, some other compute services), then **going global** (Region, AWS infrastructure, automation angle). By **networking**, **VPC**, subnet, Security Group, NACL were no longer just on slides but connected to the Console screen.
+### Weekly outcomes:
 
-The last two days of the week were mainly "hands-on exploring": went through Region, VPC/subnet, Security Group; started up **EC2 Ubuntu** again, ran **Node.js** with **PM2** like the previous week, created a small **Lambda** and invoked it — to see the difference between an always-running VM and serverless. Mainly consolidation, no major labs.
+Completing **Modules 3, 4, and 5** this week made things start to connect: first **compute** (Lambda, containers, other compute services), then **going global** (Regions, AWS infrastructure), and finally **networking** — by that point VPC, Subnet, Security Group, and NACL weren't just slides anymore but mapped to the actual Console.
 
-
+The last two days were mostly hands-on exploration: browsing Regions, VPC/Subnet, Security Group; restarting **EC2 Ubuntu** with **Node.js** and **PM2** like week 1, then creating a small **Lambda** to feel the difference between an always-on VM and serverless. No large labs this week — just consolidation.

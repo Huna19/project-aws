@@ -5,23 +5,25 @@ weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-### Mục tiêu tuần 7:
 
-* Tự học lý thuyết về **AWS Elastic Beanstalk** (PaaS) thay cho EC2 thuần.
-* Tìm hiểu quy trình tự động hóa triển khai với **CI/CD** trên AWS.
-* Thực hành deploy ứng dụng Node.js cơ bản lên Elastic Beanstalk.
+### Mục tiêu tuần này:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+* Tìm hiểu **AWS Elastic Beanstalk** (PaaS) như là một lựa chọn thay thế cho EC2 thuần.
+* Nắm quy trình tự động hóa triển khai với **CI/CD** trên AWS.
+* Deploy thành công một app Node.js lên Beanstalk và khám phá bộ công cụ CI/CD.
+
+### Công việc từng ngày:
+
+| Ngày | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| 2 | - Tự học lý thuyết **AWS Elastic Beanstalk**: khái niệm môi trường, ứng dụng, cách Beanstalk quản lý tài nguyên tự động | 01/06/2026 | 01/06/2026 | |
-| 3 | - So sánh cách deploy truyền thống bằng PM2 (tuần 1–2) vs sử dụng **Elastic Beanstalk** | 02/06/2026 | 02/06/2026 | |
-| 4 | - Thực hành: Đóng gói và deploy một ứng dụng backend Node.js cơ bản lên Elastic Beanstalk | 03/06/2026 | 03/06/2026 | |
-| 5 | - Tìm hiểu về công cụ CI/CD của AWS: **CodeCommit**, **CodeBuild**, **CodePipeline** | 04/06/2026 | 04/06/2026 | |
-| 6 | - Nghiên cứu phương pháp tích hợp mã nguồn từ GitHub/CodeCommit qua CodePipeline để deploy tự động lên Beanstalk | 05/06/2026 | 05/06/2026 | |
+| Thứ 2 | - Tự học lý thuyết **AWS Elastic Beanstalk**: khái niệm environment, application, cách Beanstalk tự quản lý tài nguyên phía sau | 01/06/2026 | 01/06/2026 | |
+| Thứ 3 | - So sánh cách deploy truyền thống bằng PM2 (tuần 1–2) với **Elastic Beanstalk** <br> - Ghi chú những gì Beanstalk tự xử lý vs những gì vẫn là trách nhiệm của developer | 02/06/2026 | 02/06/2026 | |
+| Thứ 4 | - Thực hành: Đóng gói và deploy backend **Node.js** cơ bản lên Elastic Beanstalk <br> - Xác nhận app chạy được qua URL của Beanstalk environment | 03/06/2026 | 03/06/2026 | |
+| Thứ 5 | - Tìm hiểu bộ công cụ CI/CD của AWS: **CodeCommit**, **CodeBuild**, **CodePipeline** <br> - Hiểu vai trò của từng công cụ trong pipeline tự động hóa | 04/06/2026 | 04/06/2026 | |
+| Thứ 6 | - Nghiên cứu cách kết nối mã nguồn (GitHub/CodeCommit) với **CodePipeline** để deploy tự động lên Beanstalk <br> - Vẽ ra luồng pipeline đầy đủ: push code → build → deploy | 05/06/2026 | 05/06/2026 | |
 
-### Kết quả đạt được tuần 7:
+### Kết quả trong tuần:
 
-Tuần này mình chuyển sang mảng thực hành cấp cao hơn: **PaaS và CI/CD**. Trước giờ deploy backend lên EC2 toàn dùng **PM2** và phải tự cấu hình môi trường từng bước (tuần 1–2). Khi chuyển sang **AWS Elastic Beanstalk**, mọi thứ từ Load Balancer, Auto Scaling đến EC2 đều được tự động hóa (managed) — gọn hơn, dễ quản lý hơn, và an toàn hơn cho production.
+Tuần này chuyển sang mảng cao hơn: **PaaS và CI/CD**. Trước đây deploy backend lên EC2 là làm tất cả thủ công — cài Node.js, cấu hình môi trường, giữ PM2 chạy. Chuyển sang **Elastic Beanstalk**, Load Balancer, Auto Scaling và EC2 đều được tự động hóa (managed), developer tập trung vào ứng dụng hơn thay vì lo quản lý hạ tầng.
 
-Đến giữa tuần mình đã thử deploy thành công một backend Node.js cơ bản lên Beanstalk. Sau đó, mình bắt tay vào tìm hiểu hệ sinh thái CI/CD của AWS (**CodePipeline, CodeBuild**). So với việc copy code thủ công lên server, thiết lập một pipeline tự động (push code → tự động build → deploy lên Beanstalk) chuyên nghiệp hơn rất nhiều. Dù chưa setup pipeline hoàn chỉnh nhưng mình đã nắm được luồng tổng thể chuẩn bị cho dự án lớn.
+Giữa tuần deploy thành công backend Node.js cơ bản lên Beanstalk — lần đầu tiên thấy quá trình deploy trơn tru thay vì vặn vẹo từng bước. Sau đó bắt tay tìm hiểu hệ sinh thái CI/CD (CodeCommit, CodeBuild, CodePipeline). Khái niệm pipeline (push code → tự build → tự deploy) là bước tiến lớn so với copy file lên server thủ công. Chưa setup hoàn chỉnh nhưng luồng tổng thể đã rõ, sẵn sàng để đưa vào thực hành ở dự án tới.

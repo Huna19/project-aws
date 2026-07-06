@@ -5,26 +5,26 @@ weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-### Week 5 Objectives:
 
-* Analyze AWS official architecture guides for high-load systems.
-* Attend **AWS Event** (05/23) and analyze topics on High Availability and Microservices.
-* Study **Event-Driven Architecture** and **Serverless** concepts.
+### Week 5 Goals:
 
-### Tasks to be carried out this week:
-| Day | Task | Start Date | Completion Date | Reference Material |
+* Study AWS official architecture guides for designing high-load systems.
+* Attend the **AWS Community Day Event** (05/23) and analyze sessions on High Availability and Microservices.
+* Research **Event-Driven Architecture** and **Serverless** patterns.
+
+### Daily breakdown:
+
+| Day | Work performed | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| 2 | - Review AWS official web hosting architecture guides <br> - Explore High Availability architecture models on AWS | 05/18/2026 | 05/18/2026 | |
-| 3 | - Learn the differences between Monolithic and Microservices architectures <br>- Analyze the advantages, disadvantages, and use cases of each architectural model. | 05/19/2026 | 05/19/2026 | |
-| 4 | - Practice configuring Application Load Balancer (ALB) and Auto Scaling Group on AWS Console <br>- Understand how Auto Scaling Groups work and the load balancing mechanism between EC2 instances. | 05/20/2026 | 05/20/2026 | |
-| 5 | - Basic research on Event-Driven Architecture<br>- Explore services such as Amazon SNS, Amazon SQS, and AWS Lambda within an event-driven model. | 05/21/2026 | 05/21/2026 | |
-| 6 | - Draft initial architecture diagrams for the ticket booking system to visualize service connections | 05/22/2026 | 05/22/2026 | |
-| 7 | - Attend **AWS Event** (05/23), analyze topics: <br> - Building **High Availability** systems on AWS <br> - Decoupling applications with **Microservices** <br> - Cost optimization with **Auto Scaling** <br> - **Amazon CloudFront** content distribution architecture <br> - Enterprise-grade **Event-Driven Architecture** | 05/23/2026 | 05/23/2026 | |
+| Monday | - Read AWS official web hosting architecture guides <br> - Study High Availability architecture patterns on AWS | 05/18/2026 | 05/18/2026 | |
+| Tuesday | - Learn differences between Monolithic and Microservices architectures <br> - Analyze pros, cons, and real use cases for each model | 05/19/2026 | 05/19/2026 | |
+| Wednesday | - Practice configuring **Application Load Balancer (ALB)** and **Auto Scaling Group** on AWS Console <br> - Understand how ASGs work and how load is distributed across EC2 instances | 05/20/2026 | 05/20/2026 | |
+| Thursday | - Research **Event-Driven Architecture** fundamentals <br> - Explore Amazon SNS, Amazon SQS, and AWS Lambda within an event-driven model | 05/21/2026 | 05/21/2026 | |
+| Friday | - Draft initial architecture diagrams for the ticket booking system <br> - Map out how services connect and communicate | 05/22/2026 | 05/22/2026 | |
+| Saturday | - Attend **AWS Community Day Event** (05/23) <br> - Sessions covered: Building **High Availability** systems, decoupling with **Microservices**, cost optimization with **Auto Scaling**, **Amazon CloudFront** content delivery, enterprise **Event-Driven Architecture** | 05/23/2026 | 05/23/2026 | |
 
-### Week 5 Achievements:
+### Weekly outcomes:
 
-This week I primarily focused on **analyzing AWS official architecture guides** to grasp the standards for high-load systems, preparing a solid foundation for the upcoming large-scale project.
+This week was split between independent research and real-world learning. On the study side, I went through AWS official architecture guides for high-load systems — understanding what "production-grade" means before starting to design something real.
 
-The biggest highlight was **attending the AWS Event on 05/23** — directly analyzing technical topics that are extremely useful for real-world projects: building **High Availability** systems, application decoupling with **Microservices**, cost optimization with **Auto Scaling**, **Amazon CloudFront** content distribution, and especially enterprise-grade **Event-Driven Architecture**.
-
-CloudFront and Event-Driven Architecture were the two most practical topics, helping me shape the mindset of designing decoupled systems rather than bundling everything into a single server.
+The highlight was **attending the AWS Community Day on 05/23** — a full day of technical sessions that directly mapped to what I'd been studying: High Availability setups, Microservices decoupling, Auto Scaling for cost, CloudFront for content delivery, and enterprise-level Event-Driven Architecture. CloudFront and Event-Driven were the two most eye-opening topics, helping shift my thinking from "one big server" to "decoupled, distributed systems" — which is exactly the mindset needed for the upcoming project.

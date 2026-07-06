@@ -5,26 +5,25 @@ weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-### Week 4 Objectives:
 
-* Learn **Module 8** and **Module 9** on Skill Builder (**AWS Cloud Practitioner Essentials** course).
-* Practice **security**-related tasks on Console (IAM, Security Group…).
-* Review to remember before moving on to the next modules.
+### Week 4 Goals:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Complete **Module 8 – AI, ML and Data Analytics** on AWS Skill Builder <br> - Introduction to Module 8: introduction to AI and machine learning <br> - **AI/ML on AWS:** AI/ML on AWS; AI/ML solutions;Generative AI solutions <br>  | 05/11/2026 | 05/11/2026      | <https://skillbuilder.aws/            |
-| 3   | - Complete **Module 9 – Security** on AWS Skill Builder <br> - Introduction to Module 9: introduction to AWS security <br>- Learn about AWS IAM, IAM Users, Groups, Roles, and Policies.<br>  | 05/12/2026 | 05/12/2026      | <https://skillbuilder.aws/>               |
-| 4   | **Basic Practice (Module 9):** on Console, view **IAM** (users, groups, policies), quickly check account security recommendations.                                                            | 05/13/2026 | 05/13/2026      |                                           |
-| 5   | - Review **Modules 8–9**<br>- Note down key concepts regarding AI/ML, IAM, and security on AWS.<br>- Summarize the services covered and the use cases for each.<br>                                                                                                                                               | 05/14/2026 | 05/14/2026      |                                           |
-| 6   | **Practice (Module 9):** on Console, view **Security Group** attached to EC2 (inbound/outbound), try adjusting basic **SSH** and **HTTP** rules.<br>- Learn how to apply the Principle of Least Privilege in IAM and Security Groups.                                                          | 05/15/2026 | 05/15/2026      |                                           |
+* Complete **Module 8** (AI, ML & Data Analytics) and **Module 9** (Security) on AWS Skill Builder.
+* Get hands-on with **IAM** and **Security Groups** on the Console.
+* Review and consolidate before moving to the next set of modules.
 
+### Daily breakdown:
 
-### Week 4 Achievements:
+| Day | Work performed | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | - Complete **Module 8 – AI, ML and Data Analytics** on AWS Skill Builder <br> - Introduction to AI and machine learning on AWS <br> - AI/ML solutions, Generative AI solutions overview | 05/11/2026 | 05/11/2026 | <https://skillbuilder.aws/> |
+| Tuesday | - Complete **Module 9 – Security** on AWS Skill Builder <br> - Introduction to AWS security <br> - Learn IAM: Users, Groups, Roles, Policies and how they work together | 05/12/2026 | 05/12/2026 | <https://skillbuilder.aws/> |
+| Wednesday | - **Hands-on practice for Module 9:** Open **IAM** on Console <br> - Review existing users, groups, and attached policies <br> - Check account security recommendations | 05/13/2026 | 05/13/2026 | |
+| Thursday | - Review **Modules 8–9** <br> - Note key concepts: AI/ML services, IAM structure, AWS security layers <br> - Summarize services covered and their intended use cases | 05/14/2026 | 05/14/2026 | |
+| Friday | - **Hands-on practice for Module 9 (continued):** Open **Security Group** attached to EC2 <br> - Review inbound/outbound rules <br> - Adjust basic SSH and HTTP rules <br> - Apply Principle of Least Privilege in IAM and Security Group setup | 05/15/2026 | 05/15/2026 | |
 
-This week I completed **Module 8** and **Module 9** on Skill Builder. **Module 8** felt somewhat "distant" compared to previous weeks (AI/ML, Generative AI, data analytics…) but at least I know AWS has those directions; **Module 9** was closer because it revisited IAM, network/data protection — connecting with EC2, VPC from previous weeks.
+### Weekly outcomes:
 
-For practice: on **05/13** I viewed **IAM** on Console (users, groups, policies), checked security recommendations; **05/15** opened **Security Group** on EC2, viewed inbound/outbound rules then tried adjusting SSH/HTTP. **05/14** reviewed Modules 8–9, noted commonly confused areas (Generative AI, data pipelines, IAM permissions…) to not forget when continuing.
+This week I wrapped up **Module 8** and **Module 9** on Skill Builder. **Module 8** felt a bit more abstract compared to previous weeks — AI/ML, Generative AI, data analytics are directions more than hands-on tools at this stage — but it's good to know where AWS is heading. **Module 9** was more immediately relevant: IAM connects directly to everything I've been building with EC2 and VPC, so the security layer finally clicked.
 
-
+On the hands-on side: Wednesday I explored **IAM** on Console (users, groups, policies) and reviewed the security recommendations. Friday I opened the **Security Group** on EC2, checked inbound/outbound rules, and made a few test adjustments to SSH and HTTP access. Thursday was review day — noted the things I kept getting mixed up (Generative AI scope, data pipelines, IAM permission boundaries) to revisit later.

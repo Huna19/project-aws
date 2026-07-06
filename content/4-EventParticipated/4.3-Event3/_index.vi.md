@@ -6,68 +6,68 @@ chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-# Bài thu hoạch “FCAJ Meetup (13/06/2026)”
+# Ghi chép từ "FCAJ Meetup (13/06/2026)"
 
-### Mục Đích Của Sự Kiện
+### Sự kiện hướng đến điều gì
 
-- Cung cấp bức tranh thực tế trần trụi về công việc của các Kỹ sư (DevOps, Data Analytics) tại các doanh nghiệp và tập đoàn đa quốc gia (MNC), xóa bỏ những lầm tưởng phổ biến của sinh viên.
-- Đi sâu vào văn hóa doanh nghiệp, các tiêu chuẩn làm việc toàn cầu và định hướng lộ trình phát triển sự nghiệp bền vững, từ lúc mới vào nghề đến khi trở thành chuyên gia.
-- Truyền cảm hứng và hướng dẫn cách tận dụng bệ phóng từ các cộng đồng công nghệ (AWS) để thăng tiến và lan tỏa giá trị.
+- Vẽ lên bức tranh thực tế, không che giấu về công việc hàng ngày của các Kỹ sư (DevOps, Data Analytics) tại các tập đoàn đa quốc gia, xóa tan những lầm tưởng phổ biến của sinh viên.
+- Khám phá văn hóa doanh nghiệp, các tiêu chuẩn làm việc toàn cầu và lộ trình sự nghiệp bền vững từ giai đoạn mới vào nghề đến khi trở thành chuyên gia.
+- Truyền cảm hứng cho người tham dự cách tận dụng cộng đồng công nghệ (AWS) như một bệ phóng sự nghiệp và nền tảng lan tỏa kiến thức.
 
-### Danh Sách Diễn Giả
+### Diễn giả tham gia
 
-- **Anh Trọng H. Trương** (DevOps Engineer @ Endava Vietnam): “What does a DevOps Engineer really do?”
-- **Anh Đạt Phạm** (Data Analytics Engineer) & **Anh Cường Nguyễn** (Process Engineer): “Câu chuyện thực tế đến văn hóa tại tập đoàn đa quốc gia”
-- **Anh Danh Hoàng Hiếu Nghị** (AI Engineer): “From First Cloud AI Journey to AWS Partner”
-- **Đinh Trung Kiên & Nguyễn Minh Thọ**: “A scalable URL shortening service on AWS”
+- **Anh Trọng H. Trương** (DevOps Engineer @ Endava Vietnam): "What does a DevOps Engineer really do?"
+- **Anh Đạt Phạm** (Data Analytics Engineer) & **Anh Cường Nguyễn** (Process Engineer): "Câu chuyện thực tế đến văn hóa tại tập đoàn đa quốc gia"
+- **Anh Danh Hoàng Hiếu Nghị** (AI Engineer): "From First Cloud AI Journey to AWS Partner"
+- **Đinh Trung Kiên & Nguyễn Minh Thọ**: "A scalable URL shortening service on AWS"
 
-### Nội Dung Nổi Bật
+### Điểm nhấn từng phiên
 
-Sự kiện gồm 4 phần trình bày cực kỳ "thực chiến":
+Bốn phiên thực chiến cao độ tạo nên chương trình:
 
-#### 1) Đinh Trung Kiên & Nguyễn Minh Thọ — A scalable URL shortening service on AWS
+#### 1) Đinh Trung Kiên & Nguyễn Minh Thọ — Rút gọn URL mở rộng quy mô trên AWS
 
-- **Mục đích**: Giải quyết bài toán System Design kinh điển: Xây dựng dịch vụ rút gọn URL có khả năng mở rộng tốt, bảo mật cao và tối ưu độ trễ, thay vì một bản MVP đơn giản.
-- **Rủi ro của kiến trúc "Cơ bản"**: Kiến trúc Frontend → Backend → Database gặp nhiều vấn đề: Điểm nghẽn cục bộ (SPOF), khó mở rộng, độ trễ đọc cao và dễ bị tấn công do thiếu lớp bảo vệ ở mạng biên.
-- **Kiến trúc hệ thống thực tế trên AWS**:
-  - **Lớp Bảo vệ & Phân phối (Edge Layer)**: Dùng Amazon CloudFront + AWS WAF để chặn truy cập độc hại, phân phối nội dung tĩnh từ Amplify.
-  - **Lớp Ứng dụng (App Layer)**: Backend container hóa chạy trên Amazon ECS (Fargate), dùng ALB điều phối traffic vào Private Subnet.
-- **Cơ chế Sinh Key Độc lập (KGS)**: Tối ưu hiệu suất bằng cách dùng một service chạy ngầm tạo sẵn các đoạn mã ngắn và đẩy vào hàng đợi Redis (lệnh `LPUSH`), thay vì sinh mã on-demand.
-- **Luồng Ghi (Create Flow)**: Backend lấy mã có sẵn từ Redis (lệnh `RPOP`), gắn với URL gốc và ghi vào DynamoDB. Không có độ trễ sinh mã.
-- **Luồng Đọc (Cache-aside)**: Tìm kiếm trong Amazon ElastiCache for Redis trước. Nếu Cache miss mới gọi DynamoDB và cập nhật lại vào Cache, giảm tải cực mạnh cho database.
+- **Mục tiêu thiết kế**: Không phải MVP mong manh — mà là dịch vụ rút gọn URL cấp sản xuất, xây dựng cho khả năng mở rộng, bảo mật và độ trễ thấp.
+- **Bẫy của kiến trúc đơn giản**: Kiến trúc Frontend → Backend → Database cơ bản mắc phải SPOF, khó mở rộng ngang, độ trễ đọc cao và không có lớp bảo vệ biên.
+- **Kiến trúc AWS được dùng**:
+  - **Lớp Biên**: Amazon CloudFront + AWS WAF để chặn traffic xấu và phân phối nội dung tĩnh từ Amazon Amplify.
+  - **Lớp Ứng dụng**: Backend container hóa trên Amazon ECS (Fargate) với Application Load Balancer điều phối traffic vào Private Subnet.
+- **Dịch vụ Sinh Key (KGS)**: Một service chạy nền tạo sẵn các mã ngắn và đẩy vào hàng đợi Redis (`LPUSH`) — loại bỏ hoàn toàn độ trễ sinh mã on-demand.
+- **Luồng Ghi**: Backend lấy mã có sẵn từ Redis (`RPOP`), ánh xạ đến URL gốc và ghi vào DynamoDB. Không có độ trễ sinh mã.
+- **Luồng Đọc (Cache-aside)**: ElastiCache for Redis được kiểm tra trước. DynamoDB chỉ được truy vấn khi cache miss, giảm đáng kể tải cho database chính.
 
-#### 2) Trọng H. Trương — What does a DevOps Engineer really do?
+#### 2) Trọng H. Trương — Bản mô tả công việc DevOps thực sự
 
-- **Lầm tưởng vs. Thực tế**: Mọi người thường nghĩ DevOps chỉ là viết CI/CD pipeline, gõ lệnh Docker/K8s, hay "anh hùng" sửa lỗi server nửa đêm. Thực tế, phạm vi công việc xoay quanh hệ thống nhiều hơn: trực on-call, xử lý sự cố (incident handling), quản lý phân quyền, điều tra chi phí và làm rõ quyền sở hữu vấn đề (Ownership clarification).
-- **Học gì trước tiên**: Đừng chạy theo tool vì tool sẽ luôn thay đổi. Hãy nắm thật chắc nền tảng (Fundamentals): Linux, Networking, Git, Containers và một ngôn ngữ lập trình (Python/Golang).
-- **Bài học "xương máu"**: Copy lệnh trên mạng không có nghĩa là bạn hiểu nó. Luôn hỏi "Tại sao" trước khi hỏi "Làm thế nào". Giao tiếp là kỹ năng cốt lõi của DevOps. Hãy dùng AI để nâng cao kỹ năng chứ đừng để AI "tắt" tư duy của mình.
+- **Lầm tưởng vs. Thực tế**: Hầu hết mọi người hình dung DevOps là CI/CD pipeline, lệnh Docker/K8s, hay "anh hùng server" lúc nửa đêm. Công việc thực tế rộng hơn nhiều: trực on-call, xử lý sự cố, quản lý phân quyền, phân tích chi phí và làm rõ quyền sở hữu.
+- **Nên học gì trước**: Công cụ luôn tiến hóa — hãy đuổi theo Fundamentals: Linux, Networking, Git, Containers và một ngôn ngữ lập trình (Python/Golang).
+- **Bài học từ thực chiến**: Copy-paste lệnh từ internet không đồng nghĩa với việc hiểu chúng. Luôn hỏi "Tại sao" trước "Làm thế nào". Giao tiếp là năng lực cốt lõi của DevOps. Hãy dùng AI để mài sắc kỹ năng — không phải để thay thế tư duy của mình.
 
-#### 3) Đạt Phạm & Cường Nguyễn — Câu chuyện thực tế & Văn hóa MNC
+#### 3) Đạt Phạm & Cường Nguyễn — Cuộc sống MNC, không lọc
 
-- **Kỹ năng sống còn**: Để làm việc ở MNC, ngoài kỹ thuật cứng còn bắt buộc phải có Tư duy phản biện, Kỹ năng giao tiếp, Giải quyết vấn đề và đặc biệt là "Kể chuyện với dữ liệu" (Data Storytelling).
-- **Mô hình 5 cấp độ sự nghiệp**: Follower (Thực thi) → Learner (Học chủ động) → Problem Solver (Tự giải quyết trọn vẹn) → System Thinker (Nhìn bức tranh toàn cảnh, tối ưu dài hạn) → Super Star (Định hướng chiến lược và dẫn dắt).
-- **Giải mã Văn hóa Doanh nghiệp**: Ở MNC công nghệ, văn hóa "No-Blame Post-Mortem" rất nổi bật: khi có lỗi, đội ngũ tập trung tìm nguyên nhân rễ để sửa hệ thống chứ không đổ lỗi cá nhân.
-- **Triết lý "Đúng Việc"**: 3 trụ cột: Làm Người (quản trị nội tâm), Làm Nghề (phụng sự bằng chuyên môn) và Làm Dân (trách nhiệm quốc gia, di sản công nghệ).
+- **Kỹ năng sống còn**: Ngoài kỹ năng kỹ thuật, môi trường MNC đòi hỏi Tư duy phản biện, Giao tiếp, Giải quyết vấn đề và "Kể chuyện với dữ liệu".
+- **Thang sự nghiệp 5 cấp**: Follower (thực thi) → Learner (tự phát triển chủ động) → Problem Solver (giải quyết vấn đề từ đầu đến cuối) → System Thinker (nhìn bức tranh toàn cảnh, tối ưu dài hạn) → Super Star (định hướng chiến lược và dẫn dắt).
+- **Văn hóa No-Blame Post-Mortem**: Khi có sự cố, MNC công nghệ tập trung tìm nguyên nhân gốc rễ để sửa hệ thống — không đổ lỗi cho cá nhân.
+- **Triết lý "Đúng Việc"**: Ba trụ cột — Làm Người (quản lý bản thân), Làm Nghề (phụng sự bằng chuyên môn), Làm Dân (trách nhiệm quốc gia, di sản công nghệ).
 
-#### 4) Danh Hoàng Hiếu Nghị — From First Cloud AI Journey to AWS Partner
+#### 4) Danh Hoàng Hiếu Nghị — Từ sinh viên đến AWS Partner
 
-- **Lộ trình 8 bước**: Bắt đầu từ sự tò mò (Student Curiosity) → Tìm đúng môi trường (First Cloud AI Journey) → Học qua thực hành (Hands-on Labs) → Thể hiện năng lực (Portfolio) → Trở thành AWS Partner → Lan tỏa lại cộng đồng (Share Back).
-- **Sức mạnh cộng đồng**: Có việc làm mới là khởi đầu. Dấn thân vào cộng đồng (AWS Student Builder Group, AWS Community Builder) mang lại mạng lưới quan hệ (network) tuyệt vời và hỗ trợ thiết thực: voucher thi chứng chỉ, AWS Credits, swags.
+- **Lộ trình 8 bước**: Tò mò của sinh viên → Môi trường phù hợp (First Cloud AI Journey) → Học qua thực hành (Hands-on Labs) → Thể hiện năng lực (Portfolio) → Trở thành AWS Partner → Đóng góp lại cộng đồng.
+- **Tại sao cộng đồng quan trọng**: Có việc làm chỉ là điểm xuất phát. Tham gia tích cực cộng đồng (AWS Student Builder Group, AWS Community Builder) mở khóa mạng lưới mạnh mẽ và hỗ trợ thực tế: voucher thi chứng chỉ, AWS Credits và swag độc quyền.
 
-### Những Gì Học Được
+### Nhận thức cốt lõi
 
-- **Nhận thức rõ ràng**: Công cụ thay đổi liên tục, chỉ có nền tảng vững chắc (Fundamentals) và tư duy hệ thống (System Thinking) mới giúp kỹ sư đi đường dài.
-- **Bước đệm vào MNC**: Chuyển đổi tư duy từ "Làm được việc" sang "Làm đúng chuẩn", kết hợp tinh thần "No-Blame" để liên tục cải tiến bản thân và hệ thống.
-- **Tầm quan trọng của đóng góp**: Chuyên môn kỹ thuật kết hợp với sự hỗ trợ từ cộng đồng công nghệ sẽ tạo ra một bệ phóng mạnh mẽ cho lộ trình sự nghiệp.
-- **Tối ưu kiến trúc (System Design)**: Học được tư duy Separation of Concerns (tách biệt luồng Đọc/Ghi), Defense at the Edge (bảo vệ ở mạng biên) và chiến lược Pre-computation over On-demand (tính toán trước để tối ưu độ trễ).
+- **Tín hiệu rõ ràng**: Công cụ thay đổi liên tục — Fundamentals vững chắc và System Thinking là thứ đưa kỹ sư đi đường dài.
+- **Tư duy gia nhập MNC**: Chuyển từ "hoàn thành việc" sang "hoàn thành đúng chuẩn", kết hợp tinh thần No-Blame để cải tiến liên tục.
+- **Giá trị của việc đóng góp ngược lại**: Chiều sâu kỹ thuật kết hợp hỗ trợ cộng đồng tạo ra một trong những bệ phóng sự nghiệp mạnh nhất hiện có.
+- **Tư duy System Design**: Nội hóa Separation of Concerns (tách luồng Đọc/Ghi), Defense at the Edge (WAF/CloudFront) và Pre-computation over On-demand (tính toán sớm, không phải tại thời điểm request).
 
-### Ứng Dụng Vào Công Việc
+### Cách mình sẽ áp dụng những bài học này
 
-- **Tự học & Thực hành**: Cai nghiện copy-paste lệnh máy móc. Khi dùng AI hỗ trợ viết script/cấu hình, tự ép bản thân phân tích và hiểu rõ từng dòng lệnh.
-- **Nâng cấp tư duy đồ án**: Áp dụng mindset System Thinker vào dự án thực tập thay vì chỉ làm Follower. Không chỉ code cho chạy, mà phải tối ưu hiệu suất, lường trước rủi ro và rèn luyện báo cáo tiến độ rõ ràng.
-- **Phát triển thương hiệu cá nhân**: Lên kế hoạch tham gia tích cực AWS Student Builder Group để tích lũy dự án vào Portfolio và định hướng xây dựng cộng đồng trong tương lai.
-- **Áp dụng Cache-aside Pattern**: Sử dụng Redis vào các dự án cá nhân/đồ án để tối ưu tốc độ phản hồi cho các API có tần suất đọc cao.
-- **Decouple tác vụ nặng**: Học cách tách biệt các tác vụ nặng ra khỏi luồng xử lý chính bằng các worker chạy ngầm, chuẩn bị sẵn dữ liệu để luồng chính xử lý mượt mà hơn.
+- **Học có chủ đích**: Cai nghiện copy-paste. Khi dùng AI để sinh script hay cấu hình, tự ép bản thân phân tích và hiểu từng dòng thực sự làm gì.
+- **Nâng cấp tư duy đồ án**: Áp dụng tư duy System Thinker cho dự án thực tập thay vì chỉ thực thi. Làm code hiệu năng, dự đoán điểm thất bại và rèn luyện báo cáo tiến độ rõ ràng.
+- **Xây dựng thương hiệu cá nhân**: Chủ động tham gia AWS Student Builder Group để phát triển Portfolio chất lượng và hướng đến đóng góp cộng đồng theo thời gian.
+- **Cache-aside trong thực tế**: Tích hợp Redis vào dự án cá nhân và đồ án để tối ưu thời gian phản hồi cho các API có tần suất đọc cao.
+- **Tách rời khối lượng công việc nặng**: Chuyển các tác vụ tốn kém ra khỏi luồng thực thi chính bằng worker chạy nền, chuẩn bị sẵn dữ liệu để luồng chính phản hồi mượt mà.
 
 #### Một số hình ảnh khi tham gia sự kiện
 <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start">
@@ -79,5 +79,9 @@ Sự kiện gồm 4 phần trình bày cực kỳ "thực chiến":
   <img src="/images/4-EventParticipated/4.3-Event3/af6eaed3790ef850a11f5.jpg" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.3-Event3/dba02f1ef8c3799d20d26.jpg" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.3-Event3/ed911328c4f545ab1ce49.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.3-Event3/z8012725852503_c480e27d65a8d82026ded60f6de5b737.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.3-Event3/z8012725893603_65bef2a3fcd4f3079cac9e41366508e2.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.3-Event3/z8012725803084_7984502197d16c6294cc55c897dc18ea.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.3-Event3/z8012725825478_5dd299fe7816c631ca7a99063a7e12a4.jpg" style="width:220px;height:auto" />
 
 </div>

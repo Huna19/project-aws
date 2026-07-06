@@ -5,26 +5,25 @@ weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-### Mục tiêu tuần 2:
 
-* Học **Module 3**, **4**, **5** trên Skill Builder (điện toán mở rộng, mở rộng toàn cầu, mạng).
-* Lên Console "mò" **Region**, **VPC**, **Security Group** cho quen tay.
-* Thử lại **EC2 + PM2** và làm một **Lambda** nhỏ để cảm nhận khác **serverless** thế nào.
+### Mục tiêu tuần này:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Hoàn thành **Module 3 – Khám phá dịch vụ điện toán** (AWS Cloud Practitioner Essentials) trên AWS Skill Builder <br>- Giới thiệu điện toán serverless <br> | 27/04/2026   | 27/04/2026      | <https://skillbuilder.aws/>               |
-| 3   | - Hoàn thành **Module 4 – Mở rộng toàn cầu (Going Global)** trên AWS Skill Builder <br> - Tìm hiểu AWS Regions, Availability Zones và Edge Locations. <br>- Phân biệt phạm vi hoạt động của các dịch vụ AWS (Global và Regional). <br>  |28/04/2026   | 28/04/2026      |
-| 4   | - Hoàn thành **Module 5 – Mạng (Networking)** trên AWS Skill Builder <br>- Thành phần mạng trên AWS: tổ chức tài nguyên <br> - Các cách kết nối khác tới AWS Cloud <br> - Subnet, Security Group và Network ACL <br> | 29/04/2026   | 29/04/2026      | <https://skillbuilder.aws/>               |
-| 5   | **Thực hành ôn Module 4–5:** trên Console — chọn Region, làm quen **VPC/subnet**, **Security Group** cơ bản.<br>- Cấu hình Security Group cho EC2.<br>- Thực hành chuyển đổi Region và làm quen với tài nguyên theo từng Region.<br>    | 30/04/2026   | 30/04/2026      |                                           |
-| 6   | **Thực hành ôn Module 3:** máy **EC2 Ubuntu**, chạy app **Node.js** bằng **PM2**; tạo hàm **Lambda** đơn giản và gọi thử trên Console.<br>- Kiểm tra log thực thi bằng Amazon CloudWatch Logs.<br>                                                                                                                                                           | 01/05/2026   | 01/05/2026      |                                           |
+* Học tiếp **Module 3, 4, 5** trên Skill Builder (điện toán mở rộng, mở rộng toàn cầu, mạng).
+* Lên Console khám phá **Region**, **VPC**, **Security Group** cho quen tay.
+* Chạy lại **EC2 + PM2** và tạo thử một **Lambda** nhỏ để cảm nhận sự khác biệt của serverless.
 
+### Công việc từng ngày:
 
-### Kết quả đạt được tuần 2:
+| Ngày | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Hoàn thành **Module 3 – Khám phá dịch vụ điện toán** trên AWS Skill Builder <br> - Tìm hiểu AWS Lambda và các use case của serverless | 27/04/2026 | 27/04/2026 | <https://skillbuilder.aws/> |
+| Thứ 3 | - Hoàn thành **Module 4 – Mở rộng toàn cầu (Going Global)** <br> - Tìm hiểu AWS Regions, Availability Zones và Edge Locations <br> - Phân biệt phạm vi hoạt động của dịch vụ Global vs Regional | 28/04/2026 | 28/04/2026 | <https://skillbuilder.aws/> |
+| Thứ 4 | - Hoàn thành **Module 5 – Mạng (Networking)** trên AWS Skill Builder <br> - Các thành phần mạng: Subnet, Security Group, Network ACL <br> - Các cách kết nối khác vào AWS Cloud | 29/04/2026 | 29/04/2026 | <https://skillbuilder.aws/> |
+| Thứ 5 | - **Thực hành Module 4–5** trên Console <br> - Chọn Region, làm quen với VPC và Subnet <br> - Cấu hình Security Group cơ bản cho EC2 <br> - Thực hành chuyển đổi giữa các Region | 30/04/2026 | 30/04/2026 | |
+| Thứ 6 | - **Thực hành Module 3** <br> - Bật lại **EC2 Ubuntu**, chạy app **Node.js** bằng **PM2** <br> - Tạo hàm **Lambda** đơn giản, gọi thử trên Console <br> - Kiểm tra log thực thi qua Amazon CloudWatch Logs | 01/05/2026 | 01/05/2026 | |
 
-Tuần này mình học nốt **Module 3**, **4**, **5** trên Skill Builder, nên các mảng kiến thức bắt đầu nối với nhau hơn: trước hết **điện toán** (serverless, **Lambda**, container, vài dịch vụ compute khác), rồi **mở rộng toàn cầu** (Region, hạ tầng AWS, góc tự động hóa). Đến **mạng** thì **VPC**, subnet, Security Group, NACL không còn chỉ trên slide mà gắn được với màn hình Console.
+### Kết quả trong tuần:
 
-Hai ngày cuối tuần mình chủ yếu "mò tay": đi một vòng Region, VPC/subnet, Security Group; bật lại **EC2 Ubuntu**, chạy **Node.js** bằng **PM2** như tuần trước, tạo **Lambda** nhỏ rồi gọi thử — để thấy khác giữa máy ảo luôn chạy và serverless. Chủ yếu củng cố, không làm lab lớn.
+Tuần này học xong **Module 3, 4, 5** nên các mảng kiến thức bắt đầu liên kết với nhau hơn: đầu tiên là **điện toán** (Lambda, container, các dịch vụ compute), sau đó đến **mở rộng toàn cầu** (Region, hạ tầng AWS), rồi **mạng** — từ đây VPC, Subnet, Security Group, NACL không còn trên slide nữa mà gắn liền với màn hình Console thực tế.
 
-
+Hai ngày cuối tuần chủ yếu là "mò tay": đi qua Region, VPC/Subnet, Security Group; bật lại **EC2 Ubuntu**, chạy **Node.js** bằng **PM2** như tuần 1, rồi tạo thêm một **Lambda** nhỏ để thấy sự khác biệt giữa máy ảo luôn chạy và serverless. Không làm lab lớn — đây là tuần củng cố kiến thức là chính.

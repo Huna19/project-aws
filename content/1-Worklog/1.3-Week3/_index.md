@@ -5,25 +5,26 @@ weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-### Week 3 Objectives:
 
-* Learn **Module 6** (Storage) and **Module 7** (Databases) on Skill Builder.
-* Try creating an **S3 bucket** on the Console to match the theory.
+### Week 3 Goals:
 
-### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Complete **Module 6 – Storage** (AWS Cloud Practitioner Essentials) on AWS Skill Builder <br> - Introduction to Module 6: introduction to storage <br> - **Block storage:** Instance Store and Amazon EBS; EBS data lifecycle <br> - **Object storage:** Amazon S3; S3 storage classes and S3 lifecycle; S3 demo <br> - **File storage:** Amazon EFS; Amazon FSx <br> - | 05/04/2026 | 05/04/2026      | <https://skillbuilder.aws/>               |
-| 3   | - Complete **Module 7 – Databases** on AWS Skill Builder <br> - Introduction to Module 7: introduction to databases <br>  | 05/05/2026 | 05/05/2026      | <https://skillbuilder.aws/>               |
-| 4   | **Basic Practice (Module 6):** on Console, create an **S3 bucket**, upload a test file, review the object in the bucket.                                                                                  | 05/06/2026 | 05/06/2026      |                                           |
-| 5   | - Review **Modules 6–7**, note commonly confused areas (block/object/file, relational vs NoSQL)                                                                                                           | 05/07/2026 | 05/07/2026      |                                           |
-| 6   |- Practice Amazon S3 management: create folders, and upload or delete objects.<br>- Configure basic access permissions for S3 buckets.<br>- Explore S3 Versioning and Lifecycle Rules.<br>- Summarize knowledge regarding AWS storage and databases.<br>                                                                                                                                                                                                          | 05/08/2026 | 05/08/2026      |                                           |
+* Work through **Module 6** (Storage) and **Module 7** (Databases) on AWS Skill Builder.
+* Get hands-on with **S3** on the Console to pair theory with practice.
 
+### Daily breakdown:
 
-### Week 3 Achievements:
+| Day | Work performed | Start Date | Completion Date | Reference |
+| --- | --- | --- | --- | --- |
+| Monday | - Complete **Module 6 – Storage** on AWS Skill Builder <br> - **Block storage:** Instance Store & Amazon EBS, EBS data lifecycle <br> - **Object storage:** Amazon S3, storage classes, S3 lifecycle, S3 demo <br> - **File storage:** Amazon EFS, Amazon FSx | 05/04/2026 | 05/04/2026 | <https://skillbuilder.aws/> |
+| Tuesday | - Complete **Module 7 – Databases** on AWS Skill Builder <br> - Introduction to databases on AWS <br> - Relational (RDS, Aurora) vs non-relational (DynamoDB) databases | 05/05/2026 | 05/05/2026 | <https://skillbuilder.aws/> |
+| Wednesday | - **Hands-on practice for Module 6:** Create an **S3 bucket** on Console, upload a test file, view the object in the bucket | 05/06/2026 | 05/06/2026 | |
+| Thursday | - Review **Modules 6–7**, note commonly confused concepts (block/object/file storage, relational vs NoSQL) | 05/07/2026 | 05/07/2026 | |
+| Friday | - Practice S3 management: create folders, upload and delete objects <br> - Configure basic bucket access permissions <br> - Explore S3 Versioning and Lifecycle Rules <br> - Summarize key learnings from storage and database modules | 05/08/2026 | 05/08/2026 | |
 
-This week I completed **Module 6** and **Module 7**. Before, I mostly heard about EC2, VPC…; now with **storage** (EBS, S3, EFS…) and **databases** (RDS, NoSQL…) added, I know where data typically resides on AWS. The areas I often confused were **block / object / file** and **relational vs NoSQL** — reviewing helped reduce the confusion.
+### Weekly outcomes:
 
-Light practice: created an **S3 bucket**, uploaded a test file, opened it again — nothing deep, just to remember the basic operations.
+This week added two new pillars to the picture: **storage** (EBS, S3, EFS…) and **databases** (RDS, DynamoDB…). Before, most of what I knew was around EC2 and VPC — now I have a clearer idea of where data lives in a typical AWS setup.
 
+The areas I kept mixing up were **block / object / file** and **relational vs NoSQL** — reviewing and writing them down helped reduce the confusion.
 
+Hands-on was light but purposeful: created an **S3 bucket**, uploaded a test file, and explored it in the Console. Also looked into Versioning and Lifecycle Rules to get a feel for managing objects over time. Nothing complex, but enough to anchor the theory.

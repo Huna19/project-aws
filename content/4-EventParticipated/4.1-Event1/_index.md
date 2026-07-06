@@ -6,97 +6,100 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Summary Report: “AWS Event (09/05/2026)”
+# Personal Reflection: "AWS Event (09/05/2026)"
 
-### Event Objectives
+### What the Event Was About
 
-- Share practical insights on learning effectively and applying AI (especially prompt engineering) in real work.
-- Discuss essential skills for freshers in the AI era, and introduce a working method/framework (BMAD).
-- Experience a prompt-optimization demo and join an interactive discussion with attendees.
+- Explore hands-on perspectives on effective learning habits and real-world AI application, with a focus on prompt engineering.
+- Unpack the skills freshers actually need in an AI-driven workplace, and introduce the BMAD working framework.
+- Walk through a live prompt optimization demo and open the floor for audience discussion.
 
-### Speakers
+### Speaker Lineup
 
-- **Long**: “How to Get Addicted to Learning Like You’re Addicted to Social Media”
-- **Thinh**: “Automated Prompt Engineering”
-- **Khang**: “Why Haven’t You Started Working Yet?” & “AI-Ready Fresher”
-- **Thu**: “BMAD” overview (benefits & how to use)
+- **Long**: "How to Get Addicted to Learning Like You're Addicted to Social Media"
+- **Thinh**: "Automated Prompt Engineering"
+- **Khang**: "Why Haven't You Started Working Yet?" & "AI-Ready Fresher"
+- **Thu**: Introduction to "BMAD" — benefits and usage
 
-### Key Highlights
+### Session Breakdown
 
-The event included 4 talk segments in order: **Long → Thinh → Khang → Thu**.
+Four back-to-back talks followed this order: **Long → Thinh → Khang → Thu**.
 
-#### 1) Long — How to Get Addicted to Learning Like You’re Addicted to Social Media
+#### 1) Long — Rewiring Your Brain to Crave Learning
 
-**Why does our brain choose social media over studying?**
+**The root problem: why the brain defaults to scrolling**
 
-- **Social media**: fast rewards, novelty & stimulation, low effort
-- **Studying**: low results, long periods of focus, no immediate rewards
+- **Social media**: instant rewards, constant novelty, zero effort required
+- **Studying**: delayed payoff, demands sustained focus, no immediate feedback
 
-**Turn knowledge into a dopamine gamble**
+**Make learning feel like a variable reward**
 
-- Make learning feel like variable rewards so you’re more likely to continue.
+- Reframe the learning loop so it mimics the unpredictable payoff structure that keeps people hooked on apps.
 
-**Trick the amygdala**
+**Work around the brain's threat response**
 
-- Break tasks into small chunks, take short pauses, and gradually increase the workload (make it easy to start).
-- **2-minute rule**: if it takes under 2 minutes, do it immediately.
-- Don’t underestimate small learnings—acknowledge small progress to build momentum.
+- Chunk tasks, insert micro-breaks, and ramp up difficulty gradually — the goal is to lower the "activation energy" to get started.
+- **2-minute rule**: anything that takes less than 2 minutes should be done right away, no scheduling.
+- Celebrate small wins. Recognizing incremental progress builds the momentum needed to keep going.
 
-**Steal the formula used by social media**
+**Borrow the playbook from social platforms**
 
-- Move “unproductive loops” into environments/contexts where they become useful (change triggers/touchpoints).
-- Collect knowledge intentionally instead of consuming passively.
+- Redirect low-value habit loops into contexts where they produce something useful (swap triggers and touchpoints).
+- Be deliberate about what knowledge you absorb — active collection beats passive consumption every time.
 
-#### 2) Thinh — Automated Prompt Engineering
+#### 2) Thinh — Engineering Better Prompts Automatically
 
-**Common prompt issues**
+**The core mistake people make**
 
-- Don’t write prompts that are **too generic** and expect **detailed, accurate outputs**.
+- Vague, generic prompts produce vague, generic results — yet most people still expect precise, useful outputs.
 
-**Optimize prompts to optimize cost**
+**Prompt quality directly affects your bill**
 
-- Be aware of **AI usage cost**: optimize prompts to reduce tokens and control cost.
-- Don’t “stuff everything in” and expect the model to read/filter it all; instead provide focused context and clear requirements.
+- Token cost is real: a bloated, unfocused prompt wastes money and degrades quality.
+- Rather than dumping everything into a prompt and hoping the model figures it out, provide tight context and a clearly scoped request.
 
-#### 3) Khang — Why Haven’t You Started Working Yet? / AI-Ready Fresher
+#### 3) Khang — Readying Yourself for the AI Workplace
 
-- Shared what skills freshers need when entering the workplace.
-- Answered audience questions about career direction and whether “AI will replace humans”.
+- Walked through the actual competencies freshers need before stepping into a professional environment.
+- Took live audience questions on career planning and the "will AI replace us?" concern.
 
-#### 4) Thu — BMAD
+#### 4) Thu — What BMAD Actually Is
 
-- Introduced **BMAD**, its benefits, and how to apply it in a workflow.
+- Introduced the **BMAD** framework, explained why it's useful, and showed how to fit it into a day-to-day workflow.
 
-#### Demo
+#### Live Demo
 
-- Hands-on demo: generating prompts and **optimizing prompts**.
+- A real-time demonstration of prompt generation and iterative **prompt optimization**.
 
-### Key Takeaways
+### What I Took Away
 
-- A habit-design mindset for learning: make it easy to start, keep a steady rhythm, and reward consistency.
-- With AI tools, **clear and focused prompts** lead to more stable results and **lower cost**.
-- A more realistic view of what to prepare as a fresher in the AI era, plus a practical framework to improve execution.
+- Learning is a design problem: lower the friction to start, maintain a consistent cadence, and build in rewards.
+- When working with AI, **precision and focus in prompts** produce more reliable results while keeping token costs in check.
+- A grounded perspective on what freshers actually need to prepare — plus a repeatable framework to execute more effectively.
 
-### Applying to Work
+### How I'll Apply This
 
-- Use the **2-minute rule** and chunking to start difficult tasks (especially learning/labs).
-- Standardize prompts: goal → necessary context → constraints → desired output.
-- Practice “less but sufficient” prompting to avoid wasting tokens.
+- Apply the **2-minute rule** and task chunking to break inertia on difficult tasks (labs, study sessions, etc.).
+- Write prompts with a consistent structure: objective → relevant context → constraints → expected output format.
+- Lean toward "focused and sufficient" prompts rather than over-explaining to avoid unnecessary token burn.
 
-### Event Experience
+### Personal Feedback
 
-The content was practical and easy to relate to—especially the “addicted to learning” section (building sustainable learning drive) and the prompt engineering section (writing effective prompts with cost awareness). The demo clearly showed how prompt optimization impacts output quality.
+Honestly, this was one of the more useful events I've attended — not because of big announcements, but because the content was easy to carry back into daily habits. Long's talk on learning psychology shifted how I think about starting tasks: instead of relying on willpower, you engineer the environment. Thinh's session was a wake-up call for anyone treating AI as a free-unlimited resource — the cost angle is something most newcomers completely ignore. The live demo was what tied it all together, showing the difference between a thoughtless prompt and a structured one in real time.
 
 #### Some event photos
 ![Group photo at the event](/images/4-EventParticipated/4.1-Event1/)
 
 <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start">
-  <img src="/images/4-EventParticipated/4.1-Event1/01-long-title.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/12-long-title-2.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/13-conclusion.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/08-why-brain-social-media.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/06-turn-knowledge-dopamine.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/04-three-brain-hacks.png" style="width:220px;height:auto" />
   <img src="/images/4-EventParticipated/4.1-Event1/05-advanced-techniques.png" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:220px;height:auto" />
+ 
 
 </div>

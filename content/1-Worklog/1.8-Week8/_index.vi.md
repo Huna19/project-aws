@@ -5,26 +5,28 @@ weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-### Mục tiêu tuần 8:
 
-* Nghiên cứu kiến trúc **hướng sự kiện** và thiết kế luồng xử lý bất đồng bộ bằng **Amazon SQS**, **SNS**.
-* Thực hành cấu hình SNS Topic và SQS Queue trên AWS Console.
+### Mục tiêu tuần này:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Nghiên cứu kiến trúc **hướng sự kiện** (Event-Driven Architecture) trên AWS <br> - Tìm hiểu tại sao cần xử lý bất đồng bộ, các pattern phổ biến                                          | 08/06/2026   | 08/06/2026      |                                           |
-| 3   | - Thiết kế luồng xử lý bất đồng bộ bằng **Amazon SQS** và **SNS** phục vụ dự án đặt vé <br> - Tìm hiểu SQS (Standard vs FIFO) và SNS (topic, subscription)                                | 09/06/2026   | 09/06/2026      |                                           |
-| 4   | - Tích hợp **SQS** làm hàng đợi xử lý request thanh toán <br> - Cấu hình **SNS** gửi email/tin nhắn xác nhận và vé điện tử cho khách hàng                                                 | 10/06/2026   | 10/06/2026      |                                           |
-| 5   | - Viết test script cho luồng xử lý bất đồng bộ <br> - Xử lý các lỗi phát sinh khi truyền message qua SQS/SNS                                                                              | 11/06/2026   | 11/06/2026      |                                           |
-| 6   | - Ôn tập lại kiến trúc SQS + SNS đã tích hợp <br> - Viết kịch bản test để kiểm thử luồng xử lý bất đồng bộ                                                                                                    | 12/06/2026   | 12/06/2026      |                                           |
-| 7   | - Thực hành cấu hình **SNS Topic** và **SQS Queue** trực tiếp trên AWS Console <br> - Chạy thử nghiệm gửi message và nhận notification | 13/06/2026   | 13/06/2026      |                                           |
+* Nghiên cứu kiến trúc **hướng sự kiện (Event-Driven)** và thiết kế luồng xử lý bất đồng bộ dùng **Amazon SQS** + **SNS**.
+* Tích hợp SQS và SNS vào luồng xử lý của dự án đặt vé.
+* Thực hành cấu hình SNS Topic và SQS Queue trực tiếp trên AWS Console.
 
+### Công việc từng ngày:
 
-### Kết quả đạt được tuần 8:
+| Ngày | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Nghiên cứu **Event-Driven Architecture** trên AWS <br> - Hiểu tại sao cần xử lý bất đồng bộ và các pattern phổ biến | 08/06/2026 | 08/06/2026 | |
+| Thứ 3 | - Thiết kế luồng xử lý bất đồng bộ bằng **Amazon SQS** và **SNS** cho hệ thống đặt vé <br> - Tìm hiểu SQS Standard vs FIFO và SNS (topic, subscription) | 09/06/2026 | 09/06/2026 | |
+| Thứ 4 | - Tích hợp **SQS** làm hàng đợi xử lý request thanh toán <br> - Cấu hình **SNS** để gửi email xác nhận và vé điện tử cho khách hàng | 10/06/2026 | 10/06/2026 | |
+| Thứ 5 | - Viết test script cho luồng xử lý bất đồng bộ <br> - Xử lý lỗi phát sinh khi truyền message qua SQS/SNS <br> - Cấu hình Dead Letter Queue (DLQ) để đảm bảo không mất message | 11/06/2026 | 11/06/2026 | |
+| Thứ 6 | - Ôn lại toàn bộ kiến trúc **SQS + SNS** đã tích hợp <br> - Viết kịch bản test kiểm thử luồng bất đồng bộ end-to-end | 12/06/2026 | 12/06/2026 | |
+| Thứ 7 | - Thực hành cấu hình **SNS Topic** và **SQS Queue** trực tiếp trên AWS Console <br> - Chạy thử gửi message, kiểm tra nhận notification | 13/06/2026 | 13/06/2026 | |
 
-Tuần này mình vừa làm kỹ thuật vừa học được nhiều về định hướng nghề nghiệp. Phần kỹ thuật: nghiên cứu **kiến trúc hướng sự kiện** và thiết kế luồng xử lý bất đồng bộ bằng **Amazon SQS** + **SNS** phục vụ dự án đặt vé — khi nhiều người đặt vé cùng lúc, request thanh toán đẩy vào **SQS queue** để worker xử lý, xong rồi **SNS** gửi email xác nhận + vé điện tử cho khách.
+### Kết quả trong tuần:
 
-Điểm nhấn lớn nhất trong tuần là việc tự tay cấu hình thành công hệ thống **SQS** và **SNS** trên AWS Console. Việc cấu hình thực tế giúp mình hiểu rõ hơn về cơ chế truyền tải thông điệp, cũng như cách thiết lập Dead Letter Queue (DLQ) để đảm bảo không bị mất dữ liệu khi có lỗi xảy ra trong quá trình thanh toán vé.
+Tuần này đi vào vùng hoàn toàn mới: **kiến trúc hướng sự kiện**. Ý tưởng cốt lõi là: khi nhiều người đặt vé cùng lúc, thay vì xử lý tuần tự dễ gây nghẽn, request thanh toán được đẩy vào **SQS queue** để worker xử lý riêng biệt — sau đó **SNS** gửi email xác nhận và vé điện tử đến khách hàng.
 
+Điểm mình thấy rõ nhất là sự khác biệt giữa **Standard Queue** (nhanh, có thể trùng lặp) và **FIFO Queue** (đảm bảo thứ tự, không trùng) — tùy bài toán mà chọn. Cấu hình **Dead Letter Queue** là phần quan trọng nhất: đảm bảo message thất bại không bị mất mà được lưu lại để xử lý sau.
 
+Thứ 7 tự tay cấu hình SQS và SNS trực tiếp trên Console, chạy thử toàn bộ luồng — từ push message vào queue đến nhận notification. Nhìn flow chạy thật sự (không phải chỉ vẽ sơ đồ) giúp mình hiểu sâu hơn nhiều so với chỉ đọc tài liệu.

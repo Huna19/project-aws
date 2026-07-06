@@ -5,26 +5,27 @@ weight: 1
 chapter: false
 pre: " <b> 1.1. </b> "
 ---
-### Mục tiêu tuần 1:
 
-* Bắt đầu khóa **AWS Cloud Practitioner Essentials** trên Skill Builder — học **Module 1** và **Module 2**.
-* Tạo tài khoản **AWS Free Tier**, bật cảnh báo chi phí, làm nhiệm vụ nhận **100 USD**.
-* Lên **EC2 Ubuntu**, cài **Node.js** và chạy thử backend bằng **PM2**.
+### Mục tiêu tuần đầu:
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Hoàn thành **Module 1 – Giới thiệu về Cloud** <br> (AWS Cloud Practitioner Essentials) trên AWS Skill Builder <br>  - AWS Cloud: điện toán đám mây là gì? <br> - Lợi ích của AWS Cloud <br> - Hạ tầng toàn cầu của AWS <br> - Cấu hình Security Group (SSH, HTTP, HTTPS) <br> | 20/04/2026   | 20/04/2026      | <https://skillbuilder.aws/>               |
-| 3   | - Hoàn thành **Module 2 – Điện toán trên đám mây** trên AWS Skill Builder <br> - Giới thiệu Amazon EC2 <br> - Các loại EC2 Instance <br> - Cách cấp phát tài nguyên AWS  <br> - Giá EC2 theo từng  mục dích sử dụng tuần tháng hay năm <br> - Cài đặt Git, Node.js <br> | 21/04/2026   | 21/04/2026      | <https://skillbuilder.aws/>               |
-| 4   | - Tạo thành công tài khoản **AWS** <br> -Tích hợp thành công thêm thẻ VISA vào tài khoản                                                                                                                                  | 22/04/2026   | 22/04/2026      | <https://aws.amazon.com/free/>            |
-| 5   | - Sau khi tạo tài khoản AWS, thiết lập **cảnh báo thanh toán** và **ngân sách (Budgets)** để theo dõi chi phí <br> - Hoàn thành nhiệm vụ nhận **100 USD**                                                                                      | 23/04/2026   | 23/04/2026      |                                           |
-| 6   | - Tạo EC2 mới chạy **Ubuntu** <br> - Triển khai backend **Node.js** trên EC2 bằng **PM2**                                                                                                                                          | 24/04/2026   | 24/04/2026      |                                           |
+* Làm quen với khóa **AWS Cloud Practitioner Essentials** trên AWS Skill Builder (Module 1 & 2).
+* Tạo tài khoản **AWS Free Tier**, thiết lập billing alerts, hoàn thành nhiệm vụ nhận **100 USD credit**.
+* Lên máy ảo **EC2 Ubuntu** đầu tiên, cài **Node.js** và thử chạy backend bằng **PM2**.
 
+### Công việc từng ngày:
 
-### Kết quả đạt được tuần 1:
+| Ngày | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | --- | --- | --- | --- |
+| Thứ 2 | - Xem **Module 1 – Giới thiệu về Cloud** trên AWS Skill Builder <br> - Hoàn thành các phần: cloud computing là gì, lợi ích của AWS Cloud, hạ tầng toàn cầu <br> - Tìm hiểu Security Group cơ bản (SSH, HTTP, HTTPS) | 20/04/2026 | 20/04/2026 | <https://skillbuilder.aws/> |
+| Thứ 3 | - Hoàn thành **Module 2 – Điện toán trên đám mây** <br> - Giới thiệu Amazon EC2, các loại instance <br> - Cách cấp phát tài nguyên, mô hình giá theo nhu cầu <br> - Cài đặt Git và Node.js trên môi trường local | 21/04/2026 | 21/04/2026 | <https://skillbuilder.aws/> |
+| Thứ 4 | - Tạo tài khoản **AWS Free Tier** <br> - Thêm thẻ VISA vào tài khoản  | 22/04/2026 | 22/04/2026 | <https://aws.amazon.com/free/> |
+| Thứ 5 | - Bật **billing alerts** và thiết lập **Budgets** để theo dõi chi phí <br> - Hoàn thành nhiệm vụ (tasks) để nhận **100 USD credit** | 23/04/2026 | 23/04/2026 | |
+| Thứ 6 | - Tạo EC2 instance chạy **Ubuntu** <br> - Deploy backend **Node.js** lên EC2 sử dụng **PM2** <br> - Kiểm tra kết nối qua public IP | 24/04/2026 | 24/04/2026 | |
 
-Tuần đầu chủ yếu là "làm quen": mình xong **Module 1** (cloud là gì, lợi ích AWS, hạ tầng toàn cầu, mô hình trách nhiệm chia sẻ…) và **Module 2** (EC2, loại instance, giá, Auto Scaling, cân bằng tải, messaging). Nhiều khái niệm còn mới nhưng ít nhất biết khóa học đi theo hướng nào.
+### Kết quả trong tuần:
 
-Phần tốn thời gian nhất là tạo tài khoản — thử tới **4 thẻ Visa** mới được 🥹. Xong thì bật cảnh báo chi phí và ngân sách, làm nhiệm vụ nhận **100 USD**. Cuối tuần mình dựng **EC2 Ubuntu**, cài **Node.js**, chạy backend bằng **PM2** cho thấy triển khai lên cloud không chỉ là lý thuyết. Thứ 7–CN về quê vẫn ôn lại nội dung tuần 1 cho khỏi quên.
+Tuần đầu tiên là tuần "làm quen" — mình hoàn thành **Module 1** (cloud là gì, lợi ích AWS, hạ tầng toàn cầu, shared responsibility model) và **Module 2** (EC2, loại instance, giá cả, auto scaling, load balancing, messaging). Nhiều khái niệm còn mơ hồ nhưng ít nhất đã biết khóa học sẽ đi theo hướng nào.
 
+Phần tốn công nhất là tạo tài khoản AWS — phải thử đến **4 thẻ Visa** mới link thành công. Sau đó bật cảnh báo chi phí, thiết lập ngân sách, và làm nhiệm vụ để nhận **100 USD**. Cuối tuần lên thành công máy ảo **EC2 Ubuntu**, cài **Node.js**, chạy backend bằng **PM2** — lần đầu thấy ứng dụng chạy trên cloud thật chứ không phải chỉ lý thuyết.
 
+Thứ 7–CN về quê nhưng vẫn tranh thủ ôn lại nội dung tuần 1 để không quên kiến thức cơ bản.
