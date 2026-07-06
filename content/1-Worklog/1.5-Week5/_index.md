@@ -15,9 +15,9 @@ pre: " <b> 1.5. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | - Review AWS official web hosting architecture guides <br> - Explore High Availability architecture models on AWS | 05/18/2026 | 05/18/2026 | |
-| 3 | - Learn the differences between Monolithic and Microservices architectures | 05/19/2026 | 05/19/2026 | |
-| 4 | - Practice configuring Application Load Balancer (ALB) and Auto Scaling Group on AWS Console | 05/20/2026 | 05/20/2026 | |
-| 5 | - Basic research on Event-Driven Architecture | 05/21/2026 | 05/21/2026 | |
+| 3 | - Learn the differences between Monolithic and Microservices architectures <br>- Analyze the advantages, disadvantages, and use cases of each architectural model. | 05/19/2026 | 05/19/2026 | |
+| 4 | - Practice configuring Application Load Balancer (ALB) and Auto Scaling Group on AWS Console <br>- Understand how Auto Scaling Groups work and the load balancing mechanism between EC2 instances. | 05/20/2026 | 05/20/2026 | |
+| 5 | - Basic research on Event-Driven Architecture<br>- Explore services such as Amazon SNS, Amazon SQS, and AWS Lambda within an event-driven model. | 05/21/2026 | 05/21/2026 | |
 | 6 | - Draft initial architecture diagrams for the ticket booking system to visualize service connections | 05/22/2026 | 05/22/2026 | |
 | 7 | - Attend **AWS Event** (05/23), analyze topics: <br> - Building **High Availability** systems on AWS <br> - Decoupling applications with **Microservices** <br> - Cost optimization with **Auto Scaling** <br> - **Amazon CloudFront** content distribution architecture <br> - Enterprise-grade **Event-Driven Architecture** | 05/23/2026 | 05/23/2026 | |
 

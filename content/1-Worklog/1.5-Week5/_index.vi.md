@@ -15,9 +15,9 @@ pre: " <b> 1.5. </b> "
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
 | 2 | - Đọc tài liệu hướng dẫn triển khai Web của AWS <br> - Tìm hiểu các mô hình kiến trúc High Availability trên AWS | 18/05/2026 | 18/05/2026 | |
-| 3 | - Tìm hiểu sự khác biệt giữa kiến trúc Monolithic và Microservices | 19/05/2026 | 19/05/2026 | |
-| 4 | - Lên AWS Console cấu hình thử Application Load Balancer (ALB) và Auto Scaling Group | 20/05/2026 | 20/05/2026 | |
-| 5 | - Nghiên cứu cơ bản về Event-Driven Architecture (Kiến trúc hướng sự kiện) | 21/05/2026 | 21/05/2026 | |
+| 3 | - Tìm hiểu sự khác biệt giữa kiến trúc Monolithic và Microservices <br>- Phân tích ưu, nhược điểm và các trường hợp áp dụng của từng mô hình kiến trúc. | 19/05/2026 | 19/05/2026 | |
+| 4 | - Lên AWS Console cấu hình thử Application Load Balancer (ALB) và Auto Scaling Group <br>- Tìm hiểu cách hoạt động của Auto Scaling Group và cơ chế cân bằng tải giữa các EC2 Instance. | 20/05/2026 | 20/05/2026 | |
+| 5 | - Nghiên cứu cơ bản về Event-Driven Architecture (Kiến trúc hướng sự kiện)<br>- Tìm hiểu các dịch vụ như Amazon SNS, Amazon SQS và AWS Lambda trong mô hình hướng sự kiện.<br> | 21/05/2026 | 21/05/2026 | |
 | 6 | - Phác thảo sơ đồ kiến trúc nháp cho hệ thống bán vé để xem các dịch vụ kết nối thế nào | 22/05/2026 | 22/05/2026 | |
 | 7 | - Tham dự **AWS Event** (23/05), phân tích các chuyên đề: <br> - Xây dựng hệ thống **High Availability** trên AWS <br> - Phân rã ứng dụng với **Microservices** <br> - Tối ưu hóa chi phí với **Auto Scaling** <br> - Kiến trúc phân phối nội dung **Amazon CloudFront** <br> - Ứng dụng **Event-Driven Architecture** chuẩn doanh nghiệp | 23/05/2026 | 23/05/2026 | |
 

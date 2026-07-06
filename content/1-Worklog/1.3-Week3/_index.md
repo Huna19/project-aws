@@ -17,7 +17,7 @@ pre: " <b> 1.3. </b> "
 | 3   | - Complete **Module 7 – Databases** on AWS Skill Builder <br> - Introduction to Module 7: introduction to databases <br>  | 05/05/2026 | 05/05/2026      | <https://skillbuilder.aws/>               |
 | 4   | **Basic Practice (Module 6):** on Console, create an **S3 bucket**, upload a test file, review the object in the bucket.                                                                                  | 05/06/2026 | 05/06/2026      |                                           |
 | 5   | - Review **Modules 6–7**, note commonly confused areas (block/object/file, relational vs NoSQL)                                                                                                           | 05/07/2026 | 05/07/2026      |                                           |
-| 6   |                                                                                                                                                                                                          | 05/08/2026 | 05/08/2026      |                                           |
+| 6   |- Practice Amazon S3 management: create folders, and upload or delete objects.<br>- Configure basic access permissions for S3 buckets.<br>- Explore S3 Versioning and Lifecycle Rules.<br>- Summarize knowledge regarding AWS storage and databases.<br>                                                                                                                                                                                                          | 05/08/2026 | 05/08/2026      |                                           |
 
 
 ### Week 3 Achievements:

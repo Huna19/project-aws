@@ -17,7 +17,7 @@ To objectively reflect on my internship period, I would like to evaluate myself 
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | ---- | ---- | ------- |
 | 1   | **Professional knowledge & skills** | Understanding of the field, applying knowledge in practice, proficiency with tools, work quality | ✅    | ☐    | ☐       |
 | 2   | **Ability to learn**                | Ability to absorb new knowledge and learn quickly                                                | ✅    | ☐    | ☐       |
-| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ✅    | ☐    | ☐       |
+| 3   | **Proactiveness**                   | Taking initiative, seeking out tasks without waiting for instructions                            | ☐     | ✅   | ☐       |
 | 4   | **Sense of responsibility**         | Completing tasks on time and ensuring quality                                                    | ✅    | ☐    | ☐       |
 | 5   | **Discipline**                      | Adhering to schedules, rules, and work processes                                                 | ✅    | ☐    | ☐       |
 | 6   | **Progressive mindset**             | Willingness to receive feedback and improve oneself                                              | ✅    | ☐    | ☐       |
@@ -33,3 +33,8 @@ To objectively reflect on my internship period, I would like to evaluate myself 
 * Gain more hands-on troubleshooting experience in real-world Cloud environments.
 * Deepen knowledge of advanced AWS cost optimization and security features.
 * Improve technical English skills to read documentation more efficiently and adopt new technologies faster.
+* Enhance automation skills in deploying and managing cloud infrastructure using tools such as Terraform and AWS CloudFormation.
+* Improve monitoring and log analysis skills to quickly identify, troubleshoot, and resolve system issues effectively.
+* Be more proactive in proposing solutions and contributing ideas to optimize system performance, cost efficiency, and development workflows.
+* Strengthen communication and presentation skills to collaborate more effectively with team members and communicate technical ideas clearly.
+* Gain more hands-on experience by participating in real-world projects and working with cloud infrastructure in a professional environment.

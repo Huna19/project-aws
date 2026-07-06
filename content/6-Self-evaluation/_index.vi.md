@@ -18,7 +18,7 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 | --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
 | 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
 | 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ✅   | ☐   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
+| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ☐    | ✅  | ☐          |
 | 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
 | 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ✅   | ☐   | ☐          |
 | 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ✅   | ☐   | ☐          |
@@ -34,3 +34,8 @@ Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân t
 * Trau dồi thêm kinh nghiệm xử lý các sự cố phát sinh trên hệ thống Cloud thực tế.
 * Tìm hiểu sâu hơn về các công cụ tối ưu hóa chi phí và bảo mật nâng cao trên AWS.
 * Cải thiện kỹ năng tiếng Anh chuyên ngành để đọc hiểu tài liệu và tiếp cận công nghệ mới nhanh chóng hơn.
+* Nâng cao kỹ năng tự động hóa trong việc triển khai và quản lý hạ tầng bằng các công cụ như Terraform hoặc AWS CloudFormation.
+* Rèn luyện kỹ năng giám sát và phân tích log, từ đó phát hiện và xử lý sự cố trên hệ thống một cách nhanh chóng và hiệu quả.
+* Chủ động hơn trong việc đề xuất giải pháp, tích cực đóng góp ý tưởng nhằm tối ưu hiệu năng, chi phí và quy trình làm việc.
+* Cải thiện kỹ năng giao tiếp và trình bày, giúp trao đổi công việc rõ ràng, hiệu quả với đồng nghiệp và khách hàng.
+* Tích lũy thêm kinh nghiệm thực tế thông qua việc tham gia nhiều dự án và tiếp cận các tình huống vận hành hệ thống Cloud trong môi trường doanh nghiệp.
