@@ -8,18 +8,18 @@ pre: " <b> 1.3. </b> "
 
 ### Week 3 Goals:
 
-* Work through **Module 6** (Storage) and **Module 7** (Databases) on AWS Skill Builder.
+* Learn about **Storage** and **Databases** on AWS.
 * Get hands-on with **S3** on the Console to pair theory with practice.
 
 ### Daily breakdown:
 
 | Day | Work performed | Start Date | Completion Date | Reference |
 | --- | --- | --- | --- | --- |
-| Monday | - Complete **Module 6 – Storage** on AWS Skill Builder <br> - **Block storage:** Instance Store & Amazon EBS, EBS data lifecycle <br> - **Object storage:** Amazon S3, storage classes, S3 lifecycle, S3 demo <br> - **File storage:** Amazon EFS, Amazon FSx | 05/04/2026 | 05/04/2026 | <https://skillbuilder.aws/> |
-| Tuesday | - Complete **Module 7 – Databases** on AWS Skill Builder <br> - Introduction to databases on AWS <br> - Relational (RDS, Aurora) vs non-relational (DynamoDB) databases | 05/05/2026 | 05/05/2026 | <https://skillbuilder.aws/> |
-| Wednesday | - **Hands-on practice for Module 6:** Create an **S3 bucket** on Console, upload a test file, view the object in the bucket | 05/06/2026 | 05/06/2026 | |
-| Thursday | - Review **Modules 6–7**, note commonly confused concepts (block/object/file storage, relational vs NoSQL) | 05/07/2026 | 05/07/2026 | |
-| Friday | - Practice S3 management: create folders, upload and delete objects <br> - Configure basic bucket access permissions <br> - Explore S3 Versioning and Lifecycle Rules <br> - Summarize key learnings from storage and database modules | 05/08/2026 | 05/08/2026 | |
+| Monday | - Study Storage on AWS <br> - **Block storage:** Instance Store & Amazon EBS, EBS data lifecycle <br> - **Object storage:** Amazon S3, storage classes, S3 lifecycle <br> - **File storage:** Amazon EFS, Amazon FSx | 05/04/2026 | 05/04/2026 | |
+| Tuesday | - Study Databases on AWS <br> - Relational (RDS, Aurora) vs non-relational (DynamoDB) databases | 05/05/2026 | 05/05/2026 | |
+| Wednesday | - Hands-on: Create an **S3 bucket** on Console, upload a test file, view the object in the bucket | 05/06/2026 | 05/06/2026 | |
+| Thursday | - Review Storage & Databases, note commonly confused concepts (block/object/file, relational vs NoSQL) | 05/07/2026 | 05/07/2026 | |
+| Friday | - Practice S3 management: create folders, upload and delete objects <br> - Configure basic bucket access permissions <br> - Explore S3 Versioning and Lifecycle Rules <br> - Summarize key learnings from storage and database topics | 05/08/2026 | 05/08/2026 | |
 
 ### Weekly outcomes:
 

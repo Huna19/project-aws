@@ -8,17 +8,17 @@ pre: " <b> 1.3. </b> "
 
 ### Mục tiêu tuần này:
 
-* Học **Module 6** (Lưu trữ) và **Module 7** (Cơ sở dữ liệu) trên AWS Skill Builder.
+* Tìm hiểu về **Storage** và **Databases** trên AWS.
 * Thực hành với **S3** trên Console để gắn lý thuyết với thực tế.
 
 ### Công việc từng ngày:
 
 | Ngày | Nội dung công việc | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
 | --- | --- | --- | --- | --- |
-| Thứ 2 | - Hoàn thành **Module 6 – Lưu trữ (Storage)** trên AWS Skill Builder <br> - **Lưu trữ khối:** Instance Store & Amazon EBS, vòng đời dữ liệu EBS <br> - **Lưu trữ đối tượng:** Amazon S3, lớp lưu trữ, vòng đời S3, demo S3 <br> - **Lưu trữ file:** Amazon EFS, Amazon FSx | 04/05/2026 | 04/05/2026 | <https://skillbuilder.aws/> |
-| Thứ 3 | - Hoàn thành **Module 7 – Cơ sở dữ liệu (Databases)** trên AWS Skill Builder <br> - Giới thiệu cơ sở dữ liệu trên AWS <br> - So sánh quan hệ (RDS, Aurora) vs phi quan hệ (DynamoDB) | 05/05/2026 | 05/05/2026 | <https://skillbuilder.aws/> |
-| Thứ 4 | - **Thực hành Module 6:** Tạo **S3 bucket** trên Console, upload file thử, xem lại object trong bucket | 06/05/2026 | 06/05/2026 | |
-| Thứ 5 | - Ôn lại **Module 6–7**, ghi chú các chỗ hay nhầm (block/object/file, quan hệ vs NoSQL) | 07/05/2026 | 07/05/2026 | |
+| Thứ 2 | - Tìm hiểu về Storage trên AWS <br> - **Lưu trữ khối:** Instance Store & Amazon EBS, vòng đời dữ liệu EBS <br> - **Lưu trữ đối tượng:** Amazon S3, lớp lưu trữ, vòng đời S3 <br> - **Lưu trữ file:** Amazon EFS, Amazon FSx | 04/05/2026 | 04/05/2026 | |
+| Thứ 3 | - Tìm hiểu về Databases trên AWS <br> - So sánh quan hệ (RDS, Aurora) vs phi quan hệ (DynamoDB) | 05/05/2026 | 05/05/2026 | |
+| Thứ 4 | - Thực hành: Tạo **S3 bucket** trên Console, upload file thử, xem lại object trong bucket | 06/05/2026 | 06/05/2026 | |
+| Thứ 5 | - Ôn lại Storage & Databases, ghi chú các chỗ hay nhầm (block/object/file, quan hệ vs NoSQL) | 07/05/2026 | 07/05/2026 | |
 | Thứ 6 | - Thực hành quản lý S3: tạo folder, tải lên và xóa object <br> - Cấu hình quyền truy cập bucket cơ bản <br> - Tìm hiểu S3 Versioning và Lifecycle Rules <br> - Tổng kết kiến thức tuần 3 về Storage và Databases | 08/05/2026 | 08/05/2026 | |
 
 ### Kết quả trong tuần:
