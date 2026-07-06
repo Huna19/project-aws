@@ -18,7 +18,7 @@ pre: " <b> 1.1. </b> "
 | --- | --- | --- | --- | --- |
 | Thứ 2 | - Tìm hiểu cloud computing là gì, lợi ích của AWS Cloud, hạ tầng toàn cầu <br> - Tìm hiểu Security Group cơ bản (SSH, HTTP, HTTPS) | 20/04/2026 | 20/04/2026 | |
 | Thứ 3 | - Tìm hiểu Amazon EC2, các loại instance <br> - Cách cấp phát tài nguyên, mô hình giá theo nhu cầu <br> - Cài đặt Git và Node.js trên môi trường local | 21/04/2026 | 21/04/2026 | |
-| Thứ 4 | - Tạo tài khoản **AWS Free Tier** <br> - Thêm thẻ VISA vào tài khoản (thử 4 thẻ mới thành công 😅) | 22/04/2026 | 22/04/2026 | <https://aws.amazon.com/free/> |
+| Thứ 4 | - Tạo tài khoản **AWS Free Tier** <br> - Thêm thẻ VISA vào tài khoản | 22/04/2026 | 22/04/2026 | <https://aws.amazon.com/free/> |
 | Thứ 5 | - Bật **billing alerts** và thiết lập **Budgets** để theo dõi chi phí <br> - Hoàn thành nhiệm vụ (tasks) để nhận **100 USD credit** | 23/04/2026 | 23/04/2026 | |
 | Thứ 6 | - Tạo EC2 instance chạy **Ubuntu** <br> - Deploy backend **Node.js** lên EC2 sử dụng **PM2** <br> - Kiểm tra kết nối qua public IP | 24/04/2026 | 24/04/2026 | |
 

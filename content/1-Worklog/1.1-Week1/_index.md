@@ -18,7 +18,7 @@ pre: " <b> 1.1. </b> "
 | --- | --- | --- | --- | --- |
 | Monday | - Learn what cloud computing is, AWS Cloud benefits, global infrastructure <br> - Understand basic Security Group concepts (SSH, HTTP, HTTPS) | 04/20/2026 | 04/20/2026 | |
 | Tuesday | - Study Amazon EC2, instance types <br> - Resource provisioning, on-demand pricing model <br> - Install Git and Node.js locally | 04/21/2026 | 04/21/2026 | |
-| Wednesday | - Create **AWS Free Tier** account <br> - Add VISA card to account (tried 4 cards before success 😅) | 04/22/2026 | 04/22/2026 | <https://aws.amazon.com/free/> |
+| Wednesday | - Create **AWS Free Tier** account <br> - Add VISA card to account  | 04/22/2026 | 04/22/2026 | <https://aws.amazon.com/free/> |
 | Thursday | - Enable **billing alerts** and set up **Budgets** for cost tracking <br> - Complete tasks to receive **100 USD credit** | 04/23/2026 | 04/23/2026 | |
 | Friday | - Launch EC2 instance running **Ubuntu** <br> - Deploy **Node.js** backend to EC2 using **PM2** <br> - Test connection via public IP | 04/24/2026 | 04/24/2026 | |
 
