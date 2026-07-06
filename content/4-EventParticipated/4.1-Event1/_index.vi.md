@@ -6,99 +6,136 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Ghi chép trải nghiệm "AWS Event (09/05/2026)"
+# Bài thu hoạch — AWS Event (09/05/2026)
 
-### Định hướng chính của sự kiện
+Buổi event diễn ra vào ngày 09/05/2026 tại văn phòng AWS, quy tụ 4 diễn giả với các chủ đề xoay quanh học tập, AI và định hướng nghề nghiệp cho người mới. Đây là buổi chia sẻ nội bộ dành cho các bạn đang tham gia chương trình First Cloud AI Journey, với không khí khá thoải mái và gần gũi.
 
-- Khám phá góc nhìn thực hành về thói quen học tập hiệu quả và ứng dụng AI trong môi trường làm việc thực tế, đặc biệt là kỹ thuật viết prompt.
-- Phân tích kỹ năng mà sinh viên mới ra trường thực sự cần có trong kỷ nguyên AI, giới thiệu framework làm việc BMAD.
-- Tham gia demo tối ưu prompt trực tiếp và mở sân chơi thảo luận với người tham dự.
+---
 
-### Đội ngũ diễn giả
+## Diễn giả & Chủ đề
 
-- **Anh Long**: "Làm sao để nghiện học như nghiện mạng xã hội"
-- **Thịnh**: "Automated Prompt Engineering"
-- **Anh Khang**: "Sao chưa đi làm?" & "AI-Ready Fresher"
-- **Thư**: Giới thiệu "BMAD" — lợi ích và phương pháp áp dụng
+| Diễn giả | Chủ đề |
+|---|---|
+| Anh Long | Làm sao để nghiện học như nghiện mạng xã hội |
+| Thịnh | Automated Prompt Engineering |
+| Anh Khang | Sao chưa đi làm? / AI-Ready Fresher |
+| Thư | Giới thiệu BMAD |
 
-### Cách thức tổ chức
+---
 
-Bốn bài trình bày liên tiếp được sắp xếp theo thứ tự: **Long → Thịnh → Khang → Thư**.
+## Nội dung từng phần
 
-#### 1) Long — Điều chỉnh não bộ để khao khát học tập
+### Anh Long — Nghiện học như nghiện mạng xã hội
 
-**Vấn đề cốt lõi: tại sao não tự động chọn scroll mạng xã hội**
+Điểm xuất phát của bài nói là câu hỏi rất thực tế: tại sao biết học là quan trọng nhưng vẫn cứ cầm điện thoại lên? Thay vì trả lời theo kiểu "hãy cố gắng hơn", anh Long tiếp cận từ góc độ sinh học thần kinh — cách não bộ thực sự đưa ra quyết định.
 
-- **Mạng xã hội**: phần thưởng tức thời, tính mới lạ liên tục, không cần bất kỳ nỗ lực nào
-- **Học tập**: phải chờ lâu mới có kết quả, yêu cầu tập trung liên tục, không có phản hồi ngay lập tức
+**Tại sao não chọn mạng xã hội thay vì học?**
 
-**Biến việc học thành phần thưởng biến thiên**
+Não bộ không phân biệt "tốt hay xấu" — nó chỉ chạy theo phần thưởng. Mạng xã hội được thiết kế cực kỳ tinh vi để khai thác điều đó:
+- Phần thưởng **tức thời**: like, comment, notification — không cần chờ đợi
+- Nội dung **luôn mới**: mỗi lần scroll là một bất ngờ, não tiết dopamine liên tục
+- **Không cần nỗ lực**: chỉ cần ngón tay cái, không cần tư duy
 
-- Tái cấu trúc vòng lặp học tập sao cho nó mô phỏng lại cấu trúc phần thưởng khó đoán — điều khiến con người bị cuốn vào các ứng dụng.
+Học thì ngược lại hoàn toàn: kết quả chậm, đòi hỏi tập trung cao, không có phản hồi ngay lập tức. Đó là lý do tại sao ý chí luôn thua.
 
-**Vượt qua cơ chế phản ứng đe dọa của não**
+**Giải pháp: thiết kế lại môi trường học**
 
-- Chia nhỏ nhiệm vụ, chèn các khoảng nghỉ ngắn, và tăng độ khó dần dần — mục tiêu là giảm "năng lượng khởi động" để bắt đầu.
-- **Quy tắc 2 phút**: bất kỳ việc nào dưới 2 phút nên làm ngay, không cần lên lịch.
-- Ăn mừng những chiến thắng nhỏ. Việc công nhận tiến bộ từng chút một sẽ xây dựng đà để tiếp tục.
+Thay vì chiến đấu với não bộ, anh Long đề xuất "đánh lừa" nó bằng cách tái thiết kế môi trường:
 
-**Mượn chiến thuật từ các nền tảng xã hội**
+- **Chia nhỏ task**: chia việc cần làm xuống đến mức nhỏ đến nỗi không có lý do gì để trì hoãn nữa. Thay vì "học AWS hôm nay", đổi thành "đọc 1 trang tài liệu về EC2"
+- **Quy tắc 2 phút**: bất kỳ việc nào dưới 2 phút — làm ngay, không lên lịch, không nghĩ thêm. Đây là cách chống trì hoãn hiệu quả nhất với những task nhỏ
+- **Ghi nhận tiến bộ nhỏ**: não cần được "thưởng" để tiếp tục. Tick off một task dù nhỏ cũng tạo ra cảm giác thỏa mãn thực sự
+- **Đặt trigger đúng chỗ**: thay vì học ở chỗ bạn hay scroll mạng, thay đổi môi trường — học ở bàn làm việc, tắt thông báo, đặt tài liệu học ngay chỗ mắt nhìn đầu tiên
 
-- Chuyển hướng các vòng lặp thói quen giá trị thấp vào ngữ cảnh mà chúng tạo ra điều gì đó có ích (thay đổi trigger và touchpoint).
-- Chủ động thu thập kiến thức — việc chủ động luôn mạnh hơn tiêu thụ thụ động.
+**Biến kiến thức thành dopamine gamble**
 
-#### 2) Thịnh — Tự động hóa việc cải thiện prompt
+Một trong những điểm thú vị nhất: anh Long giải thích khái niệm *variable reward* — phần thưởng không đoán trước được kích thích dopamine mạnh hơn phần thưởng cố định. Đó là lý do tại sao slot machine gây nghiện hơn tiền lương cố định. Nếu biến việc học thành dạng "không biết mình sẽ khám phá được gì hôm nay", não sẽ bắt đầu chờ đợi nó như chờ notification.
 
-**Sai lầm cốt lõi mà mọi người mắc phải**
+---
 
-- Prompt mơ hồ, chung chung tạo ra kết quả mơ hồ và chung chung — nhưng phần lớn vẫn kỳ vọng output chính xác và hữu ích.
+### Thịnh — Automated Prompt Engineering
 
-**Chất lượng prompt ảnh hưởng trực tiếp đến chi phí**
+Phần này đi vào vấn đề kỹ thuật hơn hẳn. Thịnh mở đầu bằng một nhận xét thẳng: hầu hết mọi người viết prompt giống như nhắn tin cho bạn bè — mơ hồ, thiếu context, rồi ngạc nhiên khi AI trả lời không đúng ý. Sau đó, thay vì sửa prompt, họ cứ thêm thông tin vào mà không có cấu trúc.
 
-- Chi phí token là thực: một prompt phình ra, thiếu trọng tâm sẽ tốn tiền và làm giảm chất lượng.
-- Thay vì nhồi nhét mọi thứ vào prompt và hy vọng model tự hiểu, hãy cung cấp ngữ cảnh súc tích và yêu cầu rõ phạm vi.
+**Prompt kém = kết quả kém + tốn tiền**
 
-#### 3) Khang — Chuẩn bị cho môi trường làm việc AI
+Một điểm quan trọng mà nhiều người không để ý: mỗi token trong prompt đều tốn tiền. Một prompt phình to, nhồi nhét thông tin dư thừa không chỉ cho ra kết quả kém hơn mà còn làm tăng chi phí vận hành. Với các hệ thống production gọi API hàng nghìn lần mỗi ngày, đây là con số rất đáng kể.
 
-- Trình bày các năng lực thực tế mà sinh viên mới cần có trước khi bước vào môi trường chuyên nghiệp.
-- Trả lời câu hỏi trực tiếp từ khán giả về kế hoạch nghề nghiệp và lo ngại "AI có thay thế chúng ta không?".
+**Automated Prompt Engineering là gì?**
 
-#### 4) Thư — BMAD thực chất là gì
+Thay vì tự tay viết lại prompt qua nhiều lần thử sai, có thể dùng AI để:
+1. Sinh ra nhiều biến thể prompt từ cùng một yêu cầu
+2. Chạy thử và đánh giá từng biến thể
+3. Chọn ra phiên bản hoạt động tốt nhất theo tiêu chí đã định trước
 
-- Giới thiệu framework **BMAD**, giải thích tại sao nó hữu ích và chỉ cách tích hợp vào quy trình làm việc hàng ngày.
+Cách tiếp cận này biến việc tối ưu prompt từ nghệ thuật chủ quan thành một quy trình có thể đo lường và lặp lại.
 
-#### Demo trực tiếp
+**Cấu trúc một prompt tốt**
 
-- Minh họa thực thời về việc tạo prompt và **tối ưu prompt** dần dần.
+Thịnh cũng chia sẻ framework viết prompt gồm các thành phần: Role (AI đóng vai gì), Task (nhiệm vụ cụ thể), Context (ngữ cảnh cần biết), Input (dữ liệu đầu vào), Example (ví dụ mong muốn), Output (định dạng output), Constraints (giới hạn). Đây không phải công thức cứng nhắc nhưng là checklist hữu ích để không bỏ sót thông tin quan trọng.
 
-### Những điều mình ghi nhận
+---
 
-- Học tập là một bài toán thiết kế: giảm ma sát khi bắt đầu, duy trì nhịp độ đều đặn, và xây dựng cơ chế phần thưởng.
-- Khi làm việc với AI, **độ chính xác và tập trung trong prompt** mang lại kết quả đáng tin cậy hơn đồng thời kiểm soát được chi phí token.
-- Một góc nhìn chân thực về những gì sinh viên mới thực sự cần chuẩn bị — cùng với một framework có thể lặp lại để thực thi hiệu quả hơn.
+### Anh Khang — Sao chưa đi làm? / AI-Ready Fresher
 
-### Cách mình sẽ áp dụng
+Anh Khang nói thẳng vào những gì nhiều sinh viên đang mắc kẹt — không phải thiếu kiến thức, mà thiếu sự chuẩn bị tâm thế và kỹ năng thực tế để bước vào môi trường làm việc.
 
-- Vận dụng **quy tắc 2 phút** và kỹ thuật chia nhỏ để phá vỡ sự trì hoãn trên các task khó (lab, buổi học, v.v.).
-- Viết prompt theo cấu trúc nhất quán: mục tiêu → ngữ cảnh liên quan → ràng buộc → định dạng output mong đợi.
-- Thiên về prompt "tập trung và đủ" thay vì giải thích quá tải để tránh lãng phí token không cần thiết.
+**Tại sao nhiều bạn chưa đi làm dù đã "đủ điều kiện"?**
 
-### Cảm nhận cá nhân
+- Chờ bản thân "giỏi hơn" — nhưng không có mốc nào gọi là đủ giỏi cả
+- Sợ thất bại, sợ bị hỏi những câu không biết trả lời
+- Không biết mình thiếu gì vì chưa bao giờ thử
 
-Thật ra đây là một trong những buổi event mình thấy đáng đi nhất — không phải vì có thông báo gì lớn, mà vì nội dung dễ mang về áp dụng ngay vào thói quen hàng ngày. Phần của anh Long về tâm lý học tập làm mình nhìn lại cách bắt đầu task: thay vì dựa vào ý chí, hãy thiết kế lại môi trường xung quanh. Phần của Thịnh là cú tát nhẹ cho ai đang coi AI như tài nguyên miễn phí vô hạn — yếu tố chi phí là thứ hầu hết người mới hoàn toàn bỏ qua. Demo trực tiếp là phần kéo tất cả lại với nhau, cho thấy sự khác biệt rõ ràng giữa một prompt viết ẩu và một prompt có cấu trúc ngay trên thực tế.
+Anh Khang cho rằng đi làm sớm — dù ở vị trí intern hay part-time — là cách học nhanh nhất, không phải là rủi ro.
+
+**Doanh nghiệp cần gì ở fresher?**
+
+- Không phải người biết hết — mà là người **biết cách học và tự giải quyết vấn đề**
+- Có ít nhất **một dự án thực tế** để kể — portfolio quan trọng hơn điểm GPA
+- Biết cách **giao tiếp rõ ràng** về những gì mình đang làm và đang gặp khó khăn gì
+
+**AI-Ready Fresher**
+
+Một phần quan trọng của bài là nhìn nhận thực tế về AI trong thị trường lao động. Câu "AI có thay thế con người không?" được trả lời thẳng: AI không thay thế người, nhưng **người biết dùng AI sẽ thay thế người không biết**. Fresher cần học cách làm việc *cùng* AI — không phải cạnh tranh với nó.
+
+Phần Q&A cuối rất sôi nổi, nhiều câu hỏi xoay quanh "có nên học thêm chứng chỉ không?", "portfolio cần có gì?" và "nên apply intern ở đâu trước?".
+
+---
+
+### Thư — BMAD
+
+BMAD là một framework làm việc Thư giới thiệu như một cách tiếp cận có cấu trúc hơn khi làm việc cùng AI trên các dự án phức tạp. Thay vì cứ "chat với AI" theo kiểu tùy hứng, BMAD giúp định nghĩa rõ vai trò, nhiệm vụ và quy trình làm việc từ đầu.
+
+Framework này đặc biệt hữu ích khi làm việc nhóm có sử dụng AI — vì nó giúp mọi người trong nhóm hiểu AI đang làm gì, tại sao, và kết quả được đánh giá theo tiêu chí nào. Phần demo nhỏ cuối phần này cho thấy sự khác biệt rõ rệt giữa workflow có cấu trúc và không có cấu trúc khi collaborate với AI.
+
+---
+
+### Demo — Tối ưu Prompt trực tiếp
+
+Phần demo là phần thu hút sự chú ý nhất trong cả buổi. Người thực hiện lấy một prompt thực tế — loại prompt mà nhiều người hay viết — chạy thử, đọc output, sau đó phân tích từng điểm chưa ổn.
+
+Sau đó cải thiện prompt từng bước một: thêm role, làm rõ task, giới hạn output, thêm ví dụ. Mỗi bước thay đổi, chạy lại và so sánh kết quả ngay trên màn hình. Chỉ trong 3–4 lần chỉnh, chất lượng output thay đổi rõ rệt — cả về độ chính xác lẫn định dạng.
+
+Điều này không thể truyền đạt qua tài liệu hay slide. Phải nhìn tận mắt mới cảm nhận được tốc độ cải thiện khi biết cách sửa đúng chỗ.
+
+---
+
+## Điều mình mang về
+
+Buổi này không phải kiểu event trình bày cho hoành tráng — nội dung thực tế, gần với những gì đang làm hàng ngày. Không có slide bóng bẩy hay số liệu ấn tượng, chỉ là những người đang làm chia sẻ những gì họ học được qua thực tế.
+
+Ba điều đọng lại nhiều nhất sau buổi này:
+
+1. **Thiết kế môi trường học quan trọng hơn ý chí** — thay vì "cố gắng hơn", hãy thay đổi môi trường xung quanh. Đây là thứ mình sẽ thử áp dụng ngay vào lịch học hàng ngày.
+
+2. **Prompt tốt không phải viết dài hơn, mà là viết đúng hơn** — và quá trình tối ưu đó có thể được tự động hóa, không cần phụ thuộc vào cảm tính.
+
+3. **Đi làm sớm không phải là bỏ cuộc học** — mà là cách học hiệu quả nhất. Môi trường thực tế dạy những thứ mà không có trường nào dạy được.
 
 #### Một số hình ảnh khi tham gia sự kiện
-![Ảnh chụp tập thể tại sự kiện](/images/4-EventParticipated/4.1-Event1/)
 
-<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start">
-  <img src="/images/4-EventParticipated/4.1-Event1/01-long-title.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/12-long-title-2.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/13-conclusion.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/08-why-brain-social-media.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/06-turn-knowledge-dopamine.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/04-three-brain-hacks.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/05-advanced-techniques.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:220px;height:auto" />
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
 </div>

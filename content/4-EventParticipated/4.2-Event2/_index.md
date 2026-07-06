@@ -6,94 +6,113 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Learnings from "AWS Community Day (05/23/2026)"
+# Event Recap — AWS Community Day (05/23/2026)
 
-### Core Focus of the Event
+AWS Community Day on May 23, 2026 packed 6 deep technical sessions into one day — spanning AI/ML, Multi-Agent systems, CloudFront architecture, and real hackathon war stories.
 
-- Deliver deep technical updates on AWS innovations — especially AI/ML advancements, Multi-Agent architecture patterns, and infrastructure cost optimization.
-- Facilitate networking opportunities to learn directly from engineers at major enterprises.
-- Analyze real-world implementations: credit risk assessment systems, Second Brain architectures, and CloudFront deployment patterns.
+---
 
-### Speakers on Stage
+## Speakers & Topics
 
-- **Anh Tinh**: Build second brain
-- **Hai Anh**: Friendly AI Assistant with Amazon Q
-- **Thinh**: From Edge To Origin: CloudFront as Your Foundation
-- **Team VIB**: 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality
-- **Dao Duc**: Deep dive talk: How LLM actually works
-- **Cat Vy**: Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring
+| Speaker | Topic |
+|---|---|
+| Anh Tinh | Build a Second Brain |
+| Hai Anh | Friendly AI Assistant with Amazon Q |
+| Thinh | From Edge To Origin: CloudFront as Your Foundation |
+| Team VIB | 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality |
+| Dao Duc | Deep Dive: How LLM Actually Works |
+| Cat Vy | Enterprise-Grade Multi-Agent System: Startup Credit Scoring |
 
-### Technical Deep Dives
+---
 
-Six highly technical sessions filled the agenda:
+## Session Breakdown
 
-#### 1) Context Architecture & Second Brain Design (Anh Tinh)
+### Anh Tinh — Building a Second Brain with AI
 
-- **Why AI underperforms**: Poor responses usually stem from input lacking proper context, not weak models.
-- **The "Kitchen Sink" Anti-Pattern**: Dumping entire documents into the chat window doesn't just reduce accuracy — it wastes tokens.
-- **Context Framework Design**: To treat AI as a "Second Brain", structure inputs like delegating to a human: Goal + Relevant info + Constraints + Success criteria.
-- **Memory Pipeline**: A complete system flows through: Store → Retrieve → Generate → Learn.
+Anh Tinh started with something everyone has experienced: ask AI a question, get a vague answer that isn't usable. The problem usually isn't a weak model — it's input that lacks context.
 
-#### 2) Enterprise Virtual Assistants & Agentic AI (Hai Anh)
+The session introduced a framework for structuring AI input like you're delegating to a person, built around 4 components:
+- **Goal** — what you specifically want to achieve
+- **Relevant info** — only what's actually needed, not everything
+- **Constraints** — technical limits, requirements, or restrictions
+- **Success criteria** — how to know whether the output is correct
 
-- **The Enterprise Data Problem**: Teams repeatedly execute manual, time-consuming tasks while hunting for fragmented information.
-- **Amazon Quick Suite Capabilities**: Agentic AI consolidates the user experience, accelerating the Insight-to-Action cycle.
-- **Integration Surface**: Direct connections to 40+ data connectors, internal databases, web search, and thousands of 3rd-party actions.
-- **Responsible AI Enforcement**: Data safety through Governance, Access controls, and Guardrails that meet legal requirements.
+Also covered was a memory architecture for AI systems: **Store → Retrieve → Generate → Learn** — how a complete AI system should operate rather than just being a one-way chatbot.
 
-#### 3) Edge Network Optimization via Amazon CloudFront (Thinh)
+---
 
-- **The "Bill Shock" Scenario**: Pay-as-you-go pricing creates financial risk during traffic spikes or attacks — bills can hit $100,000 unexpectedly.
-- **Fixed-Price Package Solution**: AWS bundles CDN, WAF, Anti-DDoS, Route 53, and S3 into a fixed-cost offering for financial predictability.
-- **Edge Compression Performance**: Automatic HTTP compression reduces download size by 82% and latency by 81%. HTTP/3 (QUIC/UDP) enables parallel multiplexing of static assets.
-- **Origin Cloaking Strategy**: Origin Access Control (OAC) or Custom Headers completely hide origin servers from public internet exposure.
+### Hai Anh — Enterprise AI Assistant with Amazon Q
 
-#### 4) 36-Hour Build Sprint at LotusHacks (Team VIB)
+Hai Anh addressed the operational pain points enterprises face: employees repeating manual tasks, information scattered across systems, too much time spent getting from data to a decision.
 
-- **Rapid Prototype Development**: UTMorpho was designed and deployed in 36 hours using Claude Sonnet 4 in US-East-1.
-- **Primary Technical Barrier**: The team hit "AI Overgeneration" issues and repeatedly reached Token Limits under deadline pressure.
-- **Key Learning**: "Real Frustration Creates Real Ideas". In hackathons, Team Sync and stamina outweigh idea volume.
+**Amazon Q** and the Agentic AI suite were introduced as a way to shorten that loop: direct connections to 40+ data sources, internal search, and the ability to take action rather than just answer questions. The standout detail was the **Guardrails** mechanism — controls that prevent AI from doing things it shouldn't, ensuring enterprise compliance.
 
-#### 5) LLM Nondeterminism at Scale (Dao Duc)
+---
 
-- **The Temperature = 0 Illusion**: Setting T=0 should theoretically produce identical outputs. In practice, accuracy varies by 15%, and best/worst run gaps reach 70% with identical prompts.
-- **Technical Root Cause**: Parallel floating-point GPU operations lack associativity: (a+b)+c != a+(b+c). Additionally, Inference batching alters calculations for individual requests.
-- **Mitigation Approach**: Build error-tolerant systems, implement Majority voting, and consider Temperature=0.1 to prevent infinite vocabulary loops.
+### Thinh — CloudFront from Edge to Origin
 
-#### 6) Enterprise Multi-Agent Architecture (Cat Vy)
+This session tackled a very real problem startups run into: **Bill Shock** — an AWS bill that spikes unexpectedly due to traffic surges or DDoS attacks.
 
-- **Traditional Banking & Single Agent Limits**: Startups face rejection due to missing financial reports/collateral. A single AI Agent causes Context limits, diluted expertise, no Checks & Balances, and creates a Single Point of Failure.
-- **Virtual Credit Committee Design**: A specialized agent ensemble: Manager, Financial Analyst, Market Analyst, Team Evaluator, Risk Assessor, and Compliance.
-- **Operational Impact (ROI)**: Approval time dropped from 2-3 weeks to 2-4 hours. Decision costs fell from ~100M VND to under 5M VND, while approval rates doubled to 35-45%.
-- **Deployment Stack**: Dockerized, pushed to Amazon ECR, integrated into Bedrock AgentCore Runtime, connected via AWS Lambda, exposed through API Gateway.
+Thinh walked through how CloudFront is more than just a CDN — it's the first layer of defense:
+- **WAF integration** blocks malicious requests before they reach the backend
+- **Automatic compression** reduces payload size by 82% and latency by 81%
+- **HTTP/3 (QUIC)** enables parallel loading of multiple files simultaneously
+- **Origin Cloaking** via OAC/Custom Headers completely hides the origin server
+- **Fixed-price bundles** including CDN + WAF + Anti-DDoS for predictable cost control
 
-### Core Insights
+---
 
-- Recognized the paradigm shift from single-model AI to Multi-Agent architectures for solving complex, branching enterprise problems.
-- Gained sharper awareness of Security & Compliance (Guardrails) importance when deploying AI to Production.
-- Understood latency optimization through CloudFront and practical Amazon Q integration patterns for daily workflows.
-- Grasped LLM nondeterminism fundamentals and fault-tolerant design principles when building AI-dependent systems.
+### Team VIB — 36 Hours at LotusHacks
 
-### Planned Applications
+Team VIB shared the story of building **UTMorpho** in 36 hours at LotusHacks, powered by Claude Sonnet 4 on US-East-1.
 
-- Investigate **Amazon Q** integration for debugging workflows and AWS documentation navigation to save time.
-- Network Architecture: Prioritize **CloudFront** edge deployment combined with WAF and OAC to accelerate page loads, hide origin servers, and enforce security.
-- Future AI feature designs will decompose logic into specialized "Agents" rather than cramming everything into a single prompt.
-- Build a prompt-writing framework around the 4 elements: Goal, Relevant Info, Constraints, Success Criteria.
+The most interesting part was the real friction they hit: AI kept generating far more content than needed (AI Overgeneration), and token limits got hit right when deadline pressure was highest. Their final lesson: **"Real Frustration Creates Real Ideas"** — actual pressure produces better ideas, and in a hackathon, team synchronization matters more than the volume of ideas.
 
-### Experience Reflection
+---
 
-This event delivered extremely high technical density. Where Event 1 leaned toward career guidance and basic prompt optimization, Event 2 jumped straight into system architecture and how large enterprises deploy AI securely and cost-effectively. Cat Vy's Multi-Agent credit scoring case study stood out for painting a clear Enterprise-grade AI picture with compelling ROI numbers. The "Bill Shock" problem and CloudFront solution also provided a highly practical lesson for upcoming projects.
+### Dao Duc — How LLMs Actually Work
+
+The most technical session of the day. Dao Duc dismantled a common assumption: **Temperature = 0 does not mean output is always the same**.
+
+In practice: accuracy still fluctuates by up to 15%, and the gap between best and worst runs can reach 70% using identical prompts. The root cause is how GPUs process floating-point operations in parallel — the math isn't associative, so processing order affects results.
+
+The practical takeaway: design systems that **tolerate variance**, use **Majority Voting**, and stop expecting perfectly consistent AI output.
+
+---
+
+### Cat Vy — Multi-Agent Credit Scoring for Startups
+
+The most impressive case study of the day. Cat Vy presented a real problem: startups getting rejected by banks because they lack the financial reports or collateral that traditional systems require.
+
+The solution was building a **Virtual Credit Committee** with 6 specialized agents: Manager, Financial Analyst, Market Analyst, Team Evaluator, Risk Assessor, and Compliance — each handling a distinct angle, then combining into a final decision.
+
+The results were concrete:
+- Approval time: from 2–3 weeks → 2–4 hours
+- Cost per decision: from ~100M VND → under 5M VND
+- Approval rate increased to 35–45%
+
+Deployment stack: Docker → Amazon ECR → Bedrock AgentCore Runtime → AWS Lambda → API Gateway.
+
+---
+
+## What I'm Taking Back
+
+Event 2 was significantly more technical than Event 1. Every session had something immediately applicable:
+
+- **Context engineering**: from now on, prompts will be structured around Goal + Relevant info + Constraints + Success criteria
+- **CloudFront**: adding to the hands-on practice list, especially WAF + OAC
+- **Multi-Agent**: instead of one long prompt doing everything, think about splitting into smaller agents with clear responsibilities
+- **LLM nondeterminism**: stop expecting 100% consistent AI output — design systems that can handle variance
 
 #### Event Photos
-<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start">
-  <img src="/images/4-EventParticipated/4.2-Event2/0af18e585985d8db819420.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/1c14f9bc2e61af3ff67019.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/1f91f03f27e2a6bcfff326.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/235701fad62757790e3627.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/3dfd2c55fb887ad6239912.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/53ed98464f9bcec5978a14.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/5b603dceea136b4d320223.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/64fbaf53788ef9d0a09f21.jpg" style="width:220px;height:auto" />
 
+<div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start">
+  
+  <img src="/images/4-EventParticipated/4.2-Event2/z7866450114341_f4f7bf1c450c1fbfc72d663d28be7689.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z7866450150269_87bf550e28462644de70351a8524597e.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727405347_74ddedcf5bd410288321f619818306df.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727420692_398410f9e2c81cb6375187bde10a7a43.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8013051068612_255e1ebc81570508ceeada2dfe8697ab.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8013051079376_a0aad7626d002edfd3fd04d548015aa1.jpg" style="width:220px;height:auto" />
 </div>

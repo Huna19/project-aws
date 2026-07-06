@@ -6,94 +6,113 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Ghi chép học hỏi "AWS Community Day (23/05/2026)"
+# Bài thu hoạch — AWS Community Day (23/05/2026)
 
-### Trọng tâm của sự kiện
+AWS Community Day diễn ra ngày 23/05/2026 với 6 chủ đề kỹ thuật chuyên sâu, trải dài từ AI/ML, Multi-Agent, CloudFront cho đến câu chuyện thực chiến từ hackathon.
 
-- Chuyển tải các bản cập nhật kỹ thuật sâu về các đổi mới AWS — đặc biệt là tiến bộ AI/ML, mô hình kiến trúc Multi-Agent và tối ưu chi phí hạ tầng.
-- Tạo cơ hội networking để học hỏi trực tiếp từ các kỹ sư tại các doanh nghiệp lớn.
-- Phân tích triển khai thực tế: hệ thống đánh giá rủi ro tín dụng, kiến trúc Second Brain và mô hình triển khai CloudFront.
+---
 
-### Bộ mặt diễn giả
+## Diễn giả & Chủ đề
 
-- **Anh Tịnh**: Build second brain
-- **Hải Anh**: Friendly AI Assistant with Amazon Q
-- **Thịnh**: From Edge To Origin: CloudFront as Your Foundation
-- **Team VIB**: 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality
-- **Đào Đức**: Deep dive talk: How LLM actually works
-- **Cát Vy**: Enterprise-Grade Multi-Agent System: The Case of Startup Credit Scoring
+| Diễn giả | Chủ đề |
+|---|---|
+| Anh Tịnh | Build a Second Brain |
+| Hải Anh | Friendly AI Assistant with Amazon Q |
+| Thịnh | From Edge To Origin: CloudFront as Your Foundation |
+| Team VIB | 36 hrs with LotusHacks – Building UTMorpho from Idea to Reality |
+| Đào Đức | Deep Dive: How LLM Actually Works |
+| Cát Vy | Enterprise-Grade Multi-Agent System: Startup Credit Scoring |
 
-### Các phiên chuyên sâu kỹ thuật
+---
 
-Sáu phiên với mật độ kỹ thuật cao lấp đầy lịch trình:
+## Nội dung từng phần
 
-#### 1) Kiến trúc Ngữ cảnh & Thiết kế Second Brain (Anh Tịnh)
+### Anh Tịnh — Xây dựng Second Brain với AI
 
-- **Tại sao AI hoạt động dưới mức**: Các câu trả lời kém thường bắt nguồn từ đầu vào thiếu ngữ cảnh phù hợp, không phải do model yếu.
-- **Sai lầm "Ném hết vào chậu"**: Đổ toàn bộ tài liệu vào cửa sổ chat không chỉ làm giảm độ chính xác — mà còn lãng phí token.
-- **Thiết kế Framework Ngữ cảnh**: Để coi AI như "bộ não thứ hai", cấu trúc đầu vào như việc giao việc cho người: Goal + Relevant info + Constraints + Success criteria.
-- **Pipeline bộ nhớ**: Một hệ thống hoàn chỉnh chạy qua: Store → Retrieve → Generate → Learn.
+Anh Tịnh mở đầu bằng một thực tế mà ai cũng từng gặp: hỏi AI một câu, nhận về câu trả lời chung chung không dùng được. Lý do thường không phải AI kém — mà là đầu vào thiếu ngữ cảnh.
 
-#### 2) Trợ lý ảo Doanh nghiệp & Agentic AI (Hải Anh)
+Bài nói giới thiệu cách thiết kế input cho AI như đang giao việc cho người, gồm 4 thành phần:
+- **Goal** — mục tiêu cụ thể muốn đạt được
+- **Relevant info** — thông tin thực sự liên quan, không phải tất cả mọi thứ
+- **Constraints** — giới hạn, yêu cầu kỹ thuật hoặc ràng buộc
+- **Success criteria** — tiêu chí để biết output có đúng không
 
-- **Vấn đề dữ liệu doanh nghiệp**: Các đội nhóm liên tục thực hiện các tác vụ thủ công tốn thời gian trong khi săn lùng thông tin phân mảnh.
-- **Khả năng của Amazon Quick Suite**: Agentic AI hợp nhất trải nghiệm người dùng, tăng tốc chu trình từ Insight đến Action.
-- **Bề mặt tích hợp**: Kết nối trực tiếp đến hơn 40 data connector, database nội bộ, tìm kiếm web và hàng nghìn action từ bên thứ ba.
-- **Thực thi Responsible AI**: An toàn dữ liệu thông qua Governance, Access controls và Guardrails đáp ứng yêu cầu pháp lý.
+Ngoài ra còn đề cập đến kiến trúc bộ nhớ cho AI: **Store → Retrieve → Generate → Learn** — cách một hệ thống AI hoàn chỉnh nên vận hành thay vì chỉ là chatbot một chiều.
 
-#### 3) Tối ưu mạng biên thông qua Amazon CloudFront (Thịnh)
+---
 
-- **Kịch bản "Bill Shock"**: Giá Pay-as-you-go tạo rủi ro tài chính trong những đợt tăng lưu lượng hoặc tấn công — hóa đơn có thể chạm $100,000 ngoài dự tính.
-- **Giải pháp gói giá cố định**: AWS đóng gói CDN, WAF, Anti-DDoS, Route 53 và S3 thành một gói giá cố định để dự đoán tài chính dễ dàng.
-- **Hiệu năng nén tại biên**: Nén HTTP tự động giảm kích thước download 82% và độ trễ 81%. HTTP/3 (QUIC/UDP) cho phép multiplexing song song các tài sản tĩnh.
-- **Chiến lược ẩn nguồn gốc**: Origin Access Control (OAC) hoặc Custom Headers hoàn toàn ẩn máy chủ gốc khỏi việc phơi bày trên internet công khai.
+### Hải Anh — Trợ lý AI Doanh nghiệp với Amazon Q
 
-#### 4) Xây dựng trong 36 giờ tại LotusHacks (Team VIB)
+Hải Anh trình bày về việc doanh nghiệp đang gặp vấn đề gì khi vận hành: nhân viên lặp đi lặp lại các tác vụ thủ công, thông tin nằm rải rác khắp nơi, mất quá nhiều thời gian để từ dữ liệu đi đến quyết định.
 
-- **Phát triển mẫu nhanh**: UTMorpho được thiết kế và triển khai trong 36 giờ sử dụng Claude Sonnet 4 trên US-East-1.
-- **Rào cản kỹ thuật chính**: Đội gặp phải vấn đề "AI Overgeneration" và liên tục chạm ngưỡng Token Limits dưới áp lực deadline.
-- **Bài học trọng yếu**: "Real Frustration Creates Real Ideas". Trong hackathon, Team Sync và sức bền vượt trội hơn số lượng ý tưởng.
+**Amazon Q** và bộ Agentic AI được giới thiệu như giải pháp rút ngắn vòng lặp đó: kết nối trực tiếp với hơn 40 nguồn dữ liệu, tìm kiếm nội bộ, và thực hiện action thay vì chỉ trả lời câu hỏi. Điểm đáng chú ý là phần **Guardrails** — cơ chế kiểm soát để AI không làm những việc không được phép, đảm bảo tuân thủ quy định của doanh nghiệp.
 
-#### 5) Tính bất định của LLM ở quy mô lớn (Đào Đức)
+---
 
-- **Ảo tưởng Temperature = 0**: Đặt T=0 lý thuyết nên tạo output giống hệt nhau. Thực tế, độ chính xác dao động 15%, và khoảng cách giữa lần chạy tốt/tệ nhất đạt 70% với prompt giống hệt.
-- **Nguyên nhân kỹ thuật gốc rễ**: Các phép toán floating-point GPU song song thiếu tính kết hợp: (a+b)+c != a+(b+c). Thêm vào đó, Inference batching làm thay đổi tính toán cho từng request riêng lẻ.
-- **Phương pháp giảm thiểu**: Xây hệ thống chịu lỗi, triển khai Majority voting và xem xét Temperature=0.1 để tránh vòng lặp từ vựng vô hạn.
+### Thịnh — CloudFront từ Biên đến Nguồn
 
-#### 6) Kiến trúc Multi-Agent cấp doanh nghiệp (Cát Vy)
+Phần này giải quyết một vấn đề rất thực tế mà startup hay gặp: **Bill Shock** — hóa đơn AWS bất ngờ tăng vọt do traffic đột biến hoặc bị tấn công DDoS.
 
-- **Giới hạn ngân hàng truyền thống & Single Agent**: Startup bị từ chối do thiếu báo cáo tài chính/tài sản thế chấp. Một AI Agent duy nhất gây ra giới hạn Context, pha loãng chuyên môn, thiếu Checks & Balances và tạo ra Single Point of Failure.
-- **Thiết kế Ủy ban Tín dụng ảo**: Một tập hợp agent chuyên môn: Manager, Financial Analyst, Market Analyst, Team Evaluator, Risk Assessor và Compliance.
-- **Tác động vận hành (ROI)**: Thời gian phê duyệt giảm từ 2-3 tuần xuống 2-4 giờ. Chi phí quyết định rơi từ ~100 triệu VND xuống dưới 5 triệu VND, trong khi tỷ lệ phê duyệt tăng gấp đôi lên 35-45%.
-- **Stack triển khai**: Dockerized, đẩy lên Amazon ECR, tích hợp vào Bedrock AgentCore Runtime, kết nối qua AWS Lambda, phơi bày thông qua API Gateway.
+Thịnh giới thiệu cách CloudFront không chỉ là CDN mà còn là lớp bảo vệ đầu tiên:
+- Tích hợp **WAF** để chặn request độc hại trước khi chạm đến backend
+- **Nén tự động** giảm 82% dung lượng và 81% độ trễ
+- **HTTP/3 (QUIC)** cho phép tải song song nhiều file cùng lúc
+- **Origin Cloaking** với OAC/Custom Headers để ẩn hoàn toàn origin server
+- Gói **giá cố định** bao gồm CDN + WAF + Anti-DDoS giúp kiểm soát chi phí
 
-### Nhận thức cốt lõi
+---
 
-- Nhận ra sự chuyển dịch mô hình từ AI đơn model sang kiến trúc Multi-Agent để giải quyết các vấn đề doanh nghiệp phức tạp, phân nhánh.
-- Nhận thức sắc bén hơn về tầm quan trọng của Security & Compliance (Guardrails) khi triển khai AI lên Production.
-- Hiểu được tối ưu độ trễ thông qua CloudFront và các mô hình tích hợp Amazon Q thực tế cho quy trình hàng ngày.
-- Nắm được cơ bản về tính bất định LLM và nguyên tắc thiết kế chịu lỗi khi xây dựng hệ thống phụ thuộc AI.
+### Team VIB — 36 Giờ tại LotusHacks
 
-### Ứng dụng dự kiến
+Team VIB kể lại hành trình xây dựng **UTMorpho** trong 36 giờ tại hackathon LotusHacks, sử dụng Claude Sonnet 4 trên US-East-1.
 
-- Khảo sát tích hợp **Amazon Q** cho quy trình debug và điều hướng tài liệu AWS để tiết kiệm thời gian.
-- Kiến trúc mạng: Ưu tiên triển khai **CloudFront** ở biên kết hợp với WAF và OAC để tăng tốc tải trang, ẩn máy chủ gốc và thực thi bảo mật.
-- Các thiết kế tính năng AI trong tương lai sẽ phân rã logic thành "Agent" chuyên môn thay vì nhồi nhét mọi thứ vào một prompt duy nhất.
-- Xây dựng framework viết prompt xoay quanh 4 yếu tố: Goal, Relevant Info, Constraints, Success Criteria.
+Phần thú vị nhất là những khó khăn thực tế họ gặp: AI liên tục sinh quá nhiều nội dung không cần thiết (AI Overgeneration), token limit bị chạm đúng lúc deadline căng thẳng nhất. Bài học cuối cùng họ rút ra: **"Real Frustration Creates Real Ideas"** — chính áp lực thực tế mới đẩy ra được ý tưởng tốt, và trong hackathon, sự đồng bộ của đội quan trọng hơn số lượng ý tưởng.
 
-### Trải nghiệm phản hồi
+---
 
-Sự kiện này mang đến mật độ kỹ thuật cực kỳ cao. Trong khi Event 1 nghiêng về hướng dẫn nghề nghiệp và tối ưu prompt cơ bản, Event 2 nhảy thẳng vào kiến trúc hệ thống và cách các doanh nghiệp lớn triển khai AI an toàn và hiệu quả về chi phí. Case study chấm điểm tín dụng Multi-Agent của Cát Vy nổi bật vì vẽ rõ bức tranh AI cấp doanh nghiệp với những con số ROI thuyết phục. Vấn đề "Bill Shock" và giải pháp CloudFront cũng cung cấp một bài học vô cùng thực tế cho các dự án sắp tới.
+### Đào Đức — LLM Thực Sự Hoạt Động Thế Nào
+
+Đây là phần kỹ thuật nhất của ngày. Đào Đức đập tan một lầm tưởng phổ biến: **Temperature = 0 không có nghĩa là output luôn giống nhau**.
+
+Thực tế: độ chính xác vẫn dao động đến 15%, khoảng cách giữa lần chạy tốt nhất và tệ nhất có thể lên tới 70% dù dùng prompt giống hệt nhau. Nguyên nhân nằm ở cách GPU xử lý song song các phép toán dấu phẩy động — phép tính không có tính chất kết hợp, nên thứ tự xử lý ảnh hưởng đến kết quả.
+
+Hướng giải quyết thực tế: thiết kế hệ thống **chịu đựng được sai số**, dùng **Majority Voting**, và không nên kỳ vọng AI cho ra output nhất quán tuyệt đối.
+
+---
+
+### Cát Vy — Multi-Agent Chấm Điểm Tín Dụng Startup
+
+Đây là case study gây ấn tượng nhất. Cát Vy trình bày bài toán thực tế: startup bị ngân hàng từ chối vì không có báo cáo tài chính hay tài sản thế chấp theo chuẩn truyền thống.
+
+Giải pháp là xây một **Ủy ban Tín dụng Ảo** gồm 6 agent chuyên biệt: Manager, Financial Analyst, Market Analyst, Team Evaluator, Risk Assessor và Compliance — mỗi agent xử lý một góc nhìn riêng, sau đó tổng hợp lại thành quyết định cuối.
+
+Kết quả đo được rất thuyết phục:
+- Thời gian xét duyệt: từ 2–3 tuần → còn 2–4 giờ
+- Chi phí mỗi quyết định: từ ~100 triệu VND → dưới 5 triệu VND
+- Tỷ lệ phê duyệt tăng lên 35–45%
+
+Stack triển khai: Docker → Amazon ECR → Bedrock AgentCore Runtime → AWS Lambda → API Gateway.
+
+---
+
+## Điều mình mang về
+
+Event 2 nặng kỹ thuật hơn Event 1 rất nhiều. Mỗi phần đều có thứ để áp dụng ngay:
+
+- **Context engineering**: từ giờ viết prompt sẽ nghĩ đến Goal + Relevant info + Constraints + Success criteria
+- **CloudFront**: đưa vào danh sách kiến trúc cần học thực hành, đặc biệt phần WAF + OAC
+- **Multi-Agent**: thay vì một prompt dài để làm mọi thứ, nghĩ đến việc tách thành các agent nhỏ có trách nhiệm rõ ràng
+- **LLM nondeterminism**: ngừng kỳ vọng AI trả về kết quả ổn định 100% — thiết kế hệ thống để xử lý được điều đó
 
 #### Một số hình ảnh khi tham gia sự kiện
+
 <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start">
-  <img src="/images/4-EventParticipated/4.2-Event2/0af18e585985d8db819420.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/1c14f9bc2e61af3ff67019.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/1f91f03f27e2a6bcfff326.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/235701fad62757790e3627.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/3dfd2c55fb887ad6239912.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/53ed98464f9bcec5978a14.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/5b603dceea136b4d320223.jpg" style="width:220px;height:auto" />
-  <img src="/images/4-EventParticipated/4.2-Event2/64fbaf53788ef9d0a09f21.jpg" style="width:220px;height:auto" />
-  
+  height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z7866450114341_f4f7bf1c450c1fbfc72d663d28be7689.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z7866450150269_87bf550e28462644de70351a8524597e.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727405347_74ddedcf5bd410288321f619818306df.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727420692_398410f9e2c81cb6375187bde10a7a43.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8013051068612_255e1ebc81570508ceeada2dfe8697ab.jpg" style="width:220px;height:auto" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8013051079376_a0aad7626d002edfd3fd04d548015aa1.jpg" style="width:220px;height:auto" />
 </div>
