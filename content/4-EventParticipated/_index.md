@@ -7,7 +7,7 @@ pre: " <b> 4. </b> "
 ---
 
 ### [Event 1](4.1-Event1/)  
-&emsp;**Event Name:** AWS Event  
+&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
 
 &emsp;**Date & Time:** 09/05/2026  
 
@@ -18,7 +18,7 @@ pre: " <b> 4. </b> "
 ---
 
 ### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** AWS Community Day  
+&emsp;**Event Name:** FCAJ Community Day
 
 &emsp;**Date & Time:** 05/23/2026  
 
@@ -29,7 +29,7 @@ pre: " <b> 4. </b> "
 ---
 
 ### [Event 3](4.3-Event3/)  
-&emsp;**Event Name:** FCAJ Meetup  
+&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop
 
 &emsp;**Date & Time:** 06/13/2026  
 
