@@ -135,10 +135,9 @@ Ba điều đọng lại nhiều nhất sau buổi này:
 #### Một số hình ảnh khi tham gia sự kiện
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
-<img src="/images/4-EventParticipated/4.2-Event2/02-thank-you-qrs.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/10-ai-ready-fresher-criteria.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/08-why-brain-social-media.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/07-why-prompt-engineering-matters.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+<img src="/images/4-EventParticipated/4.2-Event2/02-thank-you-qrs.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/04-three-brain-hacks.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
   <img src="/images/4-EventParticipated/4.2-Event2/06-turn-knowledge-dopamine.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/04-three-brain-hacks.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/08-why-brain-social-media.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8013051068612_255e1ebc81570508ceeada2dfe8697ab.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
 </div>

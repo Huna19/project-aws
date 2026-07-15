@@ -188,8 +188,8 @@ Trước khi viết bất kỳ prompt nào, chuẩn bị đủ 4 yếu tố:
 #### Một số hình ảnh khi tham gia sự kiện
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
- 
-   <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+ <img src="/images/4-EventParticipated/4.2-Event2/z7866450137122_fa7ac674224cf3e8b1fe76ae81263462.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727405347_74ddedcf5bd410288321f619818306df.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/z8013051079376_a0aad7626d002edfd3fd04d548015aa1.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
 </div>
