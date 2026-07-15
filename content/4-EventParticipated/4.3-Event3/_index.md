@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-# Event Recap — FCAJ Meetup (06/13/2026)
+# Technical Report: Cloud-Native & DevOps Modernization Sharing Session (06/13/2026)
 
 The FCAJ Meetup on June 13, 2026 brought 4 practical sessions covering real engineering work, corporate culture, and AWS system architecture — mostly from people actively working in the field.
 

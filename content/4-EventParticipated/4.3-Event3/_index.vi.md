@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.3. </b> "
 ---
 
-# Bài thu hoạch — FCAJ Meetup (13/06/2026)
+# Báo cáo kỹ thuật: Buổi chia sẻ về Hiện đại hóa Kiến trúc Cloud-Native & DevOps (13/06/2026)
 
 FCAJ Meetup ngày 13/06/2026 mang đến 4 bài nói thực chiến về nghề kỹ sư, văn hóa doanh nghiệp và kiến trúc hệ thống trên AWS — phần lớn từ những người đang làm việc thực tế trong ngành.
 

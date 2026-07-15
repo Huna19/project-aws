@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Event Recap — AWS Community Day (05/23/2026)
+# Report: GenAI-powered App-DB Modernization Workshop & AWS Community Day (05/23/2026)
 
 AWS Community Day on May 23, 2026 featured 6 deep technical sessions covering AI/LLM in production, AWS infrastructure optimization, and raw lessons from a hackathon under pressure.
 
@@ -188,14 +188,7 @@ The contrast between two sessions was striking: Cat Vy's carefully calculated Mu
 #### Event Photos
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
- 
-  <img src="/images/4-EventParticipated/4.2-Event2/64fbaf53788ef9d0a09f21.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/02-thank-you-qrs.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/10-ai-ready-fresher-criteria.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/08-why-brain-social-media.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/07-why-prompt-engineering-matters.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/06-turn-knowledge-dopamine.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/04-three-brain-hacks.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/z8013051068612_255e1ebc81570508ceeada2dfe8697ab.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.2-Event2/z8013051079376_a0aad7626d002edfd3fd04d548015aa1.jpg" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
 </div>

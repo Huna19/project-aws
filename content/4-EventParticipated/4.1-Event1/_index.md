@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Event Recap — AWS Event (09/05/2026)
+# Report: AWS Cloud & DevOps Meetup & Workshop (09/05/2026)
 
 This event took place on May 9, 2026, bringing together 4 speakers across topics on learning habits, AI, and career direction for newcomers to the field.
 
@@ -87,7 +87,10 @@ This wasn't the kind of event that puts on a show — the content was grounded a
 #### Some event photos
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-</div>
+<img src="/images/4-EventParticipated/4.2-Event2/02-thank-you-qrs.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/10-ai-ready-fresher-criteria.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/08-why-brain-social-media.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/07-why-prompt-engineering-matters.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/06-turn-knowledge-dopamine.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/04-three-brain-hacks.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  

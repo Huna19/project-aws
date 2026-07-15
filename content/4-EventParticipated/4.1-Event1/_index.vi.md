@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Bài thu hoạch — AWS Event (09/05/2026)
+# Báo cáo thu hoạch: AWS Cloud & DevOps Meetup & Workshop (09/05/2026)
 
 Buổi event diễn ra vào ngày 09/05/2026 tại văn phòng AWS, quy tụ 4 diễn giả với các chủ đề xoay quanh học tập, AI và định hướng nghề nghiệp cho người mới. Đây là buổi chia sẻ nội bộ dành cho các bạn đang tham gia chương trình First Cloud AI Journey, với không khí khá thoải mái và gần gũi.
 
@@ -135,7 +135,10 @@ Ba điều đọng lại nhiều nhất sau buổi này:
 #### Một số hình ảnh khi tham gia sự kiện
 
 <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start">
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727405347_74ddedcf5bd410288321f619818306df.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727414598_5b95973bda3c8d9c72fdbc89eb5bd78d.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
-  <img src="/images/4-EventParticipated/4.1-Event1/z8012727420692_398410f9e2c81cb6375187bde10a7a43.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+<img src="/images/4-EventParticipated/4.2-Event2/02-thank-you-qrs.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/10-ai-ready-fresher-criteria.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/08-why-brain-social-media.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/07-why-prompt-engineering-matters.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/06-turn-knowledge-dopamine.png" style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
+  <img src="/images/4-EventParticipated/4.2-Event2/04-three-brain-hacks.png " style="width:calc(33% - 10px);min-width:200px;height:200px;object-fit:cover;border-radius:6px" />
 </div>

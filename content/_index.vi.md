@@ -19,7 +19,7 @@ chapter: false
 
 &emsp; **Lớp:** 22DTHG8
 
-&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Vietnam (AWS Vietnam)
+&emsp; **Công ty thực tập:** Công ty TNHH Amazon Web Services Việt Nam (AWS Vietnam)
 
 &emsp; **Vị trí thực tập:** Workforce Bootcamp - First Cloud AI Journey
 
