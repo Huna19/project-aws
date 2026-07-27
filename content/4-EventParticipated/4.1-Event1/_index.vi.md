@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Báo cáo thu hoạch: AWS Cloud & DevOps Meetup & Workshop (09/05/2026)
+# Báo cáo thu hoạch: Buổi gặp gỡ và Hội thảo chuyên đề AWS Cloud & DevOps (09/05/2026)
 
 Buổi event diễn ra vào ngày 09/05/2026 tại văn phòng AWS, quy tụ 4 diễn giả với các chủ đề xoay quanh học tập, AI và định hướng nghề nghiệp cho người mới. Đây là buổi chia sẻ nội bộ dành cho các bạn đang tham gia chương trình First Cloud AI Journey, với không khí khá thoải mái và gần gũi.
 

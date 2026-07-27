@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-# Báo cáo thu hoạch: Workshop GenAI-powered App-DB Modernization & AWS Community Day (23/05/2026)
+# Báo cáo thu hoạch: Hội thảo Hiện đại hóa Ứng dụng & Cơ sở dữ liệu với GenAI & AWS Community Day (23/05/2026)
 
 AWS Community Day diễn ra ngày 23/05/2026 với 6 chuyên đề kỹ thuật chuyên sâu, xoay quanh việc ứng dụng AI/LLM trong thực tế, tối ưu hóa hạ tầng AWS và những bài học xương máu từ hackathon.
 

@@ -7,7 +7,7 @@ pre: " <b> 4. </b> "
 ---
 
 ### [Event 1](4.1-Event1/)
-&emsp;**Tên sự kiện:** GenAI-powered App-DB Modernization workshop
+&emsp;**Tên sự kiện:** Buổi gặp gỡ và Hội thảo chuyên đề AWS Cloud & DevOps
 
 &emsp;**Thời gian:** 09/05/2026
 
@@ -18,7 +18,7 @@ pre: " <b> 4. </b> "
 ---
 
 ### [Event 2](4.2-Event2/)
-&emsp;**Tên sự kiện:** Ngày hội cộng đồng FCAJ
+&emsp;**Tên sự kiện:** Hội thảo Hiện đại hóa Ứng dụng & Cơ sở dữ liệu ứng dụng GenAI & AWS Community Day
 
 &emsp;**Thời gian:** 23/05/2026
 
@@ -29,7 +29,7 @@ pre: " <b> 4. </b> "
 ---
 
 ### [Event 3](4.3-Event3/)
-&emsp;**Tên sự kiện:** Hội thảo hiện đại hóa App-DB dựa trên công nghệ GenAI
+&emsp;**Tên sự kiện:** Buổi chia sẻ về Hiện đại hóa Kiến trúc Cloud-Native & DevOps
 
 &emsp;**Thời gian:** 13/06/2026
 
